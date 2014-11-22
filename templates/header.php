@@ -5,7 +5,7 @@
     <title>Polls Proj LTW</title>
     <meta charset="UTF-8">
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="add_element.js"></script>
+    <script type="text/javascript" src="js/add_elements.js"></script>
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
@@ -17,6 +17,7 @@
       <ul>
         <li><a href="new_poll.php">New Poll</a></li>
         <li><a href="polls_all.php">View All Polls</a></li>
+        <li><a href="poll_stats.php">Poll stats</a></li>
         <li><a href="">Register</a></li>
         <li><a href="">Login</a></li>
         <li><a href="">My Account</a></li>

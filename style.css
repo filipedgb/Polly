@@ -1,22 +1,27 @@
 html{
 	/*background-color: #000000;*/
-	background-color: #338822;
+	margin: 0px;
+   height: 100%;
+	/*background-color: #338822;*/
 }
 
 body{
-	margin-top: 0px;
-	margin-bottom: 0px;
-	margin-left: auto;
-    margin-right: auto;
 
-	/*background-color: black;*/
-	/*background-color: #ffffff;*/
+
+
+
+
+	height:100%;
+	margin: 0;
+	background: url(imgs/horizon.jpg) no-repeat center center fixed;
+	background-size: 100% auto;
+
 }
 
 #header{
 	width: 100%;
 	margin: 0px;
-	background-color: #338822;
+	/*background-color: #338822;*/
 	/*height: 170px;*/
 	margin-bottom: 0px;
 	
@@ -63,25 +68,6 @@ a{
 	text-decoration: none;
 }
 
-.news-item{
-	margin: 0px 10px 5px;
-	border-bottom-width: 1px;
-	border-bottom-style: solid;
-}
-.news-item li{
-	background-color: grey;
-	color: white;
-	list-style-type:none;
-	display: inline;
-	padding-top: 5px;
-	padding-bottom: 5px;
-	padding-right: 10px;
-	padding-left: 10px;
-	margin: 0px;
-	font-weight: normal;
-	font-family: 'Times New Roman';
-}
-
 
 
 #menu a{
@@ -112,7 +98,8 @@ a{
 
 #menu {
 	color: white;
-	background-color: #335500;
+	/*background-color: #335500;*/
+	background: rgba(200, 200, 200, .5);
 	margin-bottom: 0px;
 	margin-top: 0px;
 	padding-bottom: 10px;
@@ -130,7 +117,7 @@ a{
 	/*position: fixed;*/
 }
 
-
+/*
 #new_poll{
 	width: 70%;
 	height:70vh;
@@ -150,4 +137,97 @@ a{
 	background-color: white;
 	border-radius: 10px;
 	overflow:auto;
+}
+*/
+.basePanel{
+	width: 70%;
+	height:70vh;
+	margin: auto;
+	margin-top: 5px;
+	padding: 25px;
+	background-color: white;
+	border-radius: 10px;
+	overflow:auto;
+}
+
+
+.poll_item{
+
+	width: 70%;
+	background-color: rgba(255,255,255,0.7);
+	margin-bottom: 30px;
+	margin-top: 30px;
+	margin-left: auto;
+	margin-right: auto;
+
+	padding-top: 30px;
+	padding-bottom: 30px;
+	
+	border-radius: 25px 0px 25px 0px;
+
+	
+
+}
+
+
+
+.poll_item h3,p,form{
+	width: 70%;
+	margin: auto;
+}
+
+
+.poll_item_stat{
+
+	width: 70%;
+	background-color: rgba(255,255,255,0.7);
+	margin-bottom: 30px;
+	margin-top: 30px;
+	margin-left: auto;
+	margin-right: auto;
+
+	padding-top: 30px;
+	padding-bottom: 30px;
+	
+	border-radius: 25px 0px 25px 0px;
+
+	/*text-align: center;	*/
+
+}
+
+.poll_item_stat h3{
+	width: 70%;
+	margin: auto;
+}
+
+
+.poll_item_stat canvas{
+	/*float:left;*/
+	/*width: 35%;*/
+	/*display: inline;*/
+	/*padding-left: 150px;*/
+	height: 20px;	
+	text-align: left;
+}
+
+.poll_item_stat p{
+	/*width: 200px;*/
+	/*float: left;*/
+	width: 25%;
+	min-width: 25%;
+	height: 20px;
+	display: inline-block;
+	text-align: right;	
+	margin: 0;
+}
+
+.poll_item_stat h2{
+	color:black;
+	font-family: Verdana;
+	font-size: 1.4rem;
+	width: 70%;
+	margin: auto;
+	text-align: left;
+	padding: 0;
+	
 }
