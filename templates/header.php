@@ -19,7 +19,7 @@
         <li><a href="polls_all.php">View All Polls</a></li>
         <li><a href="poll_stats.php">Poll stats</a></li>
         <li><a href="">Register</a></li>
-        <li><a href="">Login</a></li>
+        <li><a href="teste.php">Login</a></li>
         <li><a href="">My Account</a></li>
       </ul>
     </div>
