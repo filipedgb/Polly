@@ -7,14 +7,17 @@ function addOptionRequest(){
 }
 
 
-
+/*
 $(function(){
     $("#addOption").click(addOptionRequest);
 });
 
+*/
+
 function loadDocument() {
 
-	
+	 //   $("#addOption").click(addOptionRequest);
+
 	//var codeHTML = document.innerHTML;
 //	var code = document.getElementById("products");
 	//var line1 = firstTagChild(code);

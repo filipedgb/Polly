@@ -1,10 +1,14 @@
+  <?php
+        session_set_cookie_params('/~ei12068/');
+        session_start();
+?>
 <!DOCTYPE html>
 <html>
 
 <head>
     <title>Polls Proj LTW</title>
     <meta charset="UTF-8">
-    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="js/add_elements.js"></script>
     <link rel="stylesheet" href="style.css">
   </head>
@@ -25,8 +29,6 @@
 
 
       <?php
-        ob_start();
-        session_start();
         if(isset($_SESSION['username'])){
           echo "Username:".$_SESSION['username'];
 
@@ -37,5 +39,3 @@
 
 
     </div>
-
-
