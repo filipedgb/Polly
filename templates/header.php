@@ -18,8 +18,24 @@
         <li><a href="new_poll.php">New Poll</a></li>
         <li><a href="polls_all.php">View All Polls</a></li>
         <li><a href="poll_stats.php">Poll stats</a></li>
-        <li><a href="">Register</a></li>
+        <li><a href="register.php">Register</a></li>
         <li><a href="teste.php">Login</a></li>
         <li><a href="">My Account</a></li>
       </ul>
+
+
+      <?php
+        ob_start();
+        session_start();
+        if(isset($_SESSION['username'])){
+          echo "Username:".$_SESSION['username'];
+
+        }
+        //print_r($_SESSION);
+
+      ?>
+
+
     </div>
+
+

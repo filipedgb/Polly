@@ -28,7 +28,7 @@ echo '<div id="login">
          <form action="" method="post">
           <p>Username: <input type="text" name="u"/></p>
           <p>Password: <input type="password" name="p"/></p>
-          <p><input type="submit"/></p>
+          <p><input type="submit"  VALUE = "Login"/></p>
           </form></div>';
   
 ?>
