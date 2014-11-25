@@ -1,5 +1,5 @@
 <?php
-include("config.php");
+include("database/connection.php");
 include("PasswordHash.php");
 // session_start();
 if($_SERVER["REQUEST_METHOD"] == "POST")
@@ -7,7 +7,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
   $username = $_POST['u'];
   $pword = $_POST['p'];
 
-  $stmt = $dbu->prepare('SELECT * FROM Utilizador WHERE username = :user');
+  $stmt = $db->prepare('SELECT * FROM Utilizador WHERE username = :user');
   $stmt->bindParam(':user',$username, PDO::PARAM_STR);
  // $stmt->bindParam(':pword',$pword, PDO::PARAM_STR);
   $stmt->execute();
@@ -19,7 +19,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 	// store session data
 	$_SESSION['username']=$username;
 	//$_SESSION['Permission']=$result[1];
-	header("location: teste.php");
+	header("location: checklogin.php");
   }
   else echo "Wrong Username or Password";
   }

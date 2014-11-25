@@ -1,5 +1,7 @@
+
+<? include('templates/header.php'); ?>
 <?php
-include('config.php');
+include('database/connection.php');
 
 if(isset($_SESSION['username']))
 	{
@@ -14,3 +16,4 @@ if(isset($_SESSION['username']))
 	}
 
 ?>
+<?	include('templates/footer.php'); ?>

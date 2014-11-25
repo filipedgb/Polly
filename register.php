@@ -2,7 +2,7 @@
 <?php
 
  include('templates/header.php'); 
- include("config.php");
+ include("database/connection.php");
  include("PasswordHash.php");
 
 
@@ -19,7 +19,7 @@
 	  echo ($utilizadore);
 
 
-	  $stmt = $dbu->prepare('SELECT count(IdUser) FROM Utilizador WHERE username = :user');
+	  $stmt = $db->prepare('SELECT count(IdUser) FROM Utilizador WHERE username = :user');
 	  $stmt->bindParam(':user',$utilizadore, PDO::PARAM_STR);
 //	  $stmt->bindParam(':pword',$pword, PDO::PARAM_STR);
 	  $stmt->execute();
@@ -33,7 +33,7 @@
 	    else 
 	    {
 	    	$options = ['cost' => 12];
-	        $stmt = $dbu->prepare('INSERT INTO Utilizador(IdUser,Username,Pword) VALUES (?,?,?)');
+	        $stmt = $db->prepare('INSERT INTO Utilizador(IdUser,Username,Pword) VALUES (?,?,?)');
   			
 			//A linha seguinte não é suportada pelo gnomo 
 			//$stmt->execute(array(NULL,$utilizadore, password_hash($passuorde, PASSWORD_DEFAULT, $options) ) );

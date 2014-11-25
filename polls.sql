@@ -1,3 +1,20 @@
+.mode columns
+.headers ON
+
+DROP Table Utilizador;
+
+DROP Table poll;
+DROP Table pollOption;
+DROP Table pollAnswer;
+
+CREATE TABLE Utilizador (
+IdUser Integer PRIMARY KEY,
+Username VARCHAR Unique,
+Pword VARCHAR NOT NULL
+);
+
+
+
 CREATE TABLE poll (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	title VARCHAR UNIQUE,
