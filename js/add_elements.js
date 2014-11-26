@@ -7,12 +7,12 @@ function addOptionRequest(){
 }
 
 
-/*
+
 $(function(){
     $("#addOption").click(addOptionRequest);
 });
 
-*/
+
 
 function loadDocument() {
 

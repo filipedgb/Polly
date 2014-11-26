@@ -8,6 +8,14 @@
 		$result = $stmt->fetchAll();
 		return $result;
 	}
+
+	function getPollByUser($user){
+		global $db;
+		$stmt = $db->prepare('SELECT * FROM poll WHERE userId = ?');
+		$stmt->execute(array($user));
+		$item = $stmt->fetchAll();	
+		return $item;
+	}
 	
 	function getPoll($id){
 		global $db;
@@ -46,6 +54,19 @@
 		$stmt->execute(array($poll_id, $title));
 		$result = $stmt->fetch();	
 		return $result;
+	}
+
+	function getUserIDbyUsername($user) {
+		global $db;
+
+
+		$stmt = $db->prepare('SELECT * FROM Utilizador WHERE Username = ?');
+		$stmt->execute(array($user));
+		$result = $stmt->fetch();
+
+		return $result['IdUser'];
+
+
 	}
 
 ?>

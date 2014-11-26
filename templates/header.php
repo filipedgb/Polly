@@ -23,6 +23,7 @@
         <?php if(isset($_SESSION['username'])){?>
           <li><a href="new_poll.php">New Poll</a></li>
           <li><a href="polls_all.php">View All Polls</a></li>
+          <li><a href="my_polls.php">View my Polls</a></li>
           <li><a href="poll_stats.php">Poll stats</a></li>
         <?}?>
 

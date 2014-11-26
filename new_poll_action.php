@@ -1,4 +1,5 @@
 <? include('templates/header.php'); ?>
+<? include('database/polls_fetch.php') ?>
 
 <?
 	include_once ('database/connection.php');
@@ -9,10 +10,11 @@
 		global $db;
 		$title = htmlspecialchars($_POST['title']);
 		$description = htmlspecialchars($_POST['description']);
+		$userId = getUserIDbyUsername($_SESSION['username']);
 		if($title !=''&& $description !='')
 		{
-			$db->exec("INSERT INTO poll VALUES(NULL,'$title', '$description')");	
-			//header("Location:new_poll.php");
+			$stmt = $db->prepare('INSERT INTO poll(id,title,description,userId) VALUES (?,?,?,?)');
+			$stmt->execute(array(NULL,$title,$description,$userId));
 		}
 	}
 ?>
