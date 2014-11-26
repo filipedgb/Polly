@@ -2,12 +2,13 @@
 	include('database/polls_fetch.php');
 	$all_polls = getAllPolls();
 	include('templates/header.php'); 
+	include('user.php');
 ?>
 
+<? include("pollgoogle.php"); ?>
 
-<? include("pollgoogle.html"); ?>
 <? foreach($all_polls as $item){ ?>
-	ola
+	<?abc($item['title'],$item);?>
 <?}?>
 
 
