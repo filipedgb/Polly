@@ -22,9 +22,9 @@
       <ul>
         <?php if(isset($_SESSION['username'])){?>
           <li><a href="new_poll.php">New Poll</a></li>
-          <li><a href="polls_all.php">View All Polls</a></li>
-          <li><a href="my_polls.php">View my Polls</a></li>
-          <li><a href="poll_stats.php">Poll stats</a></li>
+          <li><a href="polls_all.php">Answer Polls</a></li>
+          <li><a href="my_poll_stats.php">My Polls results</a></li>
+          <li><a href="poll_stats.php">Answered Polls results</a></li>
         <?}?>
 
 
