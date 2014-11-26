@@ -3,7 +3,9 @@
   $all_polls = getAllPolls();
 ?>
 
-<? include('templates/header.php'); ?>
+<? include('templates/header.php'); 
+	include('user.php');
+?>
 
 
 

@@ -1,6 +1,7 @@
   <?php
         session_set_cookie_params('/~ei12068/');
         session_start();
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -19,12 +20,19 @@
     </div>
     <div id="menu">
       <ul>
-        <li><a href="new_poll.php">New Poll</a></li>
-        <li><a href="polls_all.php">View All Polls</a></li>
-        <li><a href="poll_stats.php">Poll stats</a></li>
-        <li><a href="register.php">Register</a></li>
-        <li><a href="checklogin.php">Login</a></li>
-        <li><a href="">My Account</a></li>
+        <?php if(isset($_SESSION['username'])){?>
+          <li><a href="new_poll.php">New Poll</a></li>
+          <li><a href="polls_all.php">View All Polls</a></li>
+          <li><a href="poll_stats.php">Poll stats</a></li>
+        <?}?>
+
+
+        <?php if(isset($_SESSION['username'])){?>
+        <li><a href="checklogin.php">My Account</a></li>
+        <?} else{?>
+         <li><a href="register.php">Register</a></li>
+          <li><a href="checklogin.php">Login</a></li>
+          <?}?>
       </ul>
 
 
@@ -35,6 +43,7 @@
         }
         //print_r($_SESSION);
 
+        
       ?>
 
 
