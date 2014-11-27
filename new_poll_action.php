@@ -18,6 +18,12 @@
 			if($option=='')
 			{
 				//por um pop up
+				if (isset($_POST['submit'])){
+				echo '
+				<script type="text/javascript">
+				location.reload();
+				</script>';
+				}
 				header("Location: new_poll.php");
 				return;
 			}
@@ -33,6 +39,12 @@
 		else
 		{
 			//por um pop up
+			if (isset($_POST['submit'])){
+				echo '
+				<script type="text/javascript">
+				location.reload();
+				</script>';
+				}
 			header("Location: new_poll.php");
 			return;
 		}
@@ -42,6 +54,7 @@
 		
 	//	adds the options to the poll
 		foreach($options as $option){
+			//console.log( 'heelo 1');
 			$optionT = htmlspecialchars($option);
 			$db->exec("INSERT INTO pollOption VALUES(NULL,'$poll_id', '$optionT', 0)");	
 		}
