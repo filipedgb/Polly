@@ -8,30 +8,28 @@
 
 
 	// session_start();
-	if($_SERVER["REQUEST_METHOD"] == "POST")
-	{
-	  $utilizadore = $_POST['u'];
-	  $passuorde = $_POST['password'];
+if($_SERVER["REQUEST_METHOD"] == "POST")
+{
+	$utilizadore = $_POST['u'];
+	$passuorde = $_POST['password'];
+	$passuorde2 = $_POST['password2'];
 
 
-	 // $coiso = md5("LOL"); echo coiso;
+	if($passuorde != $passuorde2) {
+  		echo "Your passwords do not match. Please try again";
+	} 
 
-	  echo ($utilizadore);
+	else {
+		$stmt = $db->prepare('SELECT count(IdUser) FROM Utilizador WHERE username = :user');
+		$stmt->bindParam(':user',$utilizadore, PDO::PARAM_STR);
+		$stmt->execute();
+		$result = $stmt->fetch();
 
-
-	  $stmt = $db->prepare('SELECT count(IdUser) FROM Utilizador WHERE username = :user');
-	  $stmt->bindParam(':user',$utilizadore, PDO::PARAM_STR);
-//	  $stmt->bindParam(':pword',$pword, PDO::PARAM_STR);
-	  $stmt->execute();
-	  $result = $stmt->fetch();
-
-	if($result[0] == 1)
-	{
-	// store session data
-		echo "Username already taken." ; 
-	}
-	    else 
-	    {
+		if($result[0] == 1) {
+			// store session data
+			echo "Username already taken." ; 
+		}
+		else{ 
 	    	$options = ['cost' => 12];
 	        $stmt = $db->prepare('INSERT INTO Utilizador(IdUser,Username,Pword) VALUES (?,?,?)');
   			
@@ -39,9 +37,10 @@
 			//$stmt->execute(array(NULL,$utilizadore, password_hash($passuorde, PASSWORD_DEFAULT, $options) ) );
 			
 			$stmt->execute(array(NULL,$utilizadore, create_hash($passuorde) ));
-			
-	    }
+		}
+
 	}
+}
 
 ?>
 
@@ -57,10 +56,10 @@
  	<input type="password" name="password"> 
  </li>
  <li> Password confirmation <br>
- 	<input type="password" name="password"> 
+ 	<input type="password" name="password2"> 
  </li>
  <li> Email <br>
- 	<input type="text" name="password"> 
+ 	<input type="text" name="email"> 
  </li>
  <li>
 	<input type="submit" value="Register">
