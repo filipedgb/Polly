@@ -21,6 +21,6 @@
 	//echo "<script>alert(".$poll_id.")</script>";
 	addAnswer($poll_id, $poll_option, $user); //este 0 tem de sair, irá corresponder ao user_id
 	//echo 'fim';
-	header("Location:polls_all.php");
+	header("Location:polls_answer.php");
 
 ?>
