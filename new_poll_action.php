@@ -24,10 +24,11 @@
 		}
 
 		//adds the poll
-		if($title !=''&& $description !='')
+		if($title !='' && $description !='')
 		{
-			$stmt = $db->prepare('INSERT INTO poll(id,title,description,userId) VALUES (?,?,?,?)');
-			$stmt->execute(array(NULL,$title,$description,$userId));
+
+			$stmt = $db->prepare('INSERT INTO poll(id,title,description,userId,visibility) VALUES (?,?,?,?,?)');
+			$stmt->execute(array(NULL,$title,$description,$userId,"Public"));
 		}
 		else
 		{
@@ -45,7 +46,7 @@
 			$db->exec("INSERT INTO pollOption VALUES(NULL,'$poll_id', '$optionT', 0)");	
 		}
 		echo 'fim';
-		header("Location:polls_all.php");
+		header("Location:my_polls.php");
 
 	}
 ?>

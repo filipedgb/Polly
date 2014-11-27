@@ -24,6 +24,7 @@
           <li><a href="new_poll.php">New Poll</a></li>
           <li><a href="polls_all.php">Answer Polls</a></li>
           <li><a href="my_poll_stats.php">My Polls results</a></li>
+          <li><a href="manage_polls.php">Manage my polls</a></li>
           <li><a href="poll_stats.php">Answered Polls results</a></li>
         <?}?>
 

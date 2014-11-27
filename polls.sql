@@ -18,7 +18,9 @@ Pword VARCHAR NOT NULL
 CREATE TABLE poll (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	title VARCHAR UNIQUE,
-	description VARCHAR
+	description VARCHAR,
+	userId INTEGER REFERENCES Utilizador NOT NULL,
+	visibility VARCHAR /*Private or Public*/
 );
 
 CREATE TABLE pollOption (
@@ -37,13 +39,13 @@ CREATE TABLE pollAnswer(
 
 
 
-INSERT INTO poll VALUES (NULL, 'Test 1', 'Test poll number 1');
+INSERT INTO poll VALUES (NULL, 'Test 1', 'Test poll number 1', 0, 'Public');
 INSERT INTO pollOption VALUES (NULL, 1, '<=18', 0);
 INSERT INTO pollOption VALUES (NULL, 1, '>=18 & <25', 0);
 INSERT INTO pollOption VALUES (NULL, 1, '>=25 & <35', 0);
 INSERT INTO pollOption VALUES (NULL, 1, '>=35', 0);
 
-INSERT INTO poll VALUES (NULL, 'Test 2', 'Test poll number 2');
+INSERT INTO poll VALUES (NULL, 'Test 2', 'Test poll number 2', 0, 'Private');
 INSERT INTO pollOption VALUES (NULL, 2, 'a', 0);
 INSERT INTO pollOption VALUES (NULL, 2, 'b', 0);
 INSERT INTO pollOption VALUES (NULL, 2, 'c', 0);
