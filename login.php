@@ -16,13 +16,25 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
   if(validate_password($pword, $result['Pword']) ){
 
   
-	// store session data
-	$_SESSION['username']=$username;
-	//$_SESSION['Permission']=$result[1];
-	header("location: checklogin.php");
+  	// store session data
+  	$_SESSION['username']=$username;
+
+
+    $stmt = $db->prepare('SELECT Active FROM Utilizador WHERE username = :user');
+    $stmt->bindParam(':user',$username, PDO::PARAM_STR);
+   // $stmt->bindParam(':pword',$pword, PDO::PARAM_STR);
+    $stmt->execute();
+    $result2 = $stmt->fetch();
+
+    if($result2[0] == 0) {
+       header("location: validateAccount.php");
+    }
+  	//$_SESSION['Permission']=$result[1];
+  	else header("location: checklogin.php");
   }
+
   else echo "Wrong Username or Password";
-  }
+}
 
 /*echo '<div id="login">
          <form action="" method="post">

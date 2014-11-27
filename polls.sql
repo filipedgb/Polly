@@ -11,7 +11,11 @@ DROP Table pollImage;
 CREATE TABLE Utilizador (
 IdUser Integer PRIMARY KEY,
 Username VARCHAR Unique,
-Pword VARCHAR NOT NULL
+Pword VARCHAR NOT NULL,
+Email VARCHAR NOT NULL,
+Active Integer, 
+RegCode Integer
+
 );
 
 
