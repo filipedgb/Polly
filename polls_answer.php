@@ -22,34 +22,46 @@
 	foreach($all_polls as $item){ ?>
 		
 		<div class="poll_item" id='<?=$item['title']?>'>
+<h3><?=$item['title']?></h3>
+				<p><?=$item['description']?></p>
 
-			<?
+
+			<div style="width: 100%; overflow: hidden;">
+
+				
+			    <div style="width:70%; float: left;"> 
+					<?	$poll_options = getPollOptions($item['title']); ?>
+
+					<form id="form" action="answer_poll_action.php" method="post">
+						
+						<input type="hidden" name="poll_title" value="<?=$item['title']?>" >
+
+						<?	foreach($poll_options as $poll_option){?>
+								<input type="radio" name="answer" value="<?=$poll_option['optionText']?>"><?=$poll_option['optionText']?><br>
+						<?	}  ?>
+							<input type="submit" name="submit">
+					</form>
+
+			    </div>
 
 
-			$idPoll=$item['id'];
 
-			$src=getSource($idPoll);
+			    <div class="square" style="margin-left: 70%"> 
+			    	<?$idPoll=$item['id'];
+					$src=getSource($idPoll);?>
+					<img src="<?=$src?>" alt="" width:"auto"; height:"auto;"> 
+			    </div>
 
-			?>
-			 <img src="<?=$src?>" alt="" height="100" width="100"> 
+
+			</div>
+			
 				
 			
 
-			<h3><?=$item['title']?></h3>
-			<p><?=$item['description']?></p>
+			
 	
 
-			<?	$poll_options = getPollOptions($item['title']); ?>
 
-			<form id="form" action="answer_poll_action.php" method="post">
-				
-				<input type="hidden" name="poll_title" value="<?=$item['title']?>" >
-
-				<?	foreach($poll_options as $poll_option){?>
-						<input type="radio" name="answer" value="<?=$poll_option['optionText']?>"><?=$poll_option['optionText']?><br>
-				<?	}  ?>
-					<input type="submit" name="submit">
-			</form>
 			
 		</div>
 	<?}?>

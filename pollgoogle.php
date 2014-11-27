@@ -32,16 +32,34 @@
 
       // Set chart options
       var options = {'title': "<?=$divName?>",
-                     'width':500,
-                     'height':300, 'backgroundColor': { fill:'transparent' },'legend.alignment':"center"};
+                     'width':'250',
+                     'height':'200', 'backgroundColor': { fill:'transparent' },'legend.alignment':"center"};
 
       // Instantiate and draw our chart, passing in some options.
+      $(window).resize(function(){
       var chart = new google.visualization.PieChart(document.getElementById("<?=$item['title']?>"));
       chart.draw(data, options);
+
+      });
     }
     </script>
-    
-    <div  class="poll_item_stat" id="<?=$divName?>" style="background-color:# width:400; height:300"></div>
+    <div  class="poll_item_stat" style="width: 90%; overflow: hidden;">
+
+
+       <!-- <div   id="<?=$divName?>" style="background-color:# width:400; height:300"></div>-->
+
+       <div class="pollGoogle" style=" float: left"> 
+        <div   id="<?=$divName?>" style="background-color:# ;width:"auto"; height:"auto"; "></div>
+        </div>
+
+
+        <div class="square" style="margin-left: 70%"> 
+            <?$idPoll=$item['id'];
+          $src=getSource($idPoll);?>
+          <img src="<?=$src?>" alt="" width:"auto"; height:"auto;"> 
+        </div>
+
+    </div>
 
 <? } ?>
 
