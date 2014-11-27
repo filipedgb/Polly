@@ -8,14 +8,32 @@
 	
 	
 	$all_polls = getUnansweredPolls(getUserIDbyUsername($_SESSION['username']));
+	
+	$search = array();
+	
+	foreach($all_polls as $poll) {
+		if ((strpos($poll['title'],$_POST['theSearch']) !== false) || (strpos($poll['description'],$_POST['theSearch']) !== false))  {
+			array_push($search, $poll);
+		}
+		
+		/*
+		if ($poll['title'] == $_POST['theSearch'] || $poll['description'] == $_POST['theSearch']) {
+			array_push($search, $poll);
+		}
+		*/
+	}
+	
 ?>
 
 
 
-
+ <form action="polls_answer.php">
+    <input type="submit" value="Back to all polls"> 
+</form>
 
 	<? 
-	foreach($all_polls as $item){ ?>
+	
+	foreach($search as $item){ ?>
 		
 		<div class="poll_item" id='<?=$item['title']?>'>
 

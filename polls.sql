@@ -37,8 +37,6 @@ CREATE TABLE pollAnswer(
 	user_id INTEGER
 );
 
-
-
 INSERT INTO poll VALUES (NULL, 'Test 1', 'Test poll number 1', 0, 'Public');
 INSERT INTO pollOption VALUES (NULL, 1, '<=18', 0);
 INSERT INTO pollOption VALUES (NULL, 1, '>=18 & <25', 0);

@@ -22,6 +22,7 @@
  
 	}
 	
+	
 	function getUnansweredPolls($user) {
 		global $db;
 		$stmt = $db->prepare('
