@@ -59,6 +59,8 @@
 			$db->exec("INSERT INTO pollOption VALUES(NULL,'$poll_id', '$optionT', 0)");	
 		}
 
+
+
 		 $image_name= $_FILES['image']['name'];
 		 $image_type= $_FILES['image']['type'];
 		 $image_size= $_FILES['image']['size'];
@@ -66,18 +68,23 @@
 
 		if($image_name=="")
 		{
-			echo "<script> alert('There will be no image in your poll')</script>";
-			exit();
+			//echo "<script> alert('There will be no image in your poll')</script>";
+			//exit();
+			$db->exec("INSERT INTO pollImage VALUES('$poll_id', 'databaseImages/polls.png')");	
 			//nao vai ter imagem
 		}
 		else
 		{
 			$extension=substr($image_type, 6);
 			$filename= "$poll_id.$extension";
+			$source="databaseImages/$filename";
 			echo "$filename";
 			move_uploaded_file($image_tmp_name, "databaseImages/$filename");
+			$db->exec("INSERT INTO pollImage VALUES('$poll_id', '$source')");	
+
 
 		}
+
 
 		
 

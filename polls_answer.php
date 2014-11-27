@@ -23,6 +23,18 @@
 		
 		<div class="poll_item" id='<?=$item['title']?>'>
 
+			<?
+
+
+			$idPoll=$item['id'];
+
+			$src=getSource($idPoll);
+
+			?>
+			 <img src="<?=$src?>" alt="" height="100" width="100"> 
+				
+			
+
 			<h3><?=$item['title']?></h3>
 			<p><?=$item['description']?></p>
 	

@@ -97,4 +97,19 @@
 
 	}
 
+	function getSource($id) {
+		global $db;
+
+
+		$stmt = $db->prepare('SELECT * FROM pollImage WHERE poll_id = ?');
+		$stmt->execute(array($id));
+		$result = $stmt->fetch();
+
+		return $result['src'];
+
+
+	}
+
+
+
 ?>

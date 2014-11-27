@@ -6,6 +6,7 @@ DROP Table Utilizador;
 DROP Table poll;
 DROP Table pollOption;
 DROP Table pollAnswer;
+DROP Table pollImage;
 
 CREATE TABLE Utilizador (
 IdUser Integer PRIMARY KEY,
@@ -36,6 +37,13 @@ CREATE TABLE pollAnswer(
 	pollOption_id INTEGER REFERENCES pollOption NOT NULL,
 	user_id INTEGER
 );
+
+CREATE TABLE pollImage (
+	poll_id INTEGER REFERENCES poll NOT NULL,
+	src VARCHAR
+);
+
+
 
 INSERT INTO poll VALUES (NULL, 'Test 1', 'Test poll number 1', 0, 'Public');
 INSERT INTO pollOption VALUES (NULL, 1, '<=18', 0);
