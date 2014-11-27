@@ -8,7 +8,34 @@
 		$result = $stmt->fetchAll();
 		return $result;
 	}
-
+	
+	function getAnsweredPolls($user) {
+		global $db;
+		$stmt = $db->prepare('SELECT poll.id,poll.title,poll.description FROM poll, pollAnswer
+		  where pollAnswer.user_id = ? AND
+		   poll.id = pollAnswer.poll_id;
+		  
+		  ');
+		$stmt->execute(array($user));  
+		$result = $stmt->fetchAll();
+		return $result;
+ 
+	}
+	
+	function getUnansweredPolls($user) {
+		global $db;
+		$stmt = $db->prepare('
+		
+		select * from poll where poll.id NOT IN 
+		( select poll_id from pollAnswer where user_id = ?);');
+		$stmt->execute(array($user));  
+		$result = $stmt->fetchAll();
+		return $result;
+ 
+	}
+	
+	
+	
 	function getPollByUser($user){
 		global $db;
 		$stmt = $db->prepare('SELECT * FROM poll WHERE userId = ?');

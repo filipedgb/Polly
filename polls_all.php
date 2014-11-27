@@ -1,10 +1,13 @@
 <?php
   include_once('database/polls_fetch.php');
-  $all_polls = getAllPolls();
+  //$all_polls = getAllPolls();
 ?>
 
 <? include('templates/header.php'); 
 	include('user.php');
+	
+	
+	$all_polls = getUnansweredPolls(getUserIDbyUsername($_SESSION['username']));
 ?>
 
 

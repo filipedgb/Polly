@@ -2,6 +2,9 @@
 	include('database/polls_fetch.php');
 	include('templates/header.php'); 
 	include('user.php');
+	
+	echo getUserIDbyUsername($_SESSION['username']);
+	
 	$my_polls = getPollByUser(getUserIDbyUsername($_SESSION['username']));
 
 ?>

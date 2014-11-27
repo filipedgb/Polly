@@ -3,6 +3,13 @@
 	$all_polls = getAllPolls();
 	include('templates/header.php'); 
 	include('user.php');
+	
+	echo getUserIDbyUsername($_SESSION['username']);
+
+	
+	
+	$all_polls = getAnsweredPolls(getUserIDbyUsername($_SESSION['username']));
+	
 ?>
 
 <? include("pollgoogle.php"); ?>
