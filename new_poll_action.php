@@ -58,7 +58,30 @@
 			$optionT = htmlspecialchars($option);
 			$db->exec("INSERT INTO pollOption VALUES(NULL,'$poll_id', '$optionT', 0)");	
 		}
-		echo 'fim';
+
+		 $image_name= $_FILES['image']['name'];
+		 $image_type= $_FILES['image']['type'];
+		 $image_size= $_FILES['image']['size'];
+		 $image_tmp_name= $_FILES['image']['tmp_name'];
+
+		if($image_name=="")
+		{
+			echo "<script> alert('There will be no image in your poll')</script>";
+			exit();
+			//nao vai ter imagem
+		}
+		else
+		{
+			$extension=substr($image_type, 6);
+			$filename= "$poll_id.$extension";
+			echo "$filename";
+			move_uploaded_file($image_tmp_name, "databaseImages/$filename");
+
+		}
+
+		
+
+		//echo 'fim';
 		header("Location:my_polls.php");
 
 	}
