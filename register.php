@@ -1,6 +1,7 @@
 
 <?php
 
+
  include('templates/header.php'); 
  include("database/connection.php");
  include("PasswordHash.php");
@@ -63,34 +64,37 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 
 ?>
 
-<h1> Register </h1>
+	<br>
+	<br>
+	<br>
+			<center>
+          <div id="registermodal" >
+            <h1>Register</h1>
+            <form id="loginform" name="loginform" method="post" action="">
+              <label for="username">Username:</label>
+              <input type="text" name="u" id="username" class="txtfield" tabindex="1">
+              
+              <label for="password">Password:</label>
+              <input type="password" name="password" id="password" class="txtfield" tabindex="2">
 
-<form action="" method="post">
+              <label for="password">Password confirmation:</label>
+              <input type="password" name="password2" id="password2" class="txtfield" tabindex="3">
 
-<ul> 
- <li> Username<br>
- 	<input type="text" name="u"> 
- </li>
- <li> Password<br>
- 	<input type="password" name="password"> 
- </li>
- <li> Password confirmation <br>
- 	<input type="password" name="password2"> 
- </li>
- <li> Email <br>
- 	<input type="text" name="email"> 
- </li>
- <li>
-	<input type="submit" value="Register">
- </li>
-</ul>
+              <label for="username">Email:</label>
+              <input type="text" name="email" id="username" class="txtfield" tabindex="4">
+              
+              <div class="center"><input type="submit" name="submit" id="loginbtn" class="flatbtn-blu hidemodal" value="Register" tabindex="5"></div>
+            </form>
+          </div>
+      </center>
 
-
-
-</form>
-
-
-
+          
+   <script type="text/javascript">
+          $(function(){
+           
+            $('#modaltrigger').leanModal({ top: 110, overlay: 0.45, closeButton: ".hidemodal" });
+          });
+          </script>
 
 <? include('templates/footer.php'); ?>
 

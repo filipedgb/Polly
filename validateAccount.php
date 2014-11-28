@@ -19,19 +19,31 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 	$result = $stmt->fetch();
 
 
-	echo $result[0];
+	/*echo $result[0];
 	echo '<br>'; 
-	echo $code;
+	echo $code;*/
 
 
 	if($result[0] == $code) {
-		echo "Your account has been validated!";
+		?>
+		<div id="errorMessage">
+		 <h1>Your account has been validated!</h1>
+		</div>
+		<?
+
 		$stmt = $db->prepare('UPDATE Utilizador SET Active=1 WHERE username = :user');
 		$stmt->bindParam(':user',$utilizadore, PDO::PARAM_STR);
 		$stmt->execute();
+		header('Location: checklogin.php');
 	}
 	else {
-		echo "Invalid code. Account not validated";
+		//echo "Invalid code. Account not validated";
+		?>
+		<div id="errorMessage">
+		 <h1>Wrong Code</h1>
+		</div>
+
+		<?
 	}
 
 
@@ -39,23 +51,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 
 ?>
 
-<h1> Validate your account </h1>
 
-<form action="" method="post">
-
-<ul> 
- <li> Verification Code<br>
- 	<input type="text" name="code"> 
- </li>
- <li>
-	<input type="submit" value="Validate">
- </li>
- 
-</ul>
-
-
-
-</form>
+<center>
+          <div id="validatemodal" >
+            <h1>Validate your account</h1>
+            <form id="loginform" name="loginform" method="post" action="">
+              <label for="username">Verification Code:</label>
+              <input type="text" name="code" id="code" class="txtfield" tabindex="1">
+              
+              <div class="center"><input type="submit" name="submit" id="loginbtn" class="flatbtn-blu hidemodal" value="Validate" tabindex="2"></div>
+            </form>
+          </div>
+      </center>
 
 
 
