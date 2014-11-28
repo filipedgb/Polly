@@ -3,14 +3,16 @@
 
 
  include('templates/header.php'); 
- include("database/connection.php");
- include("PasswordHash.php");
+
 
 
 
 	// session_start();
 if($_SERVER["REQUEST_METHOD"] == "POST")
 {
+	if(!empty($_POST['submit-resgister']))
+	{
+
 	$utilizadore = $_POST['u'];
 	$passuorde = $_POST['password'];
 	$passuorde2 = $_POST['password2'];
@@ -61,6 +63,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 
 	}
 }
+}
 
 ?>
 
@@ -83,7 +86,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
               <label for="username">Email:</label>
               <input type="text" name="email" id="username" class="txtfield" tabindex="4">
               
-              <div class="center"><input type="submit" name="submit" id="loginbtn" class="flatbtn-blu hidemodal" value="Register" tabindex="5"></div>
+              <div class="center"><input type="submit" name="submit-resgister" id="loginbtn" class="flatbtn-blu hidemodal" value="Register" tabindex="5"></div>
             </form>
           </div>
       </center>

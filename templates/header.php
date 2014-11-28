@@ -50,8 +50,16 @@
         <?} else{?>
          <li><a href="register.php">Register</a></li>
           <li><a href="checklogin.php">Login</a></li>
-          <?}?>
+
+          <?
+        }?>
+      <?
+       include("database/connection.php");
+ include("PasswordHash.php");
+
+      include 'checklogin.php';?>
       </ul>
+
 
 
       <?php

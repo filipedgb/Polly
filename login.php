@@ -1,11 +1,12 @@
 <?php
-include("database/connection.php");
-include("PasswordHash.php");
+
 // session_start();
 if($_SERVER["REQUEST_METHOD"] == "POST")
 {
-  $username = $_POST['u'];
-  $pword = $_POST['p'];
+  if(!empty($_POST['submit-login']))
+  {
+  $username = $_POST['uLi'];
+  $pword = $_POST['pLi'];
 
   $stmt = $db->prepare('SELECT * FROM Utilizador WHERE username = :user');
   $stmt->bindParam(':user',$username, PDO::PARAM_STR);
@@ -30,10 +31,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
        header("location: validateAccount.php");
     }
   	//$_SESSION['Permission']=$result[1];
-  	else header("location: checklogin.php");
+  	else header("location: polls_index.php");
   }
 
   else echo "Wrong Username or Password";
+}
+  else if(!empty($_POST['submit-signup']))
+  {
+     header("location: register.php");
+  }
 }
 
 /*echo '<div id="login">
@@ -52,12 +58,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
             <h1>User Login</h1>
             <form id="loginform" name="loginform" method="post" action="">
               <label for="username">Username:</label>
-              <input type="text" name="u" id="username" class="txtfield" tabindex="1">
+              <input type="text" name="uLi" id="username" class="txtfield" tabindex="1">
               
               <label for="password">Password:</label>
-              <input type="password" name="p" id="password" class="txtfield" tabindex="2">
+              <input type="password" name="pLi" id="password" class="txtfield" tabindex="2">
               
-              <div class="center"><input type="submit" name="submit" id="loginbtn" class="flatbtn-blu hidemodal" value="Log In" tabindex="3"></div>
+              
+                <input type="submit" name="submit-login" id="loginbtn" class="flatbtn-blu hidemodal" value="Log In" tabindex="3">
+             
+            <div style=" float: right">
+              <input type="submit" name="submit-signup" id="loginbtn" class="flatbtn-blu hidemodal" value="Sign Up" tabindex="3">
+            </div>
+            
             </form>
           </div>
 

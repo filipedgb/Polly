@@ -14,7 +14,11 @@ function copyToClipboard(s) {
 function addOptionRequest(){
 	var element = document.getElementById("new_poll");
 	var newPoll = $("#new_poll_form");
-	$("#addOption").before("Option:<input type=\"text\" name=\"option[]\"><br><br>");
+	$("#addOption").before(
+		 "<label for=\"username\">Option:</label>",
+		"<input id=\"text\" class=\"txtfield\" tabindex=\"4\" type=\"text\" name=\"option[]\"><br><br>"
+
+		);
 }
 
 

@@ -34,7 +34,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 		$stmt = $db->prepare('UPDATE Utilizador SET Active=1 WHERE username = :user');
 		$stmt->bindParam(':user',$utilizadore, PDO::PARAM_STR);
 		$stmt->execute();
-		header('Location: checklogin.php');
+		header('Location: polls_index.php');
 	}
 	else {
 		//echo "Invalid code. Account not validated";

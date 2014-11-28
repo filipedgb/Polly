@@ -1,11 +1,11 @@
 
-<? include('templates/header.php'); ?>
+<? /*include('templates/header.php');*/ ?>
 <?php
 include('database/connection.php');
 
 if(isset($_SESSION['username']))
 	{
-		echo 'welcome '.$_SESSION['username'];
+		//echo 'welcome '.$_SESSION['username'];
 
           ?> 
           
@@ -23,4 +23,4 @@ if(isset($_SESSION['username']))
 	}
 
 ?>
-<?	include('templates/footer.php'); ?>
+<?	/*include('templates/footer.php');*/ ?>

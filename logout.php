@@ -2,6 +2,6 @@
 session_start();
 if(session_destroy())
 {
-header("Location: checklogin.php");
+header("Location: polls_index.php");
 }
 ?>

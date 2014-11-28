@@ -151,6 +151,7 @@ a{
 }
 
 
+
 .poll_item{
 
 	width: 70%;
@@ -524,6 +525,12 @@ p {
 }
 
 
+#newPollmodal .flatbtn-blu {
+font-size: 1em;
+width: 24%;
+height: 2%
+}
+
 /** modal window styles **/
 #lean_overlay {
     position: fixed;
@@ -575,6 +582,20 @@ p {
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
 }
 
+#newPollmodal {
+  margin: 20px;
+  width: 60%;
+  padding: 15px 20px;
+  background: #f3f6fa;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+   margin-left: auto ;
+  margin-right: auto ;
+}
 
 #validatemodal h1{
 font-size: 2em;
@@ -615,6 +636,11 @@ font-size: 2em;
   -moz-transition: all 0.25s linear;
   transition: all 0.25s linear;
 }
+#newPollmodal .txtfield {
+ font-size: 1em;
+
+}
+
 
 .txtfield:focus {
   outline: none;

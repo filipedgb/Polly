@@ -2,17 +2,30 @@
   include_once('database/connection.php');
 ?>
 
-<? include('templates/header.php'); ?>
+<? include('templates/header.php'); 
+include('user.php');
+
+
+?>
 
 
 
-<div class="basePanel" id="new_poll">
-	<form id="new_poll_form"  action= "new_poll_action.php" method="post" enctype="multipart/form-data">
-		Poll Title:<input type="text" name="title"><br><br>
-		Poll Description:<input type="text" name="description"><br><br>
-		Select Image: <input type="file" name="image"/><br><br>
-		<input type="button" id="addOption"  value="Add Poll Option" />
-		<input type="submit" name="submit" />
+<div id="newPollmodal" class="centered">
+	<form id="loginform"  action= "new_poll_action.php" method="post" enctype="multipart/form-data">
+		<label for="username">Poll Title:</label>
+		<input type="text" name="title" id="text" class="txtfield" tabindex="1">
+		<label for="username">Poll Description:</label>
+		<input type="text" name="description" id="text" class="txtfield" tabindex="2">
+		<label for="username">Select Image:</label>
+		<input type="file" name="image" id="text"  tabindex="3">
+		
+	 	<div>
+	 		<input type="button" id="addOption"  value="Add Poll Option" class="flatbtn-blu" />
+	 		<div style=" float: right">
+	 		<input type="submit" name="submit" id="loginbtn" class="flatbtn hidemodal" value="Create Poll" tabindex="5">
+	 		</div>
+	 	</div>
+
 
 
 		<script type="text/javascript">
