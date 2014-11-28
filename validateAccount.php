@@ -31,6 +31,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 		</div>
 		<?
 
+		$_SESSION['activated'] = 1;
 		$stmt = $db->prepare('UPDATE Utilizador SET Active=1 WHERE username = :user');
 		$stmt->bindParam(':user',$utilizadore, PDO::PARAM_STR);
 		$stmt->execute();

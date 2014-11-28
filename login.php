@@ -27,6 +27,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     $stmt->execute();
     $result2 = $stmt->fetch();
 
+    $_SESSION['activated']=$result2[0];
+
+  
     if($result2[0] == 0) {
        header("location: validateAccount.php");
     }

@@ -27,9 +27,12 @@
 		global $db;
 		$stmt = $db->prepare('
 		
-		select * from poll where poll.id NOT IN 
+		select * from poll where
+		poll.visibility != ? and
+
+		 poll.id NOT IN 
 		( select poll_id from pollAnswer where user_id = ?);');
-		$stmt->execute(array($user));  
+		$stmt->execute(array('Private',$user));  
 		$result = $stmt->fetchAll();
 		return $result;
  

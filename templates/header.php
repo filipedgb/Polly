@@ -67,7 +67,7 @@
           echo "Username:".$_SESSION['username'];
 
         }
-        //print_r($_SESSION);
+     //   print_r($_SESSION);
 
         
       ?>

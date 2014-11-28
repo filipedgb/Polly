@@ -56,9 +56,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 			
 			$stmt->execute(array(NULL,$utilizadore, create_hash($passuorde),$email,'0',$code));
 
-		
-
-
 		}
 
 	}
