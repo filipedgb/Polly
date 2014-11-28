@@ -1,8 +1,7 @@
 <? include('templates/header.php'); ?>
 <? include('database/polls_fetch.php') ?>
-
-<?
-	include_once ('database/connection.php');
+<? include('PasswordHash.php') ?>
+<? include_once ('database/connection.php');
 	
 
 	if(isset($_POST['submit'])){
@@ -33,8 +32,10 @@
 		if($title !='' && $description !='')
 		{
 
-			$stmt = $db->prepare('INSERT INTO poll(id,title,description,userId,visibility) VALUES (?,?,?,?,?)');
-			$stmt->execute(array(NULL,$title,$description,$userId,"Public"));
+			$stmt = $db->prepare('INSERT INTO poll(id,title,description,userId,visibility, titleHash) VALUES (?,?,?,?,?,?)');
+			/*$titleHash = create_hash($title);*/
+			$titleHash = md5('poll'.$title);
+			$stmt->execute(array(NULL,$title,$description,$userId,"Public", $titleHash));
 		}
 		else
 		{

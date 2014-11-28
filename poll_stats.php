@@ -3,6 +3,7 @@
 	$all_polls = getAllPolls();
 	include('templates/header.php'); 
 	include('user.php');
+	include_once('getPollURL.php');
 	
 	echo getUserIDbyUsername($_SESSION['username']);
 
@@ -15,8 +16,16 @@
 <? include("pollgoogle.php"); ?>
 
 <? foreach($all_polls as $item){ ?>
-	<?abc($item['title'],$item);?>
+	<div  class="poll_item_stat" style="width: 90%; overflow: hidden;">
+		<?
+			$link = getPollUrl($item['titleHash']);
+			abc($item['title'], $item, $link);
+			
+		?>
+	</div>
+
 <?}?>
 
 
 <?	include('templates/footer.php'); ?>
+

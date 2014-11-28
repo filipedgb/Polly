@@ -11,7 +11,7 @@
 	
 	function getAnsweredPolls($user) {
 		global $db;
-		$stmt = $db->prepare('SELECT poll.id,poll.title,poll.description FROM poll, pollAnswer
+		$stmt = $db->prepare('SELECT poll.id,poll.title,poll.description, poll.titleHash FROM poll, pollAnswer
 		  where pollAnswer.user_id = ? AND
 		   poll.id = pollAnswer.poll_id;
 		  
@@ -34,6 +34,14 @@
 		return $result;
  
 	}
+
+	function getPollTitleHash($id){
+		global $db;
+		$stmt = $db->prepare('SELECT * FROM poll WHERE id = ?');
+		$stmt->execute(array($id));
+		$result = $stmt->fetch();
+		return $result['titleHash'];		
+	}
 	
 	
 	
@@ -52,6 +60,15 @@
 		$item = $stmt->fetch();	
 		return $item;
 	}
+
+	function getPollByHash($titleHash){
+		global $db;
+		$stmt = $db->prepare('SELECT * FROM poll WHERE titleHash = ?');
+		$stmt->execute(array($titleHash));
+		$item = $stmt->fetch();	
+		return $item;
+	}
+
 
 	function getPollByTitle($title){
 		global $db;

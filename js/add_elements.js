@@ -1,4 +1,15 @@
+function ClipBoard(text) 
+{
+	/*holdtext.innerText = copytext.innerText;
+	var Copied = holdtext.createTextRange();*/
+	text.execCommand("Copy");
+}
 
+function copyToClipboard(s) {
+    if (window.clipboardData && clipboardData.setData) {
+        clipboardData.setData('text', s);
+    }
+}
 
 function addOptionRequest(){
 	var element = document.getElementById("new_poll");

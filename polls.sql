@@ -25,7 +25,8 @@ CREATE TABLE poll (
 	title VARCHAR UNIQUE,
 	description VARCHAR,
 	userId INTEGER REFERENCES Utilizador NOT NULL,
-	visibility VARCHAR /*Private or Public*/
+	visibility VARCHAR, /*Private or Public*/
+	titleHash VARCHAR /*used to generate private polls links */
 );
 
 CREATE TABLE pollOption (
@@ -48,20 +49,20 @@ CREATE TABLE pollImage (
 );
 
 
-
-INSERT INTO poll VALUES (NULL, 'Test 1', 'Test poll number 1', 0, 'Public');
+/*
+INSERT INTO poll VALUES (NULL, 'Test 1', 'Test poll number 1', 0, 'Public',1);
 INSERT INTO pollOption VALUES (NULL, 1, '<=18', 0);
 INSERT INTO pollOption VALUES (NULL, 1, '>=18 & <25', 0);
 INSERT INTO pollOption VALUES (NULL, 1, '>=25 & <35', 0);
 INSERT INTO pollOption VALUES (NULL, 1, '>=35', 0);
 
-INSERT INTO poll VALUES (NULL, 'Test 2', 'Test poll number 2', 0, 'Private');
+INSERT INTO poll VALUES (NULL, 'Test 2', 'Test poll number 2', 0, 'Private',2);
 INSERT INTO pollOption VALUES (NULL, 2, 'a', 0);
 INSERT INTO pollOption VALUES (NULL, 2, 'b', 0);
 INSERT INTO pollOption VALUES (NULL, 2, 'c', 0);
 INSERT INTO pollOption VALUES (NULL, 2, 'd', 0);
 
-
+*/
 
 create trigger incCounterAnswer
 after insert on pollAnswer

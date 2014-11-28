@@ -1,4 +1,7 @@
-<? function abc($divName, $item) { ?>
+<? 
+
+
+  function abc($divName, $item, $link) { ?>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript">
    
@@ -36,14 +39,12 @@
                      'height':'200', 'backgroundColor': { fill:'transparent' },'legend.alignment':"center"};
 
       // Instantiate and draw our chart, passing in some options.
-      $(window).resize(function(){
       var chart = new google.visualization.PieChart(document.getElementById("<?=$item['title']?>"));
       chart.draw(data, options);
 
-      });
     }
     </script>
-    <div  class="poll_item_stat" style="width: 90%; overflow: hidden;">
+    
 
 
        <!-- <div   id="<?=$divName?>" style="background-color:# width:400; height:300"></div>-->
@@ -54,12 +55,16 @@
 
 
         <div class="square" style="margin-left: 70%"> 
-            <?$idPoll=$item['id'];
-          $src=getSource($idPoll);?>
+            
+            <? $idPoll=$item['id'];
+               $src=getSource($idPoll);  ?>
+
           <img src="<?=$src?>" alt="" width:"auto"; height:"auto;"> 
         </div>
+      <div class="fb-share-button" data-href="<?=$link?>" data-layout="button_count"></div>
 
-    </div>
+        
+    
 
 <? } ?>
 
