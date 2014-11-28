@@ -55,7 +55,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
           </div>
 
           <div id="loginmodal" style="display:none;">
-            <h1>User Login</h1>
             <form id="loginform" name="loginform" method="post" action="">
               <label for="username">Username:</label>
               <input type="text" name="uLi" id="username" class="txtfield" tabindex="1">

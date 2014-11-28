@@ -1,6 +1,6 @@
 <? include('templates/header.php'); ?>
 <? include('database/polls_fetch.php') ?>
-<? include('PasswordHash.php') ?>
+<? /*include('PasswordHash.php')*/ ?>
 <? include_once ('database/connection.php');
 	
 

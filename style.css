@@ -293,6 +293,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   padding: 0;
   border: 0;
   font-size: 100%;
+
   font: inherit;
   vertical-align: baseline;
   outline: none;
@@ -485,6 +486,19 @@ p {
   -moz-box-shadow:inset 0 1px 5px rgba(0, 0, 0, 0.1);
   box-shadow:inset 0 1px 5px rgba(0, 0, 0, 0.1);
 }
+
+
+#w .flatbtn {
+  /*font-size: 1em;
+width: 100px;
+height: 2%;
+  font: serif;*/
+
+}
+
+
+
+
 
 /** custom login button **/
 .flatbtn-blu { 
