@@ -53,8 +53,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
           </form></div>';*/
           ?>
           
-          <div id="w">
-              <center><a href="#loginmodal" class="flatbtn" id="modaltrigger">Login</a></center>
+          <div id="loginSmall">
+              <center><a href="#loginmodal" class="flatbtn" id="modaltrigger">Log In</a></center>
           </div>
 
           <div id="loginmodal" style="display:none;">
@@ -66,7 +66,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
               <input type="password" name="pLi" id="password" class="txtfield" tabindex="2">
               
               
-                <input type="submit" name="submit-login" id="loginbtn" class="flatbtn-blu hidemodal" value="Log In" tabindex="3">
+                <input type="submit" name="submit-login" id="loginbtn" class="flatbtn hidemodal" value="Log In" tabindex="3">
              
             <div style=" float: right">
               <input type="submit" name="submit-signup" id="loginbtn" class="flatbtn-blu hidemodal" value="Sign Up" tabindex="3">

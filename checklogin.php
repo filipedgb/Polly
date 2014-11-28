@@ -9,8 +9,8 @@ if(isset($_SESSION['username']))
 
           ?> 
           
-          <div id="w">
-          	<form action="logout.php" method="get">
+          <div id="loginSmall">
+          	<form id="w"action="logout.php" method="get">
           		 <center><button name="logout" class="flatbtn" name="logout" type="submit" >Logout</button></center>
                  </form>
           	 

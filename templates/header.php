@@ -48,9 +48,6 @@
         <?php if(isset($_SESSION['username'])){?>
         <li><a href="checklogin.php">My Account</a></li>
         <?} else{?>
-         <li><a href="register.php">Register</a></li>
-          <li><a href="checklogin.php">Login</a></li>
-
           <?
         }?>
       <?
