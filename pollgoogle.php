@@ -22,31 +22,58 @@
       data.addColumn('string', 'Choices');
       data.addColumn('number', 'Votes');
 
+      //Adds all the votes
       <?        
-
-              $poll_options = getPollOptions($item['title']);
-               foreach($poll_options as $poll_option){
-                  ?>
-                  data.addRow(['<?=$poll_option['optionText']?>',<?=$poll_option['counter']?>]);
-                  <?
-               }
-
+        $poll_options = getPollOptions($item['title']);
+         foreach($poll_options as $poll_option){
+            ?>
+            data.addRow(['<?=$poll_option['optionText']?>',<?=$poll_option['counter']?>]);
+            <?
+         }
       ?>
 
       // Set chart options
-      var options = {'title': "<?=$divName?>",
-                     'width':'250',
-                     'height':'200', 'backgroundColor': { fill:'transparent' },'legend.alignment':"center"};
+      var options = {/*'title': "<?=$divName?>",*/
+      sliceVisibilityThreshold: 0,
+                     'width':'200',
+                     'height':'150', 'backgroundColor': { fill:'transparent' },'legend.alignment':"center"};
 
       // Instantiate and draw our chart, passing in some options.
+
+
       var chart = new google.visualization.PieChart(document.getElementById("<?=$item['title']?>"));
       chart.draw(data, options);
 
+   
     }
+
+       // And then:
+    $(window).resize(function () {
+        chart.draw(data, otions);
+    });
+
+    </script>
+
+    <script type="text/javascript">
+        //create trigger to resizeEnd event     
+        $(window).resize(function() {
+            if(this.resizeTO) clearTimeout(this.resizeTO);
+            this.resizeTO = setTimeout(function() {
+                $(this).trigger('resizeEnd');
+            }, 500);
+        });
+
+        //redraw graph when window resize is completed  
+        $(window).on('resizeEnd', function() {
+            drawChart(data);
+        });
+
+
     </script>
     
 
-
+        <h2><?=$divName?></h2>
+        <h3><?=$item['description']?></h3>
        <!-- <div   id="<?=$divName?>" style="background-color:# width:400; height:300"></div>-->
 
        <div class="pollGoogle" style=" float: left"> 
@@ -55,10 +82,8 @@
 
 
         <div class="square" style="margin-left: 70%"> 
-            
-            <? $idPoll=$item['id'];
-               $src=getSource($idPoll);  ?>
-
+            <?$idPoll=$item['id'];
+          $src=getSource($idPoll);?>
           <img src="<?=$src?>" alt="" width:"auto"; height:"auto;"> 
         </div>
       <div class="fb-share-button" data-href="<?=$link?>" data-layout="button_count"></div>

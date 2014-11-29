@@ -7,4 +7,4 @@
         
 
 
- else header("location: checklogin.php");?>
+ else header("location: polls_index.php");?>

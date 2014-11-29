@@ -15,23 +15,27 @@
 		
 		<div class="poll_item" id='<?=$item['title']?>'>
 
-			<h3><?=$item['title']?></h3>
-			<p><?=$item['description']?></p>
+			<h2><?=$item['title']?></h2>
+			<h3><?=$item['description']?></h3>
 	
 			<br>
 			<? $visibility = $item['visibility']; ?>
-			<form id="form" action="set_poll_visibility.php" method="post">
+			<form id="loginform" action="set_poll_visibility.php" method="post">
 				<input type="hidden" name="title" value="<?=$item['title']?>">
 				<input type="radio" name="visibility" value="Public" checked='checked'>Public<br>
 				<input type="radio" name="visibility" value="Private" 
 					<? if ($visibility == 'Private') echo "checked='checked'"?> >Private<br>
-				<input type="submit" value="Set Visibility">
+				<div id="marginButton">
+				<input type="submit" value="Set Visibility" class="flatbtn-blu">
+				</div>
 			</form>
 			<br>
 
 			<form id="form" action="delete_poll.php" method="post">
 				<input type="hidden" name="title" value="<?=$item['title']?>">
-				<input type="submit" value="Delete Poll">
+				<div id="marginButton">
+				<input type="submit" value="Delete Poll" class="flatbtn">
+				</div>
 			</form>
 			<form id="form" action="set_poll_visibility.php" method="post">
 			</form>

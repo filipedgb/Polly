@@ -11,11 +11,11 @@
 ?>
 
 
-
+<div id="searchDiv">
  <form action="search_poll.php" method="post">
-  Search poll: <input type="text" name="theSearch"><br>
-  <input type="submit" value="Search!"> 
+		<input id="searchBox"type="text" name="theSearch"><input id="searchButton" type="submit" value="Search" class="flatbtn">
 </form>
+</div>
 
 	<? $groupIdtemp = -1;  ?>
 
@@ -31,13 +31,13 @@
 			 	</div>
 				<div class="poll_item" id='<?=$item['title']?>'>
 
-				<h2><?=$group['title']?></h2>
-				<h3><?=$group['description']?></h3>
+				<h2>Poll:<?=$group['title']?></h2>
+				<p><?=$group['description']?></p>
 
 			<? }  ?>
 
 
-			<h3><?=$item['title']?></h3>
+			<h2>Question: <?=$item['title']?></h2>
 				<p><?=$item['description']?></p>
 
 
@@ -54,7 +54,9 @@
 						<?	foreach($poll_options as $poll_option){?>
 								<input type="radio" name="answer" value="<?=$poll_option['optionText']?>"><?=$poll_option['optionText']?><br>
 						<?	}  ?>
-							<input type="submit" name="submit">
+							<div id="marginButton">
+								<input type="submit" value="Answer" class="flatbtn-blu">
+							</div>
 					</form>
 
 			    </div>

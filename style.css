@@ -13,7 +13,8 @@ body{
 
 	height:100%;
 	margin: 0;
-	 background-color: #4b8ead;
+	 /*background-color: #4b8ead;*/
+   background-color:#397db9;
 	background-size: 100% auto;
 
 }
@@ -165,9 +166,8 @@ img {
 }
 
 .pollGoogle {
-
-     height: 20%;
     width:  20%;
+     max-height:  100%;
 
 }
 
@@ -191,6 +191,33 @@ img {
 
 }
 
+ h2 {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1.5em;
+  line-height: 1.5em;
+  letter-spacing: -0.05em;
+  margin-bottom: 20px;
+  padding: .1em 0;
+  color: #444;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+ h3 {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1em;
+  line-height: 1.5em;
+  letter-spacing: -0.05em;
+  margin-bottom: 20px;
+  padding: .1em 0;
+  color: #444;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+
 .poll_item_stat h3{
 	width: 70%;
 	margin: auto;
@@ -202,8 +229,8 @@ img {
 	/*width: 35%;*/
 	/*display: inline;*/
 	/*padding-left: 150px;*/
-	height: 20px;	
-	text-align: left;
+	/*height: 20px;	
+	text-align: left;*/
 }
 
 .poll_item_stat p{
@@ -352,6 +379,7 @@ h1 {
 }
 
 
+
 h1:before,
 h1:after {
   content: "";
@@ -390,10 +418,16 @@ h1 > span {
 }
 
 p {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   display: block;
   font-size: 1.35em;
   line-height: 1.5em;
   margin-bottom: 22px;
+}
+
+.radio{
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
 }
 
 .center { display: block; text-align: center; }
@@ -470,7 +504,54 @@ height: 35px;
 
 }
 
+#searchButton .flatbtn{
+}
 
+
+#marginButton{
+
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#marginButton .flatbtn-blu{
+
+  width: 150px;
+  font-size: 0.8em;
+}
+
+#marginButton .flatbtn{
+
+  width: 150px;
+  font-size: 0.8em;
+  background-color: #f53939;
+
+}
+
+
+#searchButton{
+  width: 70px;
+  font-size: 0.7em;
+    font-family: 'Helvetica Neue', Helvetica, Verdana, sans-serif;
+
+height: 30px;
+padding: 5px;
+
+}
+
+#searchBox{
+  height: 30px;
+   width: 200px;
+   font-size: 0.5em;
+}
+
+#searchDiv{
+   margin: 20px;
+  width: 60%;
+  text-align: right;
+   margin-left: auto ;
+  margin-right: auto ;
+}
 
 
 /** custom login button **/
@@ -660,7 +741,6 @@ font-size: 2em;
   }
 
 
-
 #menuButtons h1,
 #menuButtons h1::before,
 #menuButtons h1 span,
@@ -686,7 +766,7 @@ font-size: 2em;
   display: inline-block;
   text-transform: uppercase;
   letter-spacing: 1px;
-  font-weight: 700;
+  font-weight: 500;
     padding: 0.2em 0.4em;
     margin: 0 0.4em 0;
     font-size: 0.8em;
