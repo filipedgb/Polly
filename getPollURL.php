@@ -18,4 +18,12 @@
 		return $link;
 	}
 
+	function getUrlWithoutPage(){
+		$url = parse_url(curPageURL());
+		$path = dirname($url['path']);
+		$host = $url['host'];
+		$link = $host.$path;
+		return $link;
+	}
+
 ?>

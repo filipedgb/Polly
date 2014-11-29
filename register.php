@@ -3,7 +3,7 @@
 
 
  include('templates/header.php'); 
-
+ include('getPollURL.php');
 
 
 
@@ -45,8 +45,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 			include("mail.php");
 
 			$code = substr(md5(uniqid(rand(), true)), 16, 16);
-
-			emailconf($email, $code);
+			$link = "http://".getUrlWithoutPage()."/validateAccount.php?username=".$utilizadore."&code=".$code;
+			emailconf($email, $link);
 
 	    	$options = ['cost' => 12];
 	        $stmt = $db->prepare('INSERT INTO Utilizador(IdUser,Username,Pword,Email,Active,RegCode) VALUES (?,?,?,?,?,?)');
