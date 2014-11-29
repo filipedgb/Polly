@@ -36,7 +36,7 @@
               <h1><span>Polly</span></h1>
               <nav id="navButtons">
                 <?php if(isset($_SESSION['username'])){?>
-                  <a href="new_poll.php">New Poll</a>
+                  <a href="new_poll_group.php">New Poll</a>
                   <a href="polls_answer.php">Answer Polls</a>
                   <a href="my_poll_stats.php">My Polls results</a>
                   <a href="manage_polls.php">Manage my polls</a>

@@ -13,10 +13,21 @@
 		global $db;
 		$stmt = $db->prepare('SELECT poll.id,poll.title,poll.description, poll.titleHash FROM poll, pollAnswer
 		  where pollAnswer.user_id = ? AND
-		   poll.id = pollAnswer.poll_id;
+		   poll.id = pollAnswer.poll_id ORDER BY poll.groupId ;
 		  
 		  ');
 		$stmt->execute(array($user));  
+		$result = $stmt->fetchAll();
+		return $result;
+ 
+	}
+
+
+	function getPollsFromGroup($groupId) {
+		global $db;
+		$stmt = $db->prepare('SELECT poll.id,poll.title,poll.description, poll.titleHash FROM poll
+		  where  poll.groupId = ? ');
+		$stmt->execute(array($groupId));  
 		$result = $stmt->fetchAll();
 		return $result;
  
@@ -59,6 +70,14 @@
 	function getPoll($id){
 		global $db;
 		$stmt = $db->prepare('SELECT * FROM poll WHERE id = ?');
+		$stmt->execute(array($id));
+		$item = $stmt->fetch();	
+		return $item;
+	}
+
+	function getGroupPoll($id){
+		global $db;
+		$stmt = $db->prepare('SELECT * FROM groupPoll WHERE groupId = ?');
 		$stmt->execute(array($id));
 		$item = $stmt->fetch();	
 		return $item;

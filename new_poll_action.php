@@ -4,7 +4,9 @@
 <? include_once ('database/connection.php');
 	
 
-	if(isset($_POST['submit'])){
+	if(isset($_POST['submit']) || isset($_POST['newQuestion'])) {
+
+
 		// Fetching variables of the form which travels in URL
 		global $db;
 		$title = htmlspecialchars($_POST['title']);
@@ -12,12 +14,19 @@
 		$userId = getUserIDbyUsername($_SESSION['username']);
 		$options = $_POST['option'];
 
+
+		//select last created group id 
+		$stmt = $db->prepare('SELECT MAX(groupId) FROM groupPoll WHERE userId = ?');
+		$stmt->execute(array($userId));
+		$groupId = $stmt->fetch();
+
+
 		//verifies if all the options are filled
 		foreach($options as $option){
 			if($option=='')
 			{
 				//por um pop up
-				if (isset($_POST['submit'])){
+				if (isset($_POST['submit']) || isset($_POST['newQuestion'])){
 				echo '
 				<script type="text/javascript">
 				location.reload();
@@ -32,15 +41,18 @@
 		if($title !='' && $description !='')
 		{
 
-			$stmt = $db->prepare('INSERT INTO poll(id,title,description,userId,visibility, titleHash) VALUES (?,?,?,?,?,?)');
+			$stmt = $db->prepare('INSERT INTO poll(id,title,description,userId,visibility, titleHash, groupId) VALUES (?,?,?,?,?,?,?)');
 			/*$titleHash = create_hash($title);*/
 			$titleHash = md5('poll'.$title);
-			$stmt->execute(array(NULL,$title,$description,$userId,"Public", $titleHash));
+
+			echo $groupId[0];
+
+			$stmt->execute(array(NULL,$title,$description,$userId,"Public", $titleHash,$groupId[0]));
 		}
 		else
 		{
 			//por um pop up
-			if (isset($_POST['submit'])){
+			if (isset($_POST['submit'])|| isset($_POST['newQuestion'])){
 				echo '
 				<script type="text/javascript">
 				location.reload();
@@ -87,10 +99,10 @@
 		}
 
 
-		
+		if(isset($_POST['newQuestion'])) header("Location:new_poll.php");
 
 		//echo 'fim';
-		header("Location:my_polls.php");
+		else header("Location:my_polls.php");
 
 	}
 ?>

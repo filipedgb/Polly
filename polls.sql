@@ -2,23 +2,30 @@
 .headers ON
 
 DROP Table Utilizador;
-
+DROP Table groupPoll;
 DROP Table poll;
 DROP Table pollOption;
 DROP Table pollAnswer;
 DROP Table pollImage;
 
 CREATE TABLE Utilizador (
-IdUser Integer PRIMARY KEY,
-Username VARCHAR Unique,
-Pword VARCHAR NOT NULL,
-Email VARCHAR NOT NULL,
-Active Integer, 
-RegCode Integer
+	IdUser Integer PRIMARY KEY,
+	Username VARCHAR Unique,
+	Pword VARCHAR NOT NULL,
+	Email VARCHAR NOT NULL,
+	Active Integer, 
+	RegCode Integer
 
 );
 
-
+CREATE TABLE groupPoll (
+	groupId INTEGER PRIMARY KEY AUTOINCREMENT,
+	title VARCHAR UNIQUE,
+	description VARCHAR,
+	userId INTEGER REFERENCES Utilizador NOT NULL,
+	visibility VARCHAR, /*Private or Public*/
+	titleHash VARCHAR /*used to generate private polls links */
+);
 
 CREATE TABLE poll (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -26,7 +33,8 @@ CREATE TABLE poll (
 	description VARCHAR,
 	userId INTEGER REFERENCES Utilizador NOT NULL,
 	visibility VARCHAR, /*Private or Public*/
-	titleHash VARCHAR /*used to generate private polls links */
+	titleHash VARCHAR,  /*used to generate private polls links */
+	groupId INTEGER REFERENCES groupPoll
 );
 
 CREATE TABLE pollOption (

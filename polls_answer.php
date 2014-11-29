@@ -17,12 +17,27 @@
   <input type="submit" value="Search!"> 
 </form>
 
-	<? 
-	
-	foreach($all_polls as $item){ ?>
-		
-		<div class="poll_item" id='<?=$item['title']?>'>
-<h3><?=$item['title']?></h3>
+	<? $groupIdtemp = -1;  ?>
+
+
+	<? foreach($all_polls as $item) { ?>
+
+
+
+
+			<? if($item['groupId'] != $groupIdtemp) {
+				$group = getGroupPoll($item['groupId']);
+			 ?>
+			 	</div>
+				<div class="poll_item" id='<?=$item['title']?>'>
+
+				<h2><?=$group['title']?></h2>
+				<h3><?=$group['description']?></h3>
+
+			<? }  ?>
+
+
+			<h3><?=$item['title']?></h3>
 				<p><?=$item['description']?></p>
 
 
@@ -51,20 +66,25 @@
 					$src=getSource($idPoll);?>
 					<img src="<?=$src?>" alt="" width:"auto"; height:"auto;"> 
 			    </div>
-
-
 			</div>
 			
+		
 				
 			
+		<? if($item['groupId'] != $groupIdtemp) {
+				$groupIdtemp = $item['groupId'];
 
-			
+			 ?>
+
 	
 
+		<? } ?>
+		
 
-			
-		</div>
-	<?}?>
+
+	<? 
+		}
+	?>
 
 	
 
