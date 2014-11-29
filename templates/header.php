@@ -28,46 +28,32 @@
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));</script>
 
-
-
-    <div id="header">
+   <!-- <div id="header">
       <h1><a href="polls_index.php">Online Polls Manager</a></h1>
-      <!--<h2>CSS Exercise</h2>-->
-    </div>
-    <div id="menu">
-      <ul>
-        <?php if(isset($_SESSION['username'])){?>
-          <li><a href="new_poll.php">New Poll</a></li>
-          <li><a href="polls_answer.php">Answer Polls</a></li>
-          <li><a href="my_poll_stats.php">My Polls results</a></li>
-          <li><a href="manage_polls.php">Manage my polls</a></li>
-          <li><a href="poll_stats.php">Answered Polls results</a></li>
-        <?}?>
+    </div>-->
+    <div id="container" class="menuButtons ">
+            <div id="menuButtons" class="ha-header-front">
+              <h1><span>Polly</span></h1>
+              <nav id="navButtons">
+                <?php if(isset($_SESSION['username'])){?>
+                  <a href="new_poll.php">New Poll</a>
+                  <a href="polls_answer.php">Answer Polls</a>
+                  <a href="my_poll_stats.php">My Polls results</a>
+                  <a href="manage_polls.php">Manage my polls</a>
+                  <a href="poll_stats.php">Answered Polls results</a>
+                  <!--<a href="checklogin.php">My Account</a>-->
+                <a>
+                <?}
+                include("database/connection.php");
+                include("PasswordHash.php");
+                include 'checklogin.php';
+                //if(isset($_SESSION['username']))echo "Username:".$_SESSION['username']; 
+                ?>  
+              </a>
+              </nav>
+            </div>
 
+            <div id="menuAccount" >
 
-        <?php if(isset($_SESSION['username'])){?>
-        <li><a href="checklogin.php">My Account</a></li>
-        <?} else{?>
-          <?
-        }?>
-      <?
-       include("database/connection.php");
- include("PasswordHash.php");
-
-      include 'checklogin.php';?>
-      </ul>
-
-
-
-      <?php
-        if(isset($_SESSION['username'])){
-          echo "Username:".$_SESSION['username'];
-
-        }
-     //   print_r($_SESSION);
-
-        
-      ?>
-
-
-    </div>
+            </div>
+     </div>

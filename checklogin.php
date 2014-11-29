@@ -9,12 +9,10 @@ if(isset($_SESSION['username']))
 
           ?> 
           
-          <div id="loginSmall">
-          	<form id="w"action="logout.php" method="get">
-          		 <center><button name="logout" class="flatbtn" name="logout" type="submit" >Logout</button></center>
+          	<form id="loginSmall" action="logout.php" method="get">
+          		 <center><div id="loginSmall"><button id=" loginSmall"name="logout" class="flatbtn" name="logout" type="submit" >Logout</button></div></center>
                  </form>
           	 
-          </div>
           <?
 	}
 	else 

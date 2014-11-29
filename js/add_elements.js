@@ -16,7 +16,7 @@ function addOptionRequest(){
 	var newPoll = $("#new_poll_form");
 	$("#addOption").before(
 		 "<label for=\"username\">Option:</label>",
-		"<input id=\"text\" class=\"txtfield\" tabindex=\"4\" type=\"text\" name=\"option[]\"><br><br>"
+		"<input id=\"text\" class=\"txtfield\" tabindex=\"4\" type=\"text\" name=\"option[]\">"
 
 		);
 }
