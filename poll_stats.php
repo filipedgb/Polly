@@ -16,7 +16,7 @@
 <? include("pollgoogle.php"); ?>
 
 <? foreach($all_polls as $item){ ?>
-	<div  class="poll_item_stat" style="width: 90%; overflow: hidden;">
+	<div  class="poll_item">
 		<?
 			$link = getPollUrl($item['titleHash']);
 			abc($item['title'], $item, $link);

@@ -153,38 +153,6 @@ a{
 
 
 
-.poll_item{
-
-	width: 70%;
-	background-color: rgba(255,255,255,0.7);
-	margin-bottom: 30px;
-	margin-top: 30px;
-	margin-left: auto;
-	margin-right: auto;
-
-	padding-top: 30px;
-	padding-bottom: 30px;
-	
-	border-radius: 25px 0px 25px 0px;
-
-	
-
-}
-
-
-
-.poll_item form{
-	width: 70%;
-	margin: auto;
-
-}
-
-.poll_item h3,p{
-	width: 70%;
-	margin: auto;
-	text-align: center;
-	
-}
 
 img {
     max-height:100%; max-width:100%;
@@ -491,14 +459,14 @@ p {
 
 #loginSmall .flatbtn {
   font-size: 0.7em;
-width: 80px;
+width: 100%;
 height: 35px;
   font-family: 'Helvetica Neue', Helvetica, Verdana, sans-serif;
 
 }
 #loginSmall{
 
-  width: 50px;
+  width: 80px;
 
 }
 
@@ -616,6 +584,22 @@ height: 2%
   margin-right: auto ;
 }
 
+.poll_item {
+  margin: 20px;
+  width: 60%;
+  padding: 15px 20px;
+  background: #f3f6fa;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+   margin-left: auto ;
+  margin-right: auto ;
+}
+
+
 #validatemodal h1{
 font-size: 2em;
 
@@ -681,6 +665,7 @@ font-size: 2em;
 #menuButtons h1::before,
 #menuButtons h1 span,
 #menuButtons nav,
+#menuButtons .logButaoMenu,
 #menuButtons nav::before {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   display: inline-block;
@@ -693,6 +678,7 @@ font-size: 2em;
   margin: 0 0.4em 0;
 
 }
+
 
 
 
@@ -715,12 +701,17 @@ font-size: 2em;
 }
 
 #navButtons{
-  width: auto;
-  
+  width: 70%;
+
 }
 
+#logButaoMenu {
 
-
+  padding-top: 15px;
+  padding-right: 15px;
+  float:right;
+  display: inline-block;
+}
 
 
 

@@ -33,8 +33,8 @@
     </div>-->
     <div id="container" class="menuButtons ">
             <div id="menuButtons" class="ha-header-front">
-              <h1><span>Polly</span></h1>
-              <nav id="navButtons">
+              <h1><span><a href="polls_index.php"><font color="3E4855">Polly</a></span></h1>
+              <nav color="red" id="navButtons">
                 <?php if(isset($_SESSION['username'])){?>
                   <a href="new_poll_group.php">New Poll</a>
                   <a href="polls_answer.php">Answer Polls</a>
@@ -42,18 +42,20 @@
                   <a href="manage_polls.php">Manage my polls</a>
                   <a href="poll_stats.php">Answered Polls results</a>
                   <!--<a href="checklogin.php">My Account</a>-->
-                <a>
-                <?}
+                 <? } ?>
+
+              </nav>
+              <div id="logButaoMenu" >
+                <?
                 include("database/connection.php");
                 include("PasswordHash.php");
                 include 'checklogin.php';
                 //if(isset($_SESSION['username']))echo "Username:".$_SESSION['username']; 
                 ?>  
-              </a>
-              </nav>
+              </div>
+              
             </div>
 
-            <div id="menuAccount" >
+            
 
-            </div>
      </div>

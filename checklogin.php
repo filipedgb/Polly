@@ -10,7 +10,7 @@ if(isset($_SESSION['username']))
           ?> 
           
           	<form id="loginSmall" action="logout.php" method="get">
-          		 <center><div id="loginSmall"><button id=" loginSmall"name="logout" class="flatbtn" name="logout" type="submit" >Logout</button></div></center>
+          		 <center><div id="loginSmall"><button id=" loginSmall"name="logout" class="flatbtn" name="logout" type="submit" >Log Out</button></div></center>
                  </form>
           	 
           <?
