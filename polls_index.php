@@ -11,14 +11,54 @@
 ?>
 
 
+<style type="text/css">
+
+body{margin: 0px;  background-color: #4b8ead;}
+
+#prlx_lyr_1{
+
+        position: fixed;
+
+        background: url(polls.png) no-repeat 50% 200px;
+
+        width: 100%;
+
+        height: 800px;
+          z-index: 0;
+
+}
+
+#content_layer{position: absolute;}
+
+
+
+</style>
+
+<script >
+
+function paralax(){
+
+        var prlx_lyr_1= document.getElementById('prlx_lyr_1');
+
+        prlx_lyr_1.style.top= -(window.pageYOffset /4)+'px';
+
+}
+
+window.addEventListener("scroll", paralax, false);
+
+</script>
+
+
+
+
+
+
 <div class="wrapper">
 
    <main>
       
         <section class="module parallax parallax-1">
-        <div class="container">
-          <h1>Answer</h1>
-        </div>
+        
       </section>
 
       <section class="module content">

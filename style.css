@@ -1283,7 +1283,16 @@ section.module.parallax h1 {
   font-weight: 600;
 }
 section.module.parallax-1 {
-  background-image: url("main.jpg");
+ background-color: #397db9;
+  background-image: url("mac_bandeira.png");
+  max-width: 100%;
+ /*  z-index: 1;
+    -webkit-background-size: contain;
+  -moz-background-size: contain;
+  -o-background-size: contain;
+  background-size: contain;*/
+
+
 }
 section.module.parallax-2 {
   background-image: url("main.jpg");
@@ -1412,6 +1421,7 @@ table {
   width: 100%;
   margin: 0 auto;
   background: #fff;
+   z-index: -5;
 }
 
 main {
@@ -1565,9 +1575,6 @@ a {
 a:hover {
   color: #818181;
 }
-
-
-
 
 
 

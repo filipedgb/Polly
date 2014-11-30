@@ -28,14 +28,14 @@
 			 	</div>
 				<div class="poll_item" id='<?=$item['title']?>'>
 
-				<h2>Poll:<?=$group['title']?></h2>
-				<p><?=$group['description']?></p>
+				<center><h1><?=$group['title']?></h1></center>
+				<center><p style="padding-bottom: 30px;"><?=$group['description']?></p></center>
 
 			<? }  ?>
 
 
-			<h2>Question: <?=$item['title']?></h2>
-				<p><?=$item['description']?></p>
+			<h2> <?=$item['title']?></h2>
+				<p style="font-size:1em; padding-bottom: 10px;"><?=$item['description']?></p>
 
 
 			<div style="width: 100%; overflow: hidden;">
