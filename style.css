@@ -17,6 +17,11 @@ body{
    background-color:#397db9;
 	background-size: 100% auto;
 
+
+}
+
+body:not(.ha-header-front){
+  margin-top: 80px;
 }
 
 #header{
@@ -90,6 +95,7 @@ a{
   width: auto;
 	
 }
+
 
 #footer p{
 	
@@ -744,6 +750,13 @@ font-size: 2em;
   background-color: #0099CC;
 
 }
+/*.ha-header-front{
+  position: fixed;
+  top: 0;
+  margin-bottom: 80px;
+  width: 100%;
+  background-color: #0099CC;
+}*/
 
 #navButtons a{
   padding-top: 28px;
@@ -786,19 +799,19 @@ font-size: 2em;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 500;
-    padding: 0.2em 0.4em;
-    margin: 0 0.4em 0;
-    font-size: 0.8em;
-    cursor: pointer;
-    color: #fff;
-    outline: none;
-    text-decoration: none;
+  padding: 0.2em 0.4em;
+  margin: 0 0.4em 0;
+  font-size: 0.8em;
+  cursor: pointer;
+  color: #fff;
+  outline: none;
+  text-decoration: none;
   padding-bottom: 28px;
   padding-top: 28px;
 }
 
 #menuButtons nav a:last-child {
-     text-align: right;
+  text-align: right;
 }
 
 #navButtons{
@@ -806,7 +819,6 @@ font-size: 2em;
 }
 
 #logButaoMenu {
-
   padding-top: 15px;
   padding-right: 15px;
   float:right;
@@ -881,6 +893,12 @@ font-size: 2em;
   -webkit-transform-origin: 50% 100%;
   -moz-transform-origin: 50% 100%;
   transform-origin: 50% 100%;
+    position: fixed;
+  top: 0;
+  margin-bottom: 80px;
+  width: 100%;
+  background-color: #0099CC;
+  margin-bottom: 90px;
 }
 
 .ha-header-perspective .ha-header-bottom {
