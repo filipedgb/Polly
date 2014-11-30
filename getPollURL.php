@@ -26,4 +26,10 @@
 		return $link;
 	}
 
+	function getPageFileName(){
+		$url = parse_url(curPageURL());
+		$page = basename($url['path']);
+		return $page;
+	}
+
 ?>

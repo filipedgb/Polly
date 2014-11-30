@@ -1,7 +1,7 @@
   <?php
         session_set_cookie_params('/~ei12022/');
         session_start();
-
+        include_once('getPollURL.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -31,16 +31,19 @@
    <!-- <div id="header">
       <h1><a href="polls_index.php">Online Polls Manager</a></h1>
     </div>-->
+
+    <?  $current_page = getPageFileName(); ?>
+
     <div id="container" class="menuButtons ">
             <div id="menuButtons" class="ha-header-front">
               <h1><span><a href="polls_index.php"><font color="3E4855">Polly</a></span></h1>
               <nav color="red" id="navButtons">
                 <?php if(isset($_SESSION['username'])){?>
-                  <a href="new_poll_group.php">New Poll</a>
-                  <a href="polls_answer.php">Answer Polls</a>
-                  <a href="my_poll_stats.php">My Polls results</a>
-                  <a href="manage_polls.php">Manage my polls</a>
-                  <a href="poll_stats.php">Answered Polls results</a>
+                  <a href="new_poll_group.php" <?if ($current_page == "new_poll_group.php") echo 'id="selected"' ?> >New Poll</a>
+                  <a href="polls_answer.php" <?if ($current_page == "polls_answer.php") echo 'id="selected"' ?> >Answer Polls</a>
+                  <a href="my_poll_stats.php" <?if ($current_page == "my_poll_stats.php") echo 'id="selected"' ?> >My Polls results</a>
+                  <a href="manage_polls.php" <?if ($current_page == "manage_polls.php") echo 'id="selected"' ?> >Manage my polls</a>
+                  <a href="poll_stats.php" <?if ($current_page == "poll_stats.php") echo 'id="selected"' ?>>Answered Polls results</a>
                   <!--<a href="checklogin.php">My Account</a>-->
                  <? } ?>
 
