@@ -14,6 +14,11 @@
 
 <? include("pollgoogle.php"); ?>
 
+
+	<? include('search_poll.php'); ?>
+
+
+
 	<? $groupIdtemp = -1;  ?>
 
 

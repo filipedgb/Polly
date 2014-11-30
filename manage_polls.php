@@ -2,16 +2,19 @@
 	include('templates/header.php');
 	include('database/polls_fetch.php');
 	include_once('getPollURL.php');
-	$my_polls = getPollByUser(getUserIDbyUsername($_SESSION['username']));
+	$all_polls = getPollByUser(getUserIDbyUsername($_SESSION['username']));
 
 
 
 
 ?>
 
+	<? include('search_poll.php'); ?>
+
+
 
 	<? 
-	foreach($my_polls as $item){ ?>
+	foreach($all_polls as $item){ ?>
 		
 		<div class="poll_item" id='<?=$item['title']?>'>
 

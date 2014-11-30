@@ -11,11 +11,8 @@
 ?>
 
 
-<div id="searchDiv">
- <form action="search_poll.php" method="post">
-		<input id="searchBox"type="text" name="theSearch"><input id="searchButton" type="submit" value="Search" class="flatbtn">
-</form>
-</div>
+	<? include('search_poll.php'); ?>
+
 
 	<? $groupIdtemp = -1;  ?>
 

@@ -6,15 +6,20 @@
 	
 	echo getUserIDbyUsername($_SESSION['username']);
 	
-	$my_polls = getPollByUser(getUserIDbyUsername($_SESSION['username']));
+	$all_polls = getPollByUser(getUserIDbyUsername($_SESSION['username']));
 
 ?>
 
 <? include("pollgoogle.php"); ?>
 
+
+<? include('search_poll.php'); ?>
+
+
+
 <? $groupIdtemp = -1;  ?>
 
-<? foreach($my_polls as $item){ ?>
+<? foreach($all_polls as $item){ ?>
 	
 			<? if($item['groupId'] != $groupIdtemp) {
 				$group = getGroupPoll($item['groupId']);
