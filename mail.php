@@ -2,11 +2,17 @@
 
 <?php
 
- function emailconf($email, $code) { 
+ function emailconf($email, $link, $code) { 
    
 	echo $email;
 
-	echo $message = "Your confirmation code: " . $code ;
+	echo $message = "Hello!\n
+
+Thank you for joining Polly. \n
+
+Verify your email address and start using Polly by clicking here: " . $link . 
+
+"\n\n You can also copy the code and past it in the website: " . $code;
 
 	mail($email,'Email verification',$message,'From: polly@forms.com');
 

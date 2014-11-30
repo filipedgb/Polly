@@ -12,14 +12,36 @@
 
 <? include("pollgoogle.php"); ?>
 
+<? $groupIdtemp = -1;  ?>
+
 <? foreach($my_polls as $item){ ?>
-	<div  class="poll_item" >
+	
+			<? if($item['groupId'] != $groupIdtemp) {
+				$group = getGroupPoll($item['groupId']);
+			 ?>
+			 	</div>
+					<div  class="poll_item">
+
+				<h2>Poll:<?=$group['title']?></h2>
+				<p><?=$group['description']?></p>
+
+			<? }  ?>
+		
+
+
 		<?
 			$link = getPollUrl($item['titleHash']);
 			abc($item['title'],$item, $link);
 		?>
-	</div>
-<?}?>
+
+			<? if($item['groupId'] != $groupIdtemp) {
+				$groupIdtemp = $item['groupId'];
+
+			 ?>
+<? } ?>
+		
 
 
-<?	include('templates/footer.php'); ?>
+	<? 
+		} include('templates/footer.php');
+	?>

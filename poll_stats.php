@@ -1,6 +1,5 @@
 <? 
 	include('database/polls_fetch.php');
-	$all_polls = getAllPolls();
 	include('templates/header.php'); 
 	include('user.php');
 	include_once('getPollURL.php');
@@ -15,17 +14,49 @@
 
 <? include("pollgoogle.php"); ?>
 
-<? foreach($all_polls as $item){ ?>
-	<div  class="poll_item">
+	<? $groupIdtemp = -1;  ?>
+
+
+<? foreach($all_polls as $item1){ ?>
+	
+
+
+			<? if($item1['groupId'] != $groupIdtemp) {
+				$group = getGroupPoll($item1['groupId']);
+			 ?>
+			 	</div>
+					<div  class="poll_item">
+
+				<h2>Poll:<?=$group['title']?></h2>
+				<p><?=$group['description']?></p>
+
+			<? }  ?>
+
+		
+	
+
+
 		<?
-			$link = getPollUrl($item['titleHash']);
-			abc($item['title'], $item, $link);
+			$link = getPollUrl($item1['titleHash']);
+			abc($item1['title'], $item1, $link);
 			
 		?>
-	</div>
 
-<?}?>
+			<? if($item1['groupId'] != $groupIdtemp) {
+				$groupIdtemp = $item1['groupId'];
+
+			 ?>
+
+	
+
+	
+
+		<? } ?>
+		
 
 
-<?	include('templates/footer.php'); ?>
+	<? 
+		} include('templates/footer.php');
+	?>
+
 

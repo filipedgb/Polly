@@ -46,7 +46,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 
 			$code = substr(md5(uniqid(rand(), true)), 16, 16);
 			$link = "http://".getUrlWithoutPage()."/validateAccount.php?username=".$utilizadore."&code=".$code;
-			emailconf($email, $link);
+			emailconf($email, $link, $code);
 
 	    	$options = ['cost' => 12];
 	        $stmt = $db->prepare('INSERT INTO Utilizador(IdUser,Username,Pword,Email,Active,RegCode) VALUES (?,?,?,?,?,?)');

@@ -11,7 +11,7 @@
 	
 	function getAnsweredPolls($user) {
 		global $db;
-		$stmt = $db->prepare('SELECT poll.id,poll.title,poll.description, poll.titleHash FROM poll, pollAnswer
+		$stmt = $db->prepare('SELECT poll.id,poll.title,poll.description, poll.titleHash, poll.groupId FROM poll, pollAnswer
 		  where pollAnswer.user_id = ? AND
 		   poll.id = pollAnswer.poll_id ORDER BY poll.groupId ;
 		  
@@ -25,7 +25,7 @@
 
 	function getPollsFromGroup($groupId) {
 		global $db;
-		$stmt = $db->prepare('SELECT poll.id,poll.title,poll.description, poll.titleHash FROM poll
+		$stmt = $db->prepare('SELECT * FROM poll
 		  where  poll.groupId = ? ');
 		$stmt->execute(array($groupId));  
 		$result = $stmt->fetchAll();
@@ -38,11 +38,11 @@
 		global $db;
 		$stmt = $db->prepare('
 		
-		select * from poll where
+		SELECT * from poll where
 		poll.visibility != ? and
 
 		 poll.id NOT IN 
-		( select poll_id from pollAnswer where user_id = ?);');
+		( select poll_id from pollAnswer where user_id = ?) ORDER BY poll.groupId;');
 		$stmt->execute(array('Private',$user));  
 		$result = $stmt->fetchAll();
 		return $result;
