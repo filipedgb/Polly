@@ -3,8 +3,6 @@
 
 
  include('templates/header.php'); 
- include('getPollURL.php');
-
 
 
 	// session_start();

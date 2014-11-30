@@ -18,7 +18,6 @@
 			<h2><?=$item['title']?></h2>
 			<h3><?=$item['description']?></h3>
 	
-			<br>
 			<? $visibility = $item['visibility']; ?>
 			<form id="loginform" action="set_poll_visibility.php" method="post">
 				<input type="hidden" name="title" value="<?=$item['title']?>">
@@ -29,7 +28,6 @@
 				<input type="submit" value="Set Visibility" class="flatbtn-blu">
 				</div>
 			</form>
-			<br>
 
 			<form id="form" action="delete_poll.php" method="post">
 				<input type="hidden" name="title" value="<?=$item['title']?>">

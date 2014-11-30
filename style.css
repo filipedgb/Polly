@@ -6,6 +6,7 @@ html{
   width: 100%;
    margin-left: auto;
    margin-right: auto;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	/*background-color: #338822;*/
 }
 
@@ -26,26 +27,8 @@ body{
 	margin-bottom: 0px;
 	
 }
-h1{
-	padding-top: 40px;
-	margin-left: 20px;
-	margin-bottom: 0px;
-	font-family: Verdana;
-	color: white;
-	
-}
 
-h1 a{ /*link do h1*/
-	color: white;
-}
 
-h2{
-	padding-left: 20px;
-	margin: 0px 0px 0px 0px;
-	font-family: Verdana;
-	color: white;
-	padding-bottom: 40px;
-}
 #poll_list h3{
 	font-family: Verdana;
 	font-size: 1.4rem;
@@ -289,7 +272,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   border: 0;
   font-size: 100%;
 
-  font: inherit;
+   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   vertical-align: baseline;
   outline: none;
   -webkit-font-smoothing: antialiased;
@@ -624,6 +607,7 @@ height: 2%
 }
 
 #registermodal {
+
   margin: 20px;
   width: 350px;
   padding: 15px 20px;
@@ -707,7 +691,9 @@ font-size: 2em;
 
 #loginform { /* no default styles */ }
 
-#loginform label { display: block; font-size: 1.1em; font-weight: bold; color: #7c8291; margin-bottom: 3px; }
+#loginform label { display: block; font-size: 1.1em; font-weight: bold; color: #7c8291; margin-bottom: 3px;  font-family: 'Helvetica Neue', Helvetica, Verdana, sans-serif;
+ }
+
 
 
 .txtfield { 
@@ -1222,6 +1208,7 @@ font-size: 2em;
 
   .ha-header h1 {
     font-size: 2em;
+
   }
 
   .ha-header nav {
@@ -1236,10 +1223,13 @@ font-size: 2em;
 ============================================================ */
 section.module:last-child {
   margin-bottom: 0;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 500;
 }
 section.module h2 {
   margin-bottom: 40px;
-  font-family: "Roboto Slab", serif;
+   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 500;
   font-size: 30px;
 }
 section.module p {
@@ -1271,6 +1261,8 @@ section.module.parallax h1 {
   text-align: center;
   text-transform: uppercase;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 600;
 }
 section.module.parallax-1 {
   background-image: url("main.jpg");
@@ -1299,6 +1291,29 @@ section.module.parallax-3 {
   }
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* ============================================================
   RESET - http://meyerweb.com/eric/tools/css/reset/
 ============================================================ */
@@ -1318,8 +1333,6 @@ time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 100%;
-  font: inherit;
   vertical-align: baseline;
 }
 
@@ -1372,13 +1385,7 @@ table {
 /* ============================================================
   HTML & BODY
 ============================================================ */
-body {
-  background-color: #b4b4b4;
-  color: #787878;
-  font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  font-size: 14px;
-  line-height: 1.5;
-}
+
 
 /* ============================================================
   PRIMARY STRUCTURE
@@ -1386,11 +1393,11 @@ body {
 .wrapper {
   width: 100%;
   margin: 0 auto;
+  background: #fff;
 }
 
 main {
   display: block;
-  background-color: #fff;
 }
 
 .container {
@@ -1398,145 +1405,9 @@ main {
   max-width: 960px;
   margin: 0 auto;
   padding: 0 20px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-/* ============================================================
-  INFO BAR
-============================================================ */
-.info-bar {
-  padding: 5px 0;
-  background-color: #fff;
-  text-align: center;
-}
-.info-bar a.icon {
-  display: inline-block;
-  vertical-align: middle;
-  position: relative;
-  margin: 0;
-  padding: 0;
-  width: 30px;
-  height: 30px;
-  background-image: url("../img/core/icons-dark.png");
-  background-image: url("../img/core/icons-dark.svg"), none;
-  opacity: 0.3;
-}
-.info-bar .cmn-tut {
-  background-position: 0 0;
-}
-.info-bar .cmn-prev {
-  background-position: -30px 0;
-}
-.info-bar .cmn-next {
-  background-position: -60px 0;
-}
-.info-bar .cmn-download {
-  background-position: -90px 0;
-}
-.info-bar .cmn-archive {
-  background-position: -120px 0;
-}
-.info-bar a.icon[data-title]:after {
-  opacity: 1;
-}
-.info-bar a.icon[data-title]:hover:after {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  z-index: 20px;
-  content: attr(data-title);
-  padding: 5px 10px;
-  background-color: #fff;
-  color: #000;
-  font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  font-size: 12px;
-  white-space: nowrap;
-}
-
-/* ============================================================
-  HEADER & SITE TITLE
-============================================================ */
-/* header */
-header .branding {
-  padding: 20px 0;
-}
-header .logo {
-  margin-bottom: 20px;
-  text-align: center;
-}
-header .logo img {
-  display: inline-block;
-  vertical-align: middle;
-}
-header .social {
-  text-align: center;
-}
-header .social a {
-  display: inline-block;
-  vertical-align: middle;
-  margin: 0 5px;
-  width: 30px;
-  height: 30px;
-  color: rgba(0, 0, 0, 0);
-  font-size: 0;
-  text-indent: -9999px;
-  background-size: 30px 30px;
-  background-image: url("../img/core/social-light.png");
-  background-image: url("../img/core/social-light.svg"), none;
-  background-size: 180px 30px;
-}
-header .social a.fb {
-  background-position: 0 0;
-}
-header .social a.twitter {
-  background-position: -30px 0;
-}
-header .social a.googleplus {
-  background-position: -60px 0;
-}
-header .social a.rss {
-  background-position: -90px 0;
-}
-header .social a.email {
-  background-position: -120px 0;
-}
-header .social a.search {
-  background-position: -150px 0;
-}
-header .social a:hover {
-  opacity: 0.4;
-}
-
-@media all and (min-width: 600px) {
-  header .branding {
-    padding-left: 60px;
-  }
-  header .logo {
-    margin-bottom: 0;
-    margin-left: -60px;
-    float: left;
-    width: 60px;
-    height: 60px;
-  }
-  header .logo img {
-    display: block;
-    margin: 0;
-  }
-  header .social {
-    padding: 15px 0;
-    float: right;
-    width: 100%;
-    text-align: right;
-  }
-}
-/* site title */
-.site-title {
-  padding: 5px 0;
-  background-color: #818181;
-  text-align: center;
-}
-.site-title h1 {
-  color: #fff;
-}
 
 /* ============================================================
   FOOTER
@@ -1676,4 +1547,11 @@ a {
 a:hover {
   color: #818181;
 }
+
+
+
+
+
+
+
 

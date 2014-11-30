@@ -5,14 +5,6 @@
 
 
 
-  <!-- title and meta -->
- 
-  <!-- css -->
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto+Slab">
-
-  <!-- js -->
-
-
 
 <?php
   include('templates/header.php');
