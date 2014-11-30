@@ -17,11 +17,11 @@
 		if($title !='' && $description !='')
 		{
 
-			echo 'TOU AQUI';
-			$stmt = $db->prepare('INSERT INTO groupPoll(groupId,title,description,userId,visibility, titleHash) VALUES (?,?,?,?,?,?)');
+			/*echo 'TOU AQUI';*/
+			$stmt = $db->prepare('INSERT INTO groupPoll(groupId,title,description,userId,visibility, titleHash, numberOfPrivateQuestions) VALUES (?,?,?,?,?,?,?)');
 			/*$titleHash = create_hash($title);*/
 			$titleHash = md5('groupPoll'.$title);
-			$stmt->execute(array(NULL,$title,$description,$userId,"Public", $titleHash));
+			$stmt->execute(array(NULL,$title,$description,$userId,"Public", $titleHash, 0));
 
 			header("Location:new_poll.php");
 
