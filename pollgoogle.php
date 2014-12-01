@@ -73,7 +73,6 @@
     
 
         <h2><?=$divName?></h2>
-        <h3><?=$item['description']?></h3>
        <!-- <div   id="<?=$divName?>" style="background-color:# width:400; height:300"></div>-->
 
        <div class="pollGoogle" style=" float: left"> 

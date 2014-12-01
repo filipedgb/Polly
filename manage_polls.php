@@ -19,7 +19,6 @@
 		<div class="poll_item" id='<?=$item['title']?>'>
 
 			<h2><?=$item['title']?></h2>
-			<h3><?=$item['description']?></h3>
 	
 			<? $visibility = $item['visibility'];/* echo $visibility."<br>";*/?>
 			<form id="loginform" action="set_poll_visibility.php" method="post">

@@ -14,8 +14,8 @@ include('user.php');
 	<form id="loginform"  action= "new_poll_action.php" method="post" enctype="multipart/form-data">
 		<label for="username">Question Title:</label>
 		<input type="text" name="title" id="text" class="txtfield" tabindex="1">
-		<label for="username">Question Description:</label>
-		<input type="text" name="description" id="text" class="txtfield" tabindex="2">
+	<!--	<label for="username">Question Description:</label>
+		<input type="text" name="description" id="text" class="txtfield" tabindex="2"> -->
 		<label for="username">Select Image:</label>
 		<input type="file" name="image" id="text"  tabindex="3">
 		

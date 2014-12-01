@@ -28,7 +28,6 @@
 					<div  class="poll_item">
 
 				<center><h1><?=$group['title']?></h1></center>
-				<center><p style="padding-bottom: 30px;"><?=$group['description']?></p></center>
 
 			<? }  ?>
 		

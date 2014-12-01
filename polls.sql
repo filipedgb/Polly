@@ -31,7 +31,6 @@ CREATE TABLE groupPoll (
 CREATE TABLE poll (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	title VARCHAR UNIQUE,
-	description VARCHAR,
 	userId INTEGER REFERENCES Utilizador NOT NULL,
 	visibility VARCHAR, /*Private or Public*/
 	titleHash VARCHAR,  /*used to generate private polls links */

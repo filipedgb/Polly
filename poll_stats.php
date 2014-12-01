@@ -23,7 +23,7 @@
 
 <? foreach($all_polls as $item1){ 
 
-	echo $item1['title'];
+/*	echo $item1['title'];*/
 
 	?>
 	

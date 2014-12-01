@@ -11,7 +11,7 @@
 	
 	function getAnsweredPolls($user) {
 		global $db;
-		$stmt = $db->prepare('SELECT poll.id,poll.title,poll.description, poll.titleHash, poll.groupId FROM poll, pollAnswer
+		$stmt = $db->prepare('SELECT poll.id,poll.title, poll.titleHash, poll.groupId FROM poll, pollAnswer
 		  where pollAnswer.user_id = ? AND
 		   poll.id = pollAnswer.poll_id ORDER BY poll.groupId ;
 		  
@@ -166,6 +166,24 @@
 		$stmt->execute(array($groupid));
 		$item = $stmt->fetch();	
 		return $item['id'];
+	}
+
+	function isGroupPrivate($groupid){
+		global $db;
+		$stmt = $db->prepare('SELECT * FROM groupPoll WHERE id = ?');
+		$stmt->execute(array($groupid));
+		$item = $stmt->fetch();	
+		if ($item['visibility'] == "Private" || $item['numberOfPrivateQuestions'] > 0)
+			return true;
+		return false;
+	}
+
+	function getGroupByHash($titleHash){
+		global $db;
+		$stmt = $db->prepare('SELECT * FROM groupPoll WHERE titleHash = ?');
+		$stmt->execute(array($titleHash));
+		$item = $stmt->fetch();	
+		return $item;
 	}
 
 

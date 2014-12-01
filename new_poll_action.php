@@ -10,7 +10,7 @@
 		// Fetching variables of the form which travels in URL
 		global $db;
 		$title = htmlspecialchars($_POST['title']);
-		$description = htmlspecialchars($_POST['description']);
+		/*$description = htmlspecialchars($_POST['description']);*/
 		$userId = getUserIDbyUsername($_SESSION['username']);
 		$options = $_POST['option'];
 
@@ -38,16 +38,16 @@
 		}
 
 		//adds the poll
-		if($title !='' && $description !='')
+		if($title !=''/* && $description !=''*/)
 		{
 
-			$stmt = $db->prepare('INSERT INTO poll(id,title,description,userId,visibility, titleHash, groupId) VALUES (?,?,?,?,?,?,?)');
+			$stmt = $db->prepare('INSERT INTO poll(id,title,userId,visibility, titleHash, groupId) VALUES (?,?,?,?,?,?)');
 			/*$titleHash = create_hash($title);*/
 			$titleHash = md5('poll'.$title);
 
 			echo $groupId[0];
 
-			$stmt->execute(array(NULL,$title,$description,$userId,"Public", $titleHash,$groupId[0]));
+			$stmt->execute(array(NULL,$title,$userId,"Public", $titleHash,$groupId[0]));
 		}
 		else
 		{

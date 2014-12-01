@@ -20,10 +20,9 @@ function addOptionRequest(){
 		"<input id=\"text\" class=\"txtfield\" tabindex=\"4\" type=\"text\" name=\"option[]\">"
 
 		);
+
+
 }
-
-
-
 
 
 
