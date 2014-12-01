@@ -748,7 +748,7 @@ font-size: 2em;
 
 
 .menuButtons{
-  background-color: #0099CC;
+  background-color: #1f4464;
 
 }
 /*.ha-header-front{
@@ -766,10 +766,11 @@ font-size: 2em;
 }
 .menuButtons #selected{
 
-  background-color: #397db9;
+  font-weight: bold;
+  /* font-weight: 900;*/
  /* padding-top: 20px;*/
- padding-top: 28px;
-  padding-bottom: 28px;
+ /*padding-top: 28px;
+  padding-bottom: 28px;*/
 }
 
 #menuButtons nav {
@@ -1045,7 +1046,7 @@ section.module:last-child {
   font-weight: 500;
 }
 section.module h2 {
-  margin-bottom: 40px;
+  margin-bottom: 20px;
    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 500;
   font-size: 30px;
@@ -1065,7 +1066,7 @@ section.module.parallax {
   height: 600px;
   background-position: 50% 50%;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+ /* background-attachment: fixed;*/
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -1086,6 +1087,7 @@ section.module.parallax-1 {
  background-color: #397db9;
   background-image: url("Polly_logo.png");
   max-width: 100%;
+
    z-index: 1;
     -webkit-background-size: contain;
   -moz-background-size: contain;
@@ -1241,9 +1243,14 @@ main {
   margin: 0 auto;
   padding: 0 20px;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin-top: 20px;
+    margin-bottom: 60px;
 }
 
+.container h2{
 
+margin-bottom: 20px;
+}
 /* ============================================================
   FOOTER
 ============================================================ */
@@ -1376,11 +1383,11 @@ footer .copyright a {
 ============================================================ */
 a {
   text-decoration: none;
-  color: #b4b4b4;
+  color: #fff;
 }
 
 a:hover {
-  color: #818181;
+  color: #93c0e9;
 }
 
 
@@ -1392,3 +1399,5 @@ a:hover {
   min-height: 360px;
 
 }
+
+

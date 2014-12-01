@@ -56,11 +56,13 @@ window.addEventListener("scroll", paralax, false);
 <div class="wrapper">
 
    <main>
-      
-        <section class="module parallax parallax-1">
-        
-      </section>
 
+        <section class="module parallax parallax-1">
+        <div id="prlx_lyr_1" z-index:"0px">
+       
+             </div>
+      </section>
+   
       <section class="module content">
         <div class="container">
           <h2>Search polls and answer them</h2>
@@ -90,7 +92,7 @@ window.addEventListener("scroll", paralax, false);
 
       <section class="module content">
        <div class="container">
-          <h2>Share your polls in social networks </h2>
+          <h2></h2>
           <p>  </p>
          
         </div>

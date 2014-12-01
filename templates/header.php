@@ -36,7 +36,8 @@
 
     <div id="container" class="menuButtons ">
             <div id="menuButtons" class="ha-header-front ">
-              <h1><span><a href="polls_index.php"><font color="3E4855">Polly</a></span></h1>
+
+              <h1><span><a href="polls_index.php">  Polly</font></a></span></h1>
               <nav color="red" id="navButtons">
                 <?php if(isset($_SESSION['username'])){?>
                   <a href="new_poll_group.php" <?if ($current_page == "new_poll_group.php") echo 'id="selected"' ?> >New Poll</a>
