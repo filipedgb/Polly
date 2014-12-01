@@ -35,8 +35,8 @@
       // Set chart options
       var options = {/*'title': "<?=$divName?>",*/
       sliceVisibilityThreshold: 0,
-                     'width':'200',
-                     'height':'150', 'backgroundColor': { fill:'transparent' },'legend.alignment':"center"};
+                     'width':'300',
+                     'height':'300', 'backgroundColor': { fill:'transparent' },'legend.alignment':"center"};
 
       // Instantiate and draw our chart, passing in some options.
 
@@ -82,11 +82,14 @@
 
 
         <div class="square" style="margin-left: 70%"> 
+          
+        <div class="fb-share-button" data-href="<?=$link?>" data-layout="button_count"  style="float:right"></div>
             <?$idPoll=$item['id'];
           $src=getSource($idPoll);?>
           <img src="<?=$src?>" alt="" width:"auto"; height:"auto;"> 
+
         </div>
-      <div class="fb-share-button" data-href="<?=$link?>" data-layout="button_count"></div>
+      
 
         
     

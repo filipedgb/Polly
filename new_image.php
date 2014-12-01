@@ -2,8 +2,6 @@
   include_once('database/connection.php');
 ?>
 
-<? include('templates/header.php'); ?>
-
 
 	<form action= "new_image.php" method="post" enctype="multipart/form-data">
 		Select Image: <input type="file" name="image"/><br><br>
@@ -34,5 +32,3 @@ if(isset($_POST['upload'])){
 ?>
 
 
-
-<?	include('templates/footer.php'); ?>

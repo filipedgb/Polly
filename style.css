@@ -22,7 +22,8 @@ body{
 /*
 body:not(.ha-header-front){
   margin-top: 80px;
-}*/
+}
+*/
 
 #header{
 	width: 100%;
@@ -376,7 +377,7 @@ h1:after {
   width: 50%;
   height: 1px;
   vertical-align: middle;
-  background: #f0f0f0;
+  background: #e8e8e8;
 }
 h1:before {    
   left: -.5em;
@@ -450,7 +451,7 @@ p {
   border: 0;
   color: #f3faef;
   text-decoration: none;
-  background-color: #6bb642;
+  background-color: #78c732;
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
   font-size: 1.2em;
   font-weight: bold;
@@ -530,7 +531,7 @@ padding: 5px;
 #searchBox{
   height: 30px;
    width: 200px;
-   font-size: 0.5em;
+   font-size: 0.9em;
 }
 
 #searchDiv{
@@ -1388,6 +1389,6 @@ a:hover {
 
 #pollsGoogle{
 
-  min-height: 250px;
+  min-height: 360px;
 
 }
