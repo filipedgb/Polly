@@ -71,7 +71,6 @@ window.addEventListener("scroll", paralax, false);
 
       <section class="module parallax parallax-2">
         <div class="container">
-          <h1>Ask</h1>
         </div>
       </section>
 

@@ -108,3 +108,11 @@ $(document).ready(function(){
 	});
 });
 */
+
+
+
+function wrongLogin(){
+	   document.getElementById("loginmodal").style.display = 'block';
+	
+}
+

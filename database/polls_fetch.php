@@ -123,6 +123,16 @@
 		return $result;
 	}
 
+	function getPollOptionFromId($pollid){
+		global $db;
+	
+		$stmt = $db->prepare('SELECT * FROM pollOption WHERE poll_id = ?');
+		$stmt->execute(array($poll_id, $title));
+		$result = $stmt->fetch();	
+		return $result;
+
+	}
+
 	function getUserIDbyUsername($user) {
 		global $db;
 
@@ -147,6 +157,15 @@
 		return $result['src'];
 
 
+	}
+
+
+	function getPolls($groupid){
+		global $db;
+		$stmt = $db->prepare('SELECT * FROM poll WHERE groupId = ?');
+		$stmt->execute(array($groupid));
+		$item = $stmt->fetch();	
+		return $item['id'];
 	}
 
 

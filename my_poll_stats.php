@@ -27,13 +27,12 @@
 			 	</div>
 					<div  class="poll_item">
 
-				<h2>Poll:<?=$group['title']?></h2>
-				<p><?=$group['description']?></p>
+				<center><h1><?=$group['title']?></h1></center>
+				<center><p style="padding-bottom: 30px;"><?=$group['description']?></p></center>
 
 			<? }  ?>
 		
-
-
+			<div id="pollsGoogle" >
 		<?
 			$link = getPollUrl($item['titleHash']);
 			abc($item['title'],$item, $link);
@@ -44,6 +43,9 @@
 
 			 ?>
 <? } ?>
+
+</div>
+
 		
 
 

@@ -761,6 +761,7 @@ font-size: 2em;
 #navButtons a{
   padding-top: 28px;
   padding-bottom: 28px;
+
 }
 .menuButtons #selected{
 
@@ -1286,7 +1287,7 @@ section.module.parallax h1 {
 }
 section.module.parallax-1 {
  background-color: #397db9;
-  background-image: url("mac_bandeira.png");
+  background-image: url("Polly_logo.png");
   max-width: 100%;
  /*  z-index: 1;
     -webkit-background-size: contain;
@@ -1297,7 +1298,14 @@ section.module.parallax-1 {
 
 }
 section.module.parallax-2 {
-  background-image: url("main.jpg");
+ background-color: #397db9;
+  background-image: url("mac_bandeira.png");
+  max-width: 100%;
+ /*  z-index: 1;
+    -webkit-background-size: contain;
+  -moz-background-size: contain;
+  -o-background-size: contain;
+  background-size: contain;*/
 }
 section.module.parallax-3 {
   background-image: url("main.jpg");
@@ -1582,3 +1590,8 @@ a:hover {
 
 
 
+#pollsGoogle{
+
+  min-height: 250px;
+
+}
