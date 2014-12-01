@@ -35,7 +35,7 @@
     <?  $current_page = getPageFileName(); ?>
 
     <div id="container" class="menuButtons ">
-            <div id="menuButtons" class="ha-header-front">
+            <div id="menuButtons" class="ha-header-front ">
               <h1><span><a href="polls_index.php"><font color="3E4855">Polly</a></span></h1>
               <nav color="red" id="navButtons">
                 <?php if(isset($_SESSION['username'])){?>

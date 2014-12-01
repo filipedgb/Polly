@@ -32,6 +32,7 @@ $ESTADO=1;
 				$group = getGroupPoll($item['groupId']);
 				$BOOLEANO=$BOOLEANO+1;
 				IF($ESTADO==3){
+					$BOOLEANO=2;
 				 ?><input type="submit" value="Answer" class="flatbtn-blu">
 				 	</form>
 				 <?
@@ -41,27 +42,29 @@ $ESTADO=1;
 			 ?>
 
 			 	 
+			 	<?IF($ESTADO==3)
 
+
+			 		?>
 			 	</div>
 			 	<?$ESTADO=2?>
 				<div class="poll_item">
 				<form id="form" action="answer_poll_action.php" method="post">
 				<input type="hidden" name="groupid" value="<?=$item['groupId']?>" >
 				<center><h1><?=$group['title']?></h1></center>
-				<center><h1><?=$item['groupId']?></h1></center>
 				<center><p style="padding-bottom: 30px;"><?=$group['description']?></p></center>
 
 			<? }  ?>
+						<div style="width: 100%; overflow: hidden; padding-top: 20px; padding-bottom: 20px;  padding-left: 5px;">
 
-
+									    <div style="width:70%; float: left;"> 
 						<h2> <?=$item['title']?></h2>
 						<p style="font-size:1em; padding-bottom: 10px;"><?=$item['description']?></p>
 
 
-						<div style="width: 100%; overflow: hidden;">
+						
 
 							
-									    <div style="width:70%; float: left;"> 
 											<?	$poll_options = getPollOptions($item['title']); ?>
 
 											
@@ -92,17 +95,18 @@ $ESTADO=1;
 
 
 			 ?>
-
 		<? } $ESTADO=3;?>
 
 	<? 
 	
 		}
 
-	if($BOOLEANO>1)
+	if($BOOLEANO>=1)
 	{
 		 ?><input type="submit" value="Answer" class="flatbtn-blu"><?
 	}
+
+	//echo $BOOLEANO;
 	?>
 
 
