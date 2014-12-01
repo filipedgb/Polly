@@ -8,6 +8,14 @@
 		$result = $stmt->fetchAll();
 		return $result;
 	}
+
+	function getAllPollGroups(){
+		global $db;
+		$stmt = $db->prepare('SELECT * FROM groupPoll');
+		$stmt->execute();  
+		$result = $stmt->fetchAll();
+		return $result;
+	}
 	
 	function getAnsweredPolls($user) {
 		global $db;
@@ -21,6 +29,23 @@
 		return $result;
  
 	}
+
+	function getAnsweredGroups($user_id) {
+		global $db;
+		$stmt = $db->prepare('SELECT distinct groupPoll.groupId, groupPoll.title, groupPoll.description, groupPoll.userId,
+			groupPoll.visibility, groupPoll.titleHash, groupPoll.numberOfPrivateQuestions
+			FROM groupPoll, poll, pollAnswer
+			WHERE pollAnswer.user_id = ? AND
+		  		 poll.id = pollAnswer.poll_id AND
+		  		 poll.groupId = groupPoll.groupId
+		  	ORDER BY groupPoll.groupId ;');
+		//print_r($db->errorInfo());
+		$stmt->execute(array($user_id));  
+		$result = $stmt->fetchAll();
+		return $result;
+ 
+	}
+
 
 
 	function getPollsFromGroup($groupId) {
@@ -48,6 +73,25 @@
 		return $result;
  
 	}
+	
+	function getUnansweredGroups($user_id) {
+		global $db;
+		$stmt = $db->prepare('SELECT * from groupPoll 
+			WHERE visibility != ? AND
+				numberOfPrivateQuestions == 0 AND
+				groupPoll.groupId NOT IN 
+					(SELECT distinct groupPoll.groupId
+					FROM groupPoll, poll, pollAnswer
+					WHERE pollAnswer.user_id = ? AND
+						poll.id = pollAnswer.poll_id AND
+						poll.groupId = groupPoll.groupId)
+			ORDER BY groupPoll.groupId;');
+		
+		$stmt->execute(array('Private',$user_id));  
+		$result = $stmt->fetchAll();
+		return $result;
+ 
+	}
 
 	function getPollTitleHash($id){
 		global $db;
@@ -59,10 +103,18 @@
 	
 	
 	
-	function getPollByUser($user){
+	function getPollByUser($user_id){
 		global $db;
 		$stmt = $db->prepare('SELECT * FROM poll WHERE userId = ?');
-		$stmt->execute(array($user));
+		$stmt->execute(array($user_id));
+		$item = $stmt->fetchAll();	
+		return $item;
+	}
+
+	function getPollGroupByUser($user_id){
+		global $db;
+		$stmt = $db->prepare('SELECT * FROM groupPoll WHERE userId = ?');
+		$stmt->execute(array($user_id));
 		$item = $stmt->fetchAll();	
 		return $item;
 	}
@@ -106,6 +158,14 @@
 		$poll_id = getPollByTitle($title)['id'];
 
 
+		$stmt = $db->prepare('SELECT * FROM pollOption WHERE poll_id = ?');
+		$stmt->execute(array($poll_id));
+		$result = $stmt->fetchAll();	
+		return $result;
+	}
+
+	function getPollOptionsByPollId($poll_id){
+		global $db;
 		$stmt = $db->prepare('SELECT * FROM pollOption WHERE poll_id = ?');
 		$stmt->execute(array($poll_id));
 		$result = $stmt->fetchAll();	
@@ -167,6 +227,8 @@
 		$item = $stmt->fetch();	
 		return $item['id'];
 	}
+
+
 
 	function isGroupPrivate($groupid){
 		global $db;

@@ -4,12 +4,22 @@
 	include_once('getPollURL.php');
 	$all_polls = getPollByUser(getUserIDbyUsername($_SESSION['username']));
 
-
+	$all_groups = getPollGroupByUser(getUserIDbyUsername($_SESSION['username']));
 
 
 ?>
 
 	<? include('search_poll.php'); ?>
+
+<?
+
+	foreach ($all_groups as $group) {
+		
+	}
+
+
+?>
+
 
 
 

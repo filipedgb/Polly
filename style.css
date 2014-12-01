@@ -21,7 +21,7 @@ body{
 }
 /*
 body:not(.ha-header-front){
-  margin-top: 80px;
+  margin-top: 70px;
 }
 */
 
@@ -865,17 +865,17 @@ font-size: 2em;
 
 
 
-.ha-header-front:not(#loginform, #loginmodal) {
+.ha-header-front:not(#loginmodal) {
   z-index: 2;
   -webkit-transform-origin: 50% 100%;
   -moz-transform-origin: 50% 100%;
   transform-origin: 50% 100%;
-  position: fixed;
+ /* position: fixed;
   top: 0;
   margin-bottom: 80px;
   width: 100%;
-  background-color: #0099CC;
-  margin-bottom: 90px;
+  background-color: #FF99CC;*/
+ /* margin-bottom: 90px;*/
 }
 
 

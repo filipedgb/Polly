@@ -19,7 +19,6 @@
 		<div class="poll_item" id='<?=$item['title']?>'>
 
 			<h3><?=$item['title']?></h3>
-			<p><?=$item['description']?></p>
 	
 
 			<?	$poll_options = getPollOptions($item['title']); ?>
