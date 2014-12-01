@@ -59,6 +59,7 @@ CREATE TABLE pollImage (
 
 
 /*
+
 INSERT INTO poll VALUES (NULL, 'Test 1', 'Test poll number 1', 0, 'Public',1);
 INSERT INTO pollOption VALUES (NULL, 1, '<=18', 0);
 INSERT INTO pollOption VALUES (NULL, 1, '>=18 & <25', 0);
@@ -86,9 +87,9 @@ create trigger decPollPrivateCounter
 after update on poll
 begin
 	UPDATE groupPoll
-	SET numberOfPrivateQuestions = numberOfPrivateQuestions - 1
-	WHERE NEW.privacy = 'Private' AND
-			OLD.privacy = 'Public' AND
+	SET numberOfPrivateQuestions = numberOfPrivateQuestions + 1
+	WHERE NEW.visibility = 'Private' AND
+			OLD.visibility = 'Public' AND
 			NEW.groupId = groupId;
 end;
 
@@ -97,8 +98,8 @@ create trigger incPollPrivateCounter
 after update on poll
 begin
 	UPDATE groupPoll
-	SET numberOfPrivateQuestions = numberOfPrivateQuestions + 1
-	WHERE NEW.privacy = 'Public' AND
-			OLD.privacy = 'Private' AND
+	SET numberOfPrivateQuestions = numberOfPrivateQuestions - 1
+	WHERE NEW.visibility = 'Public' AND
+			OLD.visibility = 'Private' AND
 			NEW.groupId = groupId;
 end;

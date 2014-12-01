@@ -21,12 +21,11 @@
 			<h2><?=$item['title']?></h2>
 			<h3><?=$item['description']?></h3>
 	
-			<? $visibility = $item['visibility']; ?>
+			<? $visibility = $item['visibility'];/* echo $visibility."<br>";*/?>
 			<form id="loginform" action="set_poll_visibility.php" method="post">
 				<input type="hidden" name="title" value="<?=$item['title']?>">
 				<input type="radio" name="visibility" value="Public" checked='checked'>Public<br>
-				<input type="radio" name="visibility" value="Private" 
-					<? if ($visibility == 'Private') echo "checked='checked'"?> >Private<br>
+				<input type="radio" name="visibility" value="Private" <? if ($visibility == 'Private') echo "checked='checked'"?> >Private<br>
 				<div id="marginButton">
 				<input type="submit" value="Set Visibility" class="flatbtn-blu">
 				</div>

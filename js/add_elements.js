@@ -1,3 +1,5 @@
+
+
 function ClipBoard(text) 
 {
 	/*holdtext.innerText = copytext.innerText;
@@ -44,6 +46,8 @@ function loadDocument() {
 	//loadProducts(select);
 	$('.poll_item').hide();
 	$('.poll_item_stat').hide();
+	
+	
 	$(".basePanel").hide().fadeIn(1000, null);
 	//$(".poll_item").hide().fadeIn(1000, null);
 

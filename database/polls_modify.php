@@ -6,9 +6,11 @@
 			return;
 
 		global $db;
+		//echo $visibility."<br>".$poll_id."<br>"; 
 		$stmt = $db->prepare('UPDATE poll SET visibility=? WHERE id=?');
 		$stmt->execute(array($visibility, $poll_id));
-
+		//echo $visibility."<br>".$poll_id."<br>";
+		//print_r($db->errorInfo());
 	}
 
 	function deletePoll($poll_id){
