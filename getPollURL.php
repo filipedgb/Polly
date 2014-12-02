@@ -18,6 +18,14 @@
 		return $link;
 	}
 
+	function getGroupUrl($group_hash){
+		$url = parse_url(curPageURL());
+		$path = dirname($url['path']);
+		$host = $url['host'];
+		$link = $path."/single_group.php?group=".$group_hash;
+		return $link;
+	}
+
 	function getUrlWithoutPage(){
 		$url = parse_url(curPageURL());
 		$path = dirname($url['path']);

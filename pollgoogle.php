@@ -82,7 +82,7 @@
 
         <div class="square" style="margin-left: 70%"> 
           
-        <div class="fb-share-button" data-href="<?=$link?>" data-layout="button_count"  style="float:right"></div>
+       <!-- <div class="fb-share-button" data-href="<?=$link?>" data-layout="button_count"  style="float:right"></div> -->
             <?$idPoll=$item['id'];
           $src=getSource($idPoll);?>
           <img src="<?=$src?>" alt="" width:"auto"; height:"auto;"> 

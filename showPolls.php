@@ -1,5 +1,6 @@
 <?
 	include_once('pollgoogle.php');
+	include_once('getPollURL.php');
 
 	function showPollGroupStat($group){ 
 		echo '<div class="poll_item">';
@@ -14,6 +15,9 @@
 			abc($poll['title'], $poll, $link);
 			echo '</div>';
 		}
+
+		$link = getGroupUrl($group['titleHash']); /*funcao está em getPollURL.php */
+		echo '<div class="fb-share-button" data-href="'.$link.'" data-layout="button_count" ></div>';
 		echo '</div>';
 	}
 
@@ -78,13 +82,13 @@
 			echo '</div>';
 		echo '</form>';
 
-	
+		/* LINK FOR QUESTIONNAIRE SHARING */
+		$link = getGroupUrl($group['titleHash']); /*funcao está em getPollURL.php */
+		echo "<a href=\"".$link."\" style=\"color: black\">"."Share Link</a>"; /*this "black" should be in css sheet */
 		echo '</div>';
 	}
 
-?>
 
-<?
 /*	foreach( $codes as $index => $code ) {
    echo '<option value="' . $code . '">' . $names[$index] . '</option>';
 }*/

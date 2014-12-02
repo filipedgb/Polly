@@ -20,7 +20,7 @@ CREATE TABLE Utilizador (
 
 CREATE TABLE groupPoll (
 	groupId INTEGER PRIMARY KEY AUTOINCREMENT,
-	title VARCHAR UNIQUE,
+	title VARCHAR,
 	description VARCHAR,
 	userId INTEGER REFERENCES Utilizador NOT NULL,
 	visibility VARCHAR, /*Private or Public*/
@@ -29,7 +29,7 @@ CREATE TABLE groupPoll (
 
 CREATE TABLE poll (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
-	title VARCHAR UNIQUE,
+	title VARCHAR,
 	userId INTEGER REFERENCES Utilizador NOT NULL,
 	titleHash VARCHAR,  /*used to generate private polls links */
 	groupId INTEGER REFERENCES groupPoll
