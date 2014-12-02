@@ -4,6 +4,8 @@
 
 include('templates/header.php'); 
 include('user.php');
+  include("database/connection.php"); 
+ include("PasswordHash.php");  
 
 
 // session_start();

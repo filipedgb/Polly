@@ -4,6 +4,8 @@
 
  include('templates/header.php'); 
  include('user.php');
+ include("database/connection.php");	
+
 
 
 	// session_start();
@@ -30,6 +32,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 				$stmt->bindParam(':newuser',$newUsername, PDO::PARAM_STR);
 				$stmt->bindParam(':olduser',$oldUsername, PDO::PARAM_STR);
 				$stmt->execute();
+
+		$_SESSION['username'] = $newUsername;
+
+		header("location: my_account.php");
 
 	}
 

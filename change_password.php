@@ -4,6 +4,9 @@
 
 include('templates/header.php'); 
 include('user.php');
+ include("database/connection.php");  
+  include("PasswordHash.php");  
+
 
 
 // session_start();
@@ -33,13 +36,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
         $stmt->bindParam(':user',$username, PDO::PARAM_STR);
         $stmt->execute();
 
-      }
+        header("location: my_account.php");
 
 
       }
 
 
-
+      }
 
 }
 
