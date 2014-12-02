@@ -41,13 +41,13 @@
 		if($title !=''/* && $description !=''*/)
 		{
 
-			$stmt = $db->prepare('INSERT INTO poll(id,title,userId,visibility, titleHash, groupId) VALUES (?,?,?,?,?,?)');
+			$stmt = $db->prepare('INSERT INTO poll(id,title,userId, titleHash, groupId) VALUES (?,?,?,?,?)');
 			/*$titleHash = create_hash($title);*/
 			$titleHash = md5('poll'.$title);
 
 			echo $groupId[0];
 
-			$stmt->execute(array(NULL,$title,$userId,"Public", $titleHash,$groupId[0]));
+			$stmt->execute(array(NULL,$title,$userId, $titleHash,$groupId[0]));
 		}
 		else
 		{

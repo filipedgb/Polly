@@ -24,15 +24,13 @@ CREATE TABLE groupPoll (
 	description VARCHAR,
 	userId INTEGER REFERENCES Utilizador NOT NULL,
 	visibility VARCHAR, /*Private or Public*/
-	titleHash VARCHAR, /*used to generate private polls links */
-	numberOfPrivateQuestions INT CHECK (numberOfPrivateQuestions >= 0) /* se > 0, entao o grupo é privado */
+	titleHash VARCHAR /*used to generate private polls links */
 );
 
 CREATE TABLE poll (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	title VARCHAR UNIQUE,
 	userId INTEGER REFERENCES Utilizador NOT NULL,
-	visibility VARCHAR, /*Private or Public*/
 	titleHash VARCHAR,  /*used to generate private polls links */
 	groupId INTEGER REFERENCES groupPoll
 );
@@ -82,23 +80,3 @@ begin
 end;
 
 
-create trigger decPollPrivateCounter
-after update on poll
-begin
-	UPDATE groupPoll
-	SET numberOfPrivateQuestions = numberOfPrivateQuestions + 1
-	WHERE NEW.visibility = 'Private' AND
-			OLD.visibility = 'Public' AND
-			NEW.groupId = groupId;
-end;
-
-
-create trigger incPollPrivateCounter
-after update on poll
-begin
-	UPDATE groupPoll
-	SET numberOfPrivateQuestions = numberOfPrivateQuestions - 1
-	WHERE NEW.visibility = 'Public' AND
-			OLD.visibility = 'Private' AND
-			NEW.groupId = groupId;
-end;

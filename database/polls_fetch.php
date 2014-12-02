@@ -33,7 +33,7 @@
 	function getAnsweredGroups($user_id) {
 		global $db;
 		$stmt = $db->prepare('SELECT distinct groupPoll.groupId, groupPoll.title, groupPoll.description, groupPoll.userId,
-			groupPoll.visibility, groupPoll.titleHash, groupPoll.numberOfPrivateQuestions
+			groupPoll.visibility, groupPoll.titleHash
 			FROM groupPoll, poll, pollAnswer
 			WHERE pollAnswer.user_id = ? AND
 		  		 poll.id = pollAnswer.poll_id AND
@@ -64,8 +64,6 @@
 		$stmt = $db->prepare('
 		
 		SELECT * from poll where
-		poll.visibility != ? and
-
 		 poll.id NOT IN 
 		( select poll_id from pollAnswer where user_id = ?) ORDER BY poll.groupId;');
 		$stmt->execute(array('Private',$user));  
@@ -78,7 +76,6 @@
 		global $db;
 		$stmt = $db->prepare('SELECT * from groupPoll 
 			WHERE visibility != ? AND
-				numberOfPrivateQuestions == 0 AND
 				groupPoll.groupId NOT IN 
 					(SELECT distinct groupPoll.groupId
 					FROM groupPoll, poll, pollAnswer
@@ -235,7 +232,7 @@
 		$stmt = $db->prepare('SELECT * FROM groupPoll WHERE id = ?');
 		$stmt->execute(array($groupid));
 		$item = $stmt->fetch();	
-		if ($item['visibility'] == "Private" || $item['numberOfPrivateQuestions'] > 0)
+		if ($item['visibility'] == "Private")
 			return true;
 		return false;
 	}
@@ -245,6 +242,14 @@
 		$stmt = $db->prepare('SELECT * FROM groupPoll WHERE titleHash = ?');
 		$stmt->execute(array($titleHash));
 		$item = $stmt->fetch();	
+		return $item;
+	}
+
+	function getGroupsByUserId($user_id){
+		global $db;
+		$stmt = $db->prepare('SELECT * FROM groupPoll WHERE userId = ?');
+		$stmt->execute(array($user_id));
+		$item = $stmt->fetchAll();	
 		return $item;
 	}
 

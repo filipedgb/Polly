@@ -5,6 +5,4 @@
 
 }
         
-
-
- else header("location: polls_index.php");?>
+else header("location: polls_index.php");?>
