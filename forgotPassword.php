@@ -2,6 +2,8 @@
 <?php
  include('templates/header.php'); 
  include("database/connection.php");	
+ include('database/polls_fetch.php');
+    include_once('PasswordHash.php');
 
 
 
@@ -24,6 +26,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 			// Generating Password
 			$chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%&*_";
 			$password = substr( str_shuffle( $chars ), 0, 8 );
+			$code = substr( str_shuffle( $chars ), 0, 8 );
+
+
+			$link = "http://".getUrlWithoutPage()."/change_password_vialink.php?username=".$username."&code=".$code;
+
 
 
 			$stmt = $db->prepare('UPDATE Utilizador SET Pword= :temppw WHERE username = :user');
@@ -32,17 +39,21 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 					$stmt->execute();
 
 
+			$stmt = $db->prepare('INSERT INTO resetPw (userId,tempCode) VALUES (?,?)');
+			$stmt->execute(array(getUserIDbyUsername($username), $code));
+		
+
 			echo $message = "Hello!\n
 
 If you don't have an account on Polly or didn't ask for a new password please ignore this email. \n
 
-Your new password: " . $password ;
+Your new password: " . $password . "\n You can also click the following link to reset the password right now. Note that this link can only be used once, so if you don't reset your password you'll have to use the one we gave you in this email. \n LINK:" . $link;
 
 
 			mail($email,'New Password',$message,'From: polly@forms.com');
 
 
-					header('Location: polls_index.php');
+			///		header('Location: polls_index.php');
 
 
 

@@ -42,6 +42,13 @@ CREATE TABLE pollOption (
 	counter INTEGER
 );
 
+CREATE TABLE resetPw (
+	userId INTEGER REFERENCES Utilizador NOT NULL,
+	tempCode VARCHAR
+
+
+);
+
 CREATE TABLE pollAnswer(
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	poll_id INTEGER REFERENCES poll NOT NULL,
