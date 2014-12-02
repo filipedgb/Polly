@@ -58,6 +58,12 @@
         }
          ?>
                 
+
+
+
+
+
+                
         <!-- *********************************HTML***************************************   -->
 
         <div id="loginSmall">
@@ -67,7 +73,6 @@
           {
 
           ?>
-          <h1>ENTROU</h1>
           <script> wrongLogin()</script><?
         }
           ?>
@@ -75,19 +80,32 @@
 
           <form id="loginform" name="loginform" method="post" action="">
            
-            <label for="username">Username:</label>
-            <input type="text" name="uLi" id="username" class="txtfield" tabindex="1">
-            
-            <label for="password">Password:</label>
-            <input type="password" name="pLi" id="password" class="txtfield" tabindex="2">
+              <label for="username">Username:</label>
+              <input type="text" name="uLi" id="username" class="txtfield" tabindex="1">
+              
+              <label for="password">Password:</label>
+              <input type="password" name="pLi" id="password" class="txtfield" tabindex="2">
 
-            <a href="forgotPassword.php"> Forgot your password? Click here. </a> <br> <br>
-          
-            <input type="submit" name="submit-login" id="loginbtn" class="flatbtn hidemodal" value="Log In" tabindex="3">
-           
-          <div style=" float: right">
-            <input type="submit" name="submit-signup" id="loginbtn" class="flatbtn-blu hidemodal" value="Sign Up" tabindex="3">
-          </div>
+              <a href="forgotPassword.php"> Forgot your password? </a> 
+
+              <!---
+              <div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="true"></div>
+
+              -->
+              <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+              </fb:login-button>
+
+                <span id="loginSmall">
+                  <input type="submit" name="submit-login" id="loginbtn" class="flatbtn hidemodal" value="Log In" tabindex="3">
+                </span>
+                <span  id="loginSmall">
+                  <input  type="submit" name="submit-signup" id="loginbtn" class="flatbtn-blu hidemodal" value="Sign Up" tabindex="3">
+                </span>
+
+                 <div id="loginFacebook">
+                  <a href="https://www.facebook.com/dialog/oauth?client_id=639010562888160&redirect_uri=http://paginas.fe.up.pt/~ei12021/ltw_projecto/polls_index.php&scope=email,user_website,user_location" class="flatbtn hidemodal">Login with Facebook</a>
+
+              </div>
           
           </form>
         </div>

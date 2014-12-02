@@ -9,7 +9,7 @@
         border-radius: 50%;
         overflow: hidden;
         width: 15%;
-        height: auto;
+         width: 15%;
     }
     .round img {
         display: block;

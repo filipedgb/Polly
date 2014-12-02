@@ -487,6 +487,14 @@ height: 35px;
   font-family: 'Helvetica Neue', Helvetica, Verdana, sans-serif;
 
 }
+
+#loginSmall .flatbtn-blu {
+  font-size: 0.7em;
+width: 100%;
+height: 35px;
+  font-family: 'Helvetica Neue', Helvetica, Verdana, sans-serif;
+
+}
 #loginSmall{
 
   width: 80px;
@@ -611,6 +619,10 @@ height: 2%
   -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+#loginmodal {
+  color: #000;
 }
 
 #registermodal {
@@ -1396,6 +1408,21 @@ li {
 
   }
 
+
+  #accountSettings  {
+
+   width: 70%;
+}
+
+
+
+  #loginform a{
+  color: #fff;
+  font-size: 0.9em;
+   font-weight:normal;
+  }
+
+
 }
 
 /*               ************************************************  ACCOUNT PAGE ***********************************               */
@@ -1415,6 +1442,50 @@ div .round{
 #accountSettings #loginform #delete .flatbtn-blu{
 
   background-color: #f53939;
-   float: right;
 
 }
+
+
+
+
+
+/*                          ******************************************    LOG IN *****************************************/
+
+#loginmodal #loginform #buttons{
+  margin-top: 20px;
+    margin-top: 20px;
+  width: 200px;
+  font-size: 0.8em;
+}
+
+
+#loginmodal #loginform a{
+  color: #000;
+}
+
+#loginmodal #loginform #loginFacebook .flatbtn{
+   margin-top: 20px;
+   background-color: #45619d;
+   color: #fff;
+     margin-top: 20px;
+  width: 100%;
+  font-size: 0.8em;
+}
+
+
+#loginmodal #loginform #loginSmall .flatbtn,
+#loginmodal #loginform #loginSmall .flatbtn-blu{
+   margin-top: 20px;
+   color: #fff;
+     margin-top: 20px;
+  width: 45% ;
+  font-size: 0.8em;
+}
+#loginmodal #loginform #loginSmall .flatbtn-blu{
+  
+float: right;
+}
+
+
+
+
