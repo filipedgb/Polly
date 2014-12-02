@@ -34,23 +34,30 @@
 
     <?  $current_page = getPageFileName(); ?>
 
-    <div id="container" class="menuButtons ">
-            <div id="menuButtons" class="ha-header-front ">
+  
+    <header>
 
-              <h1><span><a href="polls_index.php">  Polly</font></a></span></h1>
-              <nav color="red" id="navButtons">
+
+    <nav> 
+
+      <a href="#" id="menu-icon"></a>
+
+      <ul>
                 <?php if(isset($_SESSION['username'])){?>
-                  <a href="new_poll_group.php" <?if ($current_page == "new_poll_group.php") echo 'id="selected"' ?> >New Poll</a>
-                  <a href="polls_answer.php" <?if ($current_page == "polls_answer.php") echo 'id="selected"' ?> >Answer Polls</a>
-                  <a href="my_poll_stats.php" <?if ($current_page == "my_poll_stats.php") echo 'id="selected"' ?> >My Polls results</a>
-                  <a href="manage_polls.php" <?if ($current_page == "manage_polls.php") echo 'id="selected"' ?> >Manage my polls</a>
-                  <a href="poll_stats.php" <?if ($current_page == "poll_stats.php") echo 'id="selected"' ?>>Answered Polls results</a>
-                  <a href="forgotPassword.php" <?if ($current_page == "forgotPassword.php") echo 'id="selected"' ?>> Foda-se, esqueci-me da pass!</a>
+                  <li><a href="new_poll_group.php" <?if ($current_page == "new_poll_group.php") echo 'id="selected"' ?> >New Poll</a></li>
+                  <li><a href="polls_answer.php" <?if ($current_page == "polls_answer.php") echo 'id="selected"' ?> >Answer Polls</a></li>
+                  <li><a href="my_poll_stats.php" <?if ($current_page == "my_poll_stats.php") echo 'id="selected"' ?> >My Polls results</a></li>
+                  <li><a href="manage_polls.php" <?if ($current_page == "manage_polls.php") echo 'id="selected"' ?> >Manage my polls</a></li>
+                 <li> <a href="poll_stats.php" <?if ($current_page == "poll_stats.php") echo 'id="selected"' ?>>Answered Polls results</a></li>
+                    <li> <a href="logout.php" <?if ($current_page == "poll_stats.php") echo 'id="selected"' ?>>Log out</a></li>
+                 <li>  <a href="forgotPassword.php" <?if ($current_page == "forgotPassword.php") echo 'id="selected"' ?>> Foda-se, esqueci-me da pass!</a></li>
 
                   <!--<a href="checklogin.php">My Account</a>-->
                  <? } ?>
 
-              </nav>
+      </ul> 
+
+      <?php if(!isset($_SESSION['username'])){?>
               <div id="logButaoMenu" >
                 <?
                 include("database/connection.php");
@@ -59,10 +66,13 @@
                 //if(isset($_SESSION['username']))echo "Username:".$_SESSION['username']; 
                 ?>  
               </div>
-              
-            </div>
+      <? } ?>
+    </nav>
 
-            
+  </header>
 
-     </div>
+
+
      <div margin-top: '500px'>
+
+

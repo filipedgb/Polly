@@ -58,9 +58,6 @@ window.addEventListener("scroll", paralax, false);
    <main>
 
         <section class="module parallax parallax-1">
-        <div id="prlx_lyr_1" z-index:"0px">
-       
-             </div>
       </section>
    
       <section class="module content">
