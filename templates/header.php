@@ -45,6 +45,8 @@
                   <a href="my_poll_stats.php" <?if ($current_page == "my_poll_stats.php") echo 'id="selected"' ?> >My Polls results</a>
                   <a href="manage_polls.php" <?if ($current_page == "manage_polls.php") echo 'id="selected"' ?> >Manage my polls</a>
                   <a href="poll_stats.php" <?if ($current_page == "poll_stats.php") echo 'id="selected"' ?>>Answered Polls results</a>
+                  <a href="forgotPassword.php" <?if ($current_page == "forgotPassword.php") echo 'id="selected"' ?>> Foda-se, esqueci-me da pass!</a>
+
                   <!--<a href="checklogin.php">My Account</a>-->
                  <? } ?>
 
