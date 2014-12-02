@@ -50,7 +50,6 @@
                   <li><a href="manage_polls.php" <?if ($current_page == "manage_polls.php") echo 'id="selected"' ?> >Manage my polls</a></li>
                  <li> <a href="poll_stats.php" <?if ($current_page == "poll_stats.php") echo 'id="selected"' ?>>Answered Polls results</a></li>
                     <li> <a href="logout.php" <?if ($current_page == "poll_stats.php") echo 'id="selected"' ?>>Log out</a></li>
-                 <li>  <a href="forgotPassword.php" <?if ($current_page == "forgotPassword.php") echo 'id="selected"' ?>> Foda-se, esqueci-me da pass!</a></li>
 
                   <!--<a href="checklogin.php">My Account</a>-->
                  <? } ?>
@@ -66,6 +65,17 @@
                 //if(isset($_SESSION['username']))echo "Username:".$_SESSION['username']; 
                 ?>  
               </div>
+
+
+                <div id="logButaoMenu" >
+              
+              <form id="loginSmall" action="my_account.php" method="get">
+               <center><div id="account"><button id=" loginSmall"name="account" class="accbtn" name="logout" type="submit" > <? echo $_SESSION['username'] ?> </button></div></center>
+                 </form>
+              </div>
+              
+            </div>
+
       <? } ?>
     </nav>
 

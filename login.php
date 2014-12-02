@@ -48,6 +48,13 @@
              header("location: register.php");
 
           }
+          else if(!empty($_POST['submit-lostpw']))
+          {
+             header("location: register.php");
+
+          }
+
+
         }
          ?>
                 
@@ -73,9 +80,10 @@
             
             <label for="password">Password:</label>
             <input type="password" name="pLi" id="password" class="txtfield" tabindex="2">
-            
+
+            <a href="forgotPassword.php"> Forgot your password? Click here. </a> <br> <br>
           
-              <input type="submit" name="submit-login" id="loginbtn" class="flatbtn hidemodal" value="Log In" tabindex="3">
+            <input type="submit" name="submit-login" id="loginbtn" class="flatbtn hidemodal" value="Log In" tabindex="3">
            
           <div style=" float: right">
             <input type="submit" name="submit-signup" id="loginbtn" class="flatbtn-blu hidemodal" value="Sign Up" tabindex="3">

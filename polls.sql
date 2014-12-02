@@ -80,3 +80,12 @@ begin
 end;
 
 
+create trigger deleteUser
+BEFORE delete on Utilizador
+	FOR EACH ROW 
+	begin
+		delete from poll WHERE OLD.IdUser = poll.userId;
+		delete from pollAnswer WHERE OLD.IdUser = pollAnswer.user_id;
+		delete from groupPoll WHERE OLD.IdUser = groupPoll.userId;
+
+end;

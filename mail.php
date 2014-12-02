@@ -6,7 +6,10 @@
    
 	echo $email;
 
-	echo $message = "Hello!\n
+		$message =
+
+	
+   "\n\nHello!\n
 
 Thank you for joining Polly. \n
 
