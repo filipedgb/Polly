@@ -35,9 +35,13 @@
     <?  $current_page = getPageFileName(); ?>
 
   
+<body>
+
+
+
     <header>
 
-
+      <a href="polls_index.php" id="logo"></a>
     <nav> 
 
       <a href="#" id="menu-icon"></a>
@@ -47,9 +51,10 @@
                   <li><a href="new_poll_group.php" <?if ($current_page == "new_poll_group.php") echo 'id="selected"' ?> >New Poll</a></li>
                   <li><a href="polls_answer.php" <?if ($current_page == "polls_answer.php") echo 'id="selected"' ?> >Answer Polls</a></li>
                   <li><a href="my_poll_stats.php" <?if ($current_page == "my_poll_stats.php") echo 'id="selected"' ?> >My Polls results</a></li>
-                  <li><a href="manage_polls.php" <?if ($current_page == "manage_polls.php") echo 'id="selected"' ?> >Manage my polls</a></li>
-                 <li> <a href="poll_stats.php" <?if ($current_page == "poll_stats.php") echo 'id="selected"' ?>>Answered Polls results</a></li>
-                    <li> <a href="logout.php" <?if ($current_page == "poll_stats.php") echo 'id="selected"' ?>>Log out</a></li>
+                  <li><a href="manage_polls.php" <?if ($current_page == "manage_polls.php") echo 'id="selected"' ?> >Manage</a></li>
+                  <li> <a href="poll_stats.php" <?if ($current_page == "poll_stats.php") echo 'id="selected"' ?>>Answered results</a></li>
+                  <li> <a href="my_account.php" <?if ($current_page == "poll_stats.php") echo 'id="selected"' ?>>My Account results</a></li>
+                  <li> <a href="logout.php" <?if ($current_page == "poll_stats.php") echo 'id="selected"' ?>>Log out</a></li>
 
                   <!--<a href="checklogin.php">My Account</a>-->
                  <? } ?>
@@ -67,13 +72,13 @@
               </div>
 
 
-                <div id="logButaoMenu" >
+              <!--  <div id="logButaoMenu" >
               
               <form id="loginSmall" action="my_account.php" method="get">
                <center><div id="account"><button id=" loginSmall"name="account" class="accbtn" name="logout" type="submit" > <? echo $_SESSION['username'] ?> </button></div></center>
                  </form>
               </div>
-              
+              -->
             </div>
 
       <? } ?>
@@ -83,6 +88,6 @@
 
 
 
-     <div margin-top: '500px'>
+     <div>
 
 

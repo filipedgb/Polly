@@ -377,7 +377,7 @@ h1:after {
   width: 50%;
   height: 1px;
   vertical-align: middle;
-  background: #e8e8e8;
+  background: #a5a5a5;
 }
 h1:before {    
   left: -.5em;
@@ -844,198 +844,6 @@ font-size: 2em;
 
 
 
-
-/* Header styles and animations */
-
-.ha-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 0;
-  z-index: 50;
-  font-family: 'Lato', Arial, sans-serif;
-  -webkit-transform: translateY(0%);
-  -moz-transform: translateY(0%);
-  transform: translateY(0%);
-  -webkit-transition: all 0.5s;
-  -moz-transition: all 0.5s;
-  transition: all 0.5s;
-}
-
-
-
-.ha-header-front:not(#loginmodal) {
-  z-index: 2;
-  -webkit-transform-origin: 50% 100%;
-  -moz-transform-origin: 50% 100%;
-  transform-origin: 50% 100%;
- /* position: fixed;
-  top: 0;
-  margin-bottom: 80px;
-  width: 100%;
-  background-color: #FF99CC;*/
- /* margin-bottom: 90px;*/
-}
-
-
-/* Justify inline-block elements (h1 on left side, nav on right) */
-.ha-header-perspective > div::after {
-    content: '';
-    display: inline-block;
-    width: 100%;
-}
-
-/* Text styling */
-.ha-header h1,
-.ha-header h1::before,
-.ha-header h1 span,
-.ha-header nav,
-.ha-header nav::before {
-  display: inline-block;
-  vertical-align: middle;
-  text-align: left;
-}
-
-.ha-header h1 {
-  font-weight: 300;
-  font-size: 3.2em;
-  margin: 0;
-  padding: 0 1em 0 0;
-  color: #2d383f;
-  cursor: default;
-  height: 100%;
-  z-index: 1;
-  -webkit-transition: all 0.5s;
-  -moz-transition: all 0.5s;
-  transition: all 0.5s;
-}
-
-.ha-header h1::before,
-.ha-header nav::before {
-  content: '';
-  height: 100%;
-}
-
-.ha-header h1::after {
-  content: '';
-  width: 100px;
-  height: 96px;
-  background: #fff;
-  position: absolute;
-  z-index: 100;
-  top: 0;
-  left: 0;
-  cursor: pointer;
-  box-shadow: inset 0 8px #2d383f, inset 0 16px #fff, inset 0 24px #2d383f, inset 0 32px #fff, inset 0 40px #2d383f, inset 0 48px #fff, inset 0 56px #2d383f;
-  opacity: 0;
-  border: 20px solid #fff;
-  -webkit-transition: opacity 0.5s;
-  -moz-transition: opacity 0.5s;
-  transition: opacity 0.5s;
-}
-
-.ha-header nav {
-  height: 100%;
-}
-
-.ha-header nav a {
-  display: inline-block;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-weight: 700;
-    padding: 0.2em 0.4em;
-    margin: 0 0.4em 0;
-    font-size: 0.8em;
-    cursor: pointer;
-    color: #e74c3c;
-    outline: none;
-    text-decoration: none;
-}
-
-.ha-header nav a:hover {
-  color: #bc3c2f;
-}
-
-.ha-header nav a:last-child {
-    margin-right: 0;
-}
-
-.ha-header .ha-header-front nav a:last-child {
-  border: 2px solid #e74c3c;
-}
-
-.ha-header .ha-header-front nav a:last-child:hover {
-  border: 2px solid #bc3c2f;
-}
-
-/* Individual states */
-
-.ha-header-large {
-  height: 420px;
-}
-
-.ha-header-small {
-  height: 220px;
-}
-
-
-
-@media screen and (max-width: 65em) {
-  body {
-    font-size: 80%;
-  }
-
-  .ha-header h1 {
-    padding: 10px 0;
-    height: 80%;
-  }
-}
-
-@media screen and (max-width: 60em) {
-
-
-  .ha-header-perspective > div,
-  .ha-header-front nav {
-    text-align: center;
-  }
-
-  #navButtons{
-  width: 50%;
-}
-
-  .ha-header h1 {
-    padding: 10px 0;
-    height: 60%;
-  }
-
-  .ha-header .ha-header-bottom nav {
-    padding: 40px 0px;
-  }
-
-  .ha-header nav {
-    display: block;
-    height: auto;
-  }
-
-}
-
-@media screen and (max-width: 38em) {
-  section {
-    font-size: 1.3em;
-  }
-
-  .ha-header h1 {
-    font-size: 2em;
-
-  }
-
-  .ha-header nav {
-    font-size: 60%;
-  }
-}
-
-
 /* CODIGO COPIADO PARA O PARALAXE
 /* ============================================================
   SECTIONS
@@ -1458,7 +1266,7 @@ a:hover {
 
 
 
-/*                 HEADERS SAO AQUI                */
+/*               ************************************************  HEADERS ************************************************               */
 
 header {
 
@@ -1503,8 +1311,9 @@ nav {
   float: left;
   width: 200px;
   height: 40px;
-  background: url(../img/logo.png) no-repeat center;
+  background: url(img/logo2.png) no-repeat center;
   display: block;
+    max-height: 100%;
 
 }
 
@@ -1512,6 +1321,7 @@ a:hover#menu-icon {
 
   background-color: #444;
   border-radius: 4px 4px 0 0;
+  z-index: 10000;
 
 }
 
@@ -1536,11 +1346,11 @@ li {
 
 
 /*MEDIA QUERY*/
-@media only screen and (max-width : 640px) {
+@media only screen and (max-width : 1070px) {
 
   header {
 
-    position: absolute;
+   /* position: absolute;*/
 
   }
 
@@ -1564,12 +1374,11 @@ li {
     position: absolute;
     padding: 20px;
     background: #fff;
-    border: 5px solid #444;
+    border: 2px solid #444;
     right: 20px;
     top: 60px;
     width: 50%;
-    border-radius: 4px 0 4px 4px;
-
+ z-index: 10000;
   }
 
   nav li {
@@ -1586,3 +1395,26 @@ li {
     display: block;
 
   }
+
+}
+
+/*               ************************************************  ACCOUNT PAGE ***********************************               */
+
+
+div .round{
+  margin-bottom: 20px;
+}
+
+#accountSettings #loginform .flatbtn-blu{
+  margin-top: 20px;
+  width: 200px;
+  font-size: 0.8em;
+
+}
+
+#accountSettings #loginform #delete .flatbtn-blu{
+
+  background-color: #f53939;
+   float: right;
+
+}
