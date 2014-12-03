@@ -58,6 +58,8 @@
 
 
     <header>
+
+     
       <a href="polls_index.php" id="logo"></a>
 
 <?php if(isset($_SESSION['username'])){?>
@@ -85,6 +87,7 @@
     </nav>
      <?}?>
  <?php if(!isset($_SESSION['username'])){?>
+ 
               <span id="logButaoMenu" >
                 <?
                 include("database/connection.php");

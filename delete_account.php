@@ -8,10 +8,12 @@ include('user.php');
  include("PasswordHash.php");  
 
 
+  
+
+
 // session_start();
 if($_SERVER["REQUEST_METHOD"] == "POST")
 {
-
 
      if(!empty($_POST['submit-delete']))
       {
@@ -45,10 +47,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 
 
 
+
+
 }
 
 ?>
-
+<?if( $_SESSION['facebook']=='no'){?>
 <br>
 <br>
 <br>
@@ -65,8 +69,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
       </div>
   </center>
 
-      
-<script type="text/javascript">
+      <?}?>
+  <script type="text/javascript">
       $(function(){
        
         $('#modaltrigger').leanModal({ top: 110, overlay: 0.45, closeButton: ".hidemodal" });

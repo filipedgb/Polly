@@ -89,7 +89,14 @@
 		else
 		{
 			$extension=substr($image_type, 6);
-			$filename= "$poll_id.$extension";
+			
+
+			$chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+			$nameImage = substr( str_shuffle( $chars ), 0, 8 );
+
+			$filename= "$poll_id_$nameImage.$extension";
+
+
 			$source="databaseImages/$filename";
 			echo "$filename";
 			move_uploaded_file($image_tmp_name, "databaseImages/$filename");
