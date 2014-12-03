@@ -25,22 +25,22 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 
 			// Generating Password
 			$chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%&*_";
-			$password = substr( str_shuffle( $chars ), 0, 8 );
+			/*$password = substr( str_shuffle( $chars ), 0, 8 );*/
 			$code = substr( str_shuffle( $chars ), 0, 8 );
 
 
 			$link = "http://".getUrlWithoutPage()."/change_password_vialink.php?username=".$username."&codePw=".$code;
 
 
-
+/*
 			$stmt = $db->prepare('UPDATE Utilizador SET Pword= :temppw WHERE username = :user');
 					$stmt->bindParam(':temppw',create_hash($password), PDO::PARAM_STR);
 					$stmt->bindParam(':user',$username, PDO::PARAM_STR);
 					$stmt->execute();
-
+*/
 
 			$stmt = $db->prepare('INSERT INTO resetPw (userId,tempCode) VALUES (?,?)');
-			$stmt->execute(array(getUserIDbyUsername($username), $code));
+			$stmt->execute(array(getUserIDbyUsername($username), create_hash($code)));
 		
 
 			echo $message = "Hello!\n

@@ -61,15 +61,14 @@ else if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
       echo 'entrou no get';
 
-      $stmt = $db->prepare('SELECT * FROM resetPw WHERE userId = :user AND tempCode = :code ');
+      $stmt = $db->prepare('SELECT * FROM resetPw WHERE userId = :user  ');
       $stmt->bindParam(':user',getUserIDbyUsername($username), PDO::PARAM_STR);
-      $stmt->bindParam(':code',$code, PDO::PARAM_STR);
 
        // $stmt->bindParam(':pword',$pword, PDO::PARAM_STR);
         $stmt->execute();
         $result = $stmt->fetch();
 
-        if(isset( $result[0])) {
+        if(validate_password($code,$result['tempCode'])) {
 
         	 $stmt = $db->prepare('DELETE FROM resetPw WHERE userId = :user');
               $stmt->bindParam(':user',getUserIDbyUsername($username), PDO::PARAM_STR);

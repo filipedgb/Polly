@@ -14,7 +14,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 
     if($_SESSION['facebook']=="yes")
     {
-      echo "ENTROUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU";
       $stmt = $db->prepare('DELETE FROM Utilizador WHERE username = :user');
       $stmt->bindParam(':user',$_SESSION['username'], PDO::PARAM_STR);
       $stmt->execute();
@@ -29,7 +28,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
         border-radius: 50%;
         overflow: hidden;
         width: 15%;
-         width: 15%;
+         height: auto;
+         max-height: 140px;
+         max-height: 140px;
+         
     }
     .round img {
         display: block;

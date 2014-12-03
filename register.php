@@ -61,10 +61,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 }
 
 ?>
-
-	<br>
-	<br>
-	<br>
 			<center>
           <div id="registermodal" >
             <h1>Register</h1>

@@ -89,9 +89,9 @@ window.addEventListener("scroll", paralax, false);
 
       <section class="module content">
        <div class="container">
-          <h2></h2>
-          <p>  </p>
-         
+          <div class="fb-like" data-href="http://paginas.fe.up.pt/~ei12021/ltw_projecto/polls_index.php" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+  <br><br>
+
         </div>
       </section>
 
@@ -114,7 +114,6 @@ _gaq.push(['_trackPageview']);
   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 })();
 </script>
-
 
 
 
