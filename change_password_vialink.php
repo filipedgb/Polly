@@ -53,7 +53,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 // VERIFICA EMAIL LINK
 else if ($_SERVER["REQUEST_METHOD"] == "GET") {
       $username =  $_GET['username'];
-      $code =  $_GET['code'];
+      $code =  $_GET['codePw'];
 
 
       $_SESSION['tempUsername'] =  $username;

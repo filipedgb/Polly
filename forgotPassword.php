@@ -29,7 +29,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 			$code = substr( str_shuffle( $chars ), 0, 8 );
 
 
-			$link = "http://".getUrlWithoutPage()."/change_password_vialink.php?username=".$username."&code=".$code;
+			$link = "http://".getUrlWithoutPage()."/change_password_vialink.php?username=".$username."&codePw=".$code;
 
 
 

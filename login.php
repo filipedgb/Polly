@@ -28,6 +28,8 @@
                   $result2 = $stmt->fetch();
 
                   $_SESSION['activated']=$result2[0];
+                   $_SESSION['name'] =$result2['name'];
+                    $_SESSION['facebook']='no';
                 
                   //if the account is'nt acctivated
                   if($result2[0] == 0) {
@@ -124,5 +126,6 @@
 
  <?
 
-  
 ?>
+
+

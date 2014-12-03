@@ -13,6 +13,8 @@ CREATE TABLE Utilizador (
 	Username VARCHAR Unique,
 	Pword VARCHAR NOT NULL,
 	Email VARCHAR NOT NULL,
+	Nome VARCHAR NOT NULL,
+	Facebook Integer,
 	Active Integer, 
 	RegCode Integer
 

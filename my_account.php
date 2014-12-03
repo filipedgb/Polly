@@ -25,11 +25,17 @@
           <div id="accountSettings" class="poll_item" >
             <h1>Account settings </h1> 
             <div class="round">
-               <img src="img/avatar.png" />
+              <?if( $_SESSION['facebook']=='yes'){?>
+                      <img src="https://graph.facebook.com/<?= $_SESSION['username']?>/picture?width=140&height=140" />
+               <?}else{?>
+                    <img src="img/avatar.png" />
+               <?}?>
             </div>
-            <h2>Welcome <?=$_SESSION['username']?> </h2>
+            <h2>Welcome <?=$_SESSION['name']?> </h2>
 
             <form id="loginform" name="loginform" method="post" action="">
+
+               <?if( $_SESSION['facebook']=='no'){?>
               
             <div id="changeuser">
             <center><a href="change_username.php" class="flatbtn-blu hidemodal" id="modaltrigger">Change username</a></center>
@@ -45,10 +51,14 @@
             <div id="changemail">
             <center><a href="change_email.php" class="flatbtn-blu hidemodal" id="modaltrigger">Change email</a></center>
         	</div>
-
-            <div id="delete">
+          <div id="delete">
             <center><a href="delete_account.php" class="flatbtn-blu hidemodal" id="modaltrigger">Delete Account</a></center>
 	        </div>
+           <?} else?>
+           <div id="delete">
+            <center><a href="delete_account.php" class="flatbtn-blu hidemodal" id="modaltrigger">Disconnect Account</a></center>
+          </div>
+
               
             </form>
           </div>

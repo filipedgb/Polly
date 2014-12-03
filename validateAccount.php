@@ -8,9 +8,9 @@
 	// session_start();
 if($_SERVER["REQUEST_METHOD"] == "GET")
 {
-	if (isset($_GET['code'])){
+	if (isset($_GET['codeValidate'])){
 		
-		$code = $_GET['code'];
+		$code = $_GET['codeValidate'];
 		
 		$utilizadore = '';
 		if (isset($_SESSION['username']))
@@ -65,7 +65,7 @@ if($_SERVER["REQUEST_METHOD"] == "GET")
             <h1>Validate your account</h1>
             <form id="loginform" name="loginform" method="get" action="">
               <label for="username">Verification Code:</label>
-              <input type="text" name="code" id="code" class="txtfield" tabindex="1">
+              <input type="text" name="codeValidate" id="code" class="txtfield" tabindex="1">
               
               <div class="center"><input type="submit" name="submit" id="loginbtn" class="flatbtn-blu hidemodal" value="Validate" tabindex="2"></div>
             </form>
