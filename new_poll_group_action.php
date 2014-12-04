@@ -1,11 +1,10 @@
-<? include('templates/header.php'); ?>
-<? include('database/polls_fetch.php') ?>
-<? /*include('PasswordHash.php')*/ ?>
-<? include_once ('database/connection.php');
+<? 
+	include('templates/header.php');
+	include('database/polls_fetch.php') ;
+	include_once ('database/connection.php');
 	
 
-	if(isset($_POST['create'])) {
-
+	if(isset($_POST['create']) && isset($_POST['title']) && isset($_POST['description'])) {
 
 		// Fetching variables of the form which travels in URL
 		global $db;
@@ -14,38 +13,18 @@
 		$userId = getUserIDbyUsername($_SESSION['username']);
 
 		//adds the poll
-		if($title !='' && $description !='')
+		if($title !='')
 		{
-
-			/*echo 'TOU AQUI';*/
+			if ($description == '') $description = "No description";
 			$stmt = $db->prepare('INSERT INTO groupPoll(groupId,title,description,userId,visibility, titleHash) VALUES (?,?,?,?,?,?)');
 			/*$titleHash = create_hash($title);*/
-			$titleHash = md5('groupPoll'.$title);
+			$titleHash = md5('groupPoll'.$title.$description);
 			$stmt->execute(array(NULL,$title,$description,$userId,"Public", $titleHash));
-
-			header("Location:new_poll.php");
-
+			print_r($db->errorInfo());
+			header("Location:new_poll2.php?questionnaire=$titleHash");
 		}
-		else
-		{
-			//por um pop up
-			if (isset($_POST['submit'])){
-				echo '
-				<script type="text/javascript">
-				location.reload();
-				</script>';
-				}
-			header("Location: new_poll_group_action.php");
-			return;
-		}
-
-		//echo 'fim';
-			header("Location:new_poll.php");
-
+		else header("Location: new_poll_group.php");
 	}
+	include('templates/footer.php');
 ?>
 
-
-
-
-<?	include('templates/footer.php'); ?>

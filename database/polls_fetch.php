@@ -253,6 +253,22 @@
 		return $item;
 	}
 
+	function getUserByUsername($user_name){
+		global $db;
+		$stmt = $db->prepare('SELECT * FROM Utilizador WHERE Username = ?');
+		$stmt->execute(array($user_name));
+		$item = $stmt->fetch();	
+		return $item;
+	}
+
+
+	function checkIfUserOwnsGroup($group, $username){
+		$user = getUserbyUsername($username);
+		if ($group['userId'] == $user['IdUser'])
+			return true;
+		else return false;
+	}
+
 
 
 ?>

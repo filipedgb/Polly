@@ -1,11 +1,7 @@
-  <?php
-        session_set_cookie_params('/~ei12022/');
-        session_start();
-
-        
-       
-        
-        include_once('getPollURL.php');
+<?php
+  session_set_cookie_params('/~ei12022/');
+  session_start();
+  include_once('getPollURL.php');
 ?>
 <!DOCTYPE html>
 <html>
