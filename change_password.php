@@ -28,8 +28,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
        // $stmt->bindParam(':pword',$pword, PDO::PARAM_STR);
         $stmt->execute();
         $result = $stmt->fetch();
-        
-        if(validate_password($oldpword, $result['Pword']) && $newpword==$newpword2 ){
+
+
+        if(strlen($passuorde) < 5) {
+            echo "Your password is too weak. Try one with at least 5 characters";
+        }
+        else if(validate_password($oldpword, $result['Pword']) && $newpword==$newpword2 ){
 
           $stmt = $db->prepare('UPDATE Utilizador SET Pword= :newpw WHERE username = :user');
           $stmt->bindParam(':newpw',create_hash($newpword), PDO::PARAM_STR);
@@ -38,6 +42,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 
           header("location: my_account.php");
         }
+        else {
+          echo "Your old password was incorrect or the new ones didn't match. Please try again.";
+        }
+
+
 
 
      }

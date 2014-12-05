@@ -4,7 +4,7 @@
 
  function emailconf($email, $link, $code) { 
    
-	//echo $email;
+	echo "An email has been sent to " . $email . "<br>";
 
 		$message =
 

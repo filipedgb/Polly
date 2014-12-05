@@ -31,15 +31,36 @@
 			  echo "Email not valid. Please try again"; 
 			}
 
+			else if(strlen($passuorde) < 5) {
+			  echo "Your password is too weak. Try one with at least 5 characters";
+
+			}
+
 			else {
 				$stmt = $db->prepare('SELECT count(IdUser) FROM Utilizador WHERE Username = :user');
 				$stmt->bindParam(':user',$utilizadore, PDO::PARAM_STR);
 				$stmt->execute();
 				$result = $stmt->fetch();
 
-				if($result[0] == 1) {
+				$result2 = 0;
+
+				// COMENTAR ESTE CODIGO PARA TIRAR A VERIFICAÇÂO
+
+				$stmt = $db->prepare('SELECT count(IdUser) FROM Utilizador WHERE Email = :mail');
+				$stmt->bindParam(':mail',$email, PDO::PARAM_STR);
+				$stmt->execute();
+				$result2 = $stmt->fetch();
+
+				// FIM DE CODIGO A COMENTAR 
+
+
+				if($result[0] >= 1) {
 					// store session data
 					echo "Username already taken." ; 
+				}
+				else if($result2[0] >= 1) {
+					echo "Email already taken." ; 
+
 				}
 				else{ 
 					

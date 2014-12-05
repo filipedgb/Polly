@@ -29,12 +29,32 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
           if(validate_password($pword, $result['Pword']) ){
               // store session data
 
-              $stmt = $db->prepare('UPDATE Utilizador SET Email= :newmail WHERE username = :user');
-              $stmt->bindParam(':newmail',$email, PDO::PARAM_STR);
-              $stmt->bindParam(':user',$username, PDO::PARAM_STR);
-              $stmt->execute();
 
-              header("location: my_account.php");
+              $result2 = 0;
+
+              // COMENTAR ESTE CODIGO PARA TIRAR A VERIFICAÇÂO
+
+              $stmt = $db->prepare('SELECT count(IdUser) FROM Utilizador WHERE Email = :mail');
+              $stmt->bindParam(':mail',$email, PDO::PARAM_STR);
+              $stmt->execute();
+              $result2 = $stmt->fetch();
+
+              // FIM DE CODIGO A COMENTAR 
+
+              if($result2[0] >= 1) {
+                echo "Email already associated to other account." ; 
+
+              }
+
+
+              else {
+                $stmt = $db->prepare('UPDATE Utilizador SET Email= :newmail WHERE username = :user');
+                $stmt->bindParam(':newmail',$email, PDO::PARAM_STR);
+                $stmt->bindParam(':user',$username, PDO::PARAM_STR);
+                $stmt->execute();
+
+                header("location: my_account.php");
+              }
 
 
              

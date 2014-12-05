@@ -7,6 +7,8 @@ DROP Table poll;
 DROP Table pollOption;
 DROP Table pollAnswer;
 DROP Table pollImage;
+DROP Table resetPw;
+
 
 CREATE TABLE Utilizador (
 	IdUser Integer PRIMARY KEY,
