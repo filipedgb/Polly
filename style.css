@@ -15,6 +15,10 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+html{
+background-color: #397db9;
+
+}
 
 ::selection { background: #a4dcec; }
 ::-moz-selection { background: #a4dcec; }
@@ -139,6 +143,7 @@ a{
 	margin-bottom: 0px;
 	width: 70%;
 	margin: auto;
+  background-color: #397db9;
 	/*position: fixed;*/
 }
 
@@ -311,6 +316,8 @@ h1 > span {
   -moz-box-shadow: 0 1px 0 rgba(15, 15, 15, 0.3);
   box-shadow: 0 1px 0 rgba(15, 15, 15, 0.3);
 }
+
+
 .flatbtn:hover {
   color: #fff;
   background-color: #73c437;
@@ -434,6 +441,7 @@ font-size: 1em;
 width: 26%;
 height: 2%
 }
+
 
 
 /*        ************************************************  MODAL WINDOWS ******************************************** */
@@ -1065,4 +1073,53 @@ div .round{
   margin-top:20px;
   padding-right: 15px;
   color: white;
+}
+
+
+/* *************************************CREATE NEW POLL *-************************ */
+
+
+#loginform .flatbtn-blu{
+  margin-top: 20px;
+  width: 180px;
+  font-size: 0.8em;
+
+}
+
+#loginform .flatbtn{
+  margin-top: 20px;
+  width: 180px;
+  height: 41px;
+  font-size: 0.8em;
+
+}
+
+
+
+
+/*MEDIA QUERY*/
+@media only screen and (min-width: 1000px) {
+ 
+#buttonFinishPoll{
+    display: block;
+  float: right;
+}
+
+
+}
+
+
+/* ***********************************POLL ITEM ************************ */
+
+.poll_item .flatbtn-blu{
+  margin-top: 20px;
+  width: 180px;
+  font-size: 0.8em;
+
+}
+#form .flatbtn{
+  margin-top: 20px;
+  width: 180px;
+  font-size: 0.8em;
+
 }

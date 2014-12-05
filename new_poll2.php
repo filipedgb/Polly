@@ -19,6 +19,7 @@
     }
 ?>
 
+
 <div id="newPollmodal" class="centered">
     <form class="newPoll" id="loginform"  action= "" method="post" enctype="multipart/form-data">
         <input type="hidden" name="username" value="<?=$_SESSION['username']?>">
@@ -28,13 +29,20 @@
         <label for="username">Select Image:</label>
         <input type="file" name="image" id="text"  tabindex="3">
 
-        <div>
+        <span>
+            <span>
             <input type="button" id="addOption"  value="Add Poll Option" class="flatbtn-blu" />
+            </span>
+            <span  >
             <input type="submit" name="newQuestion" id="addQuestion"  value="Add Question" class="flatbtn-blu" />
-            <a style=" float: right" href="manage_polls.php">
+            </span>
+           
+        </span>
+        <span id="buttonFinishPoll" >
+            <a  href="manage_polls.php">
                 <input name="submit" id="loginbtn" class="flatbtn hidemodal" value="FINISH" tabindex="5">
             </a>
-        </div>
+        </span>
         <!-- adiciona duas opçoes ao form (minimo de opçoes na poll) -->
         <script type="text/javascript">
             addOptionRequest();

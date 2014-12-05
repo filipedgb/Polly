@@ -52,7 +52,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
                     <img src="img/avatar.png" />
                <?}?>
             </div>
-            <h2>Welcome <?=$_SESSION['name']?> </h2>
+
+            <?
+             $stmt = $db->prepare('SELECT Nome FROM Utilizador WHERE username = :user');
+            $stmt->bindParam(':user',$_SESSION['username'], PDO::PARAM_STR);
+            $stmt->execute();
+            $result = $stmt->fetch();
+                                            
+
+            ?>
+
+            <h2>Welcome <?=$result[0]?> </h2>
 
             <form id="loginform" name="loginform" method="post" action="">
 
