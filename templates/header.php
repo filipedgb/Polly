@@ -55,7 +55,7 @@
     <nav> 
       <a href="#" id="menu-icon"></a>
      
-      
+         
 
       <ul>
                 <?php if(isset($_SESSION['username'])){?>
@@ -88,6 +88,8 @@
                   echo '<span id="errorMessage">Account activated. Please login!</span>';
                 else if ($message_err == "validation")
                   echo '<span id="errorMessage">Success! Validation code has been sent to your email!</span>';
+                else if ($message_err == "notallanswered")
+                  echo '<span id="errorMessage">Error: not all polls from questionnaire were answered...</span>';
                 //echo $_SERVER["REQUEST_URI"];
        
                 
