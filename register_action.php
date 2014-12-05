@@ -1,7 +1,7 @@
 <?
 	include_once('database/connection.php');
-	include_once('getPollURL.php');
-	include_once('PasswordHash.php');
+	include_once('utilities/getPollURL.php');
+	include_once('utilities/PasswordHash.php');
 
 	if($_SERVER["REQUEST_METHOD"] == "POST")
 	{
@@ -49,13 +49,16 @@
 					$link = "http://".getUrlWithoutPage()."/validateAccount.php?username=".$utilizadore."&codeValidate=".$code;
 					emailconf($email, $link, $code);
 
-			    	$options = ['cost' => 12];
+			    	
 			        $stmt = $db->prepare('INSERT INTO Utilizador(IdUser,Username,Pword,Email,Nome,Facebook,Active,RegCode) VALUES (?,?,?,?,?,?,?,?)');
 		  			
+		  			$options = ['cost' => 12];
 					//A linha seguinte não é suportada pelo gnomo 
 					//$stmt->execute(array(NULL,$utilizadore, password_hash($passuorde, PASSWORD_DEFAULT, $options) ) );
 					
 					$stmt->execute(array(NULL,$utilizadore, create_hash($passuorde),$email,$name,'0','0',$code));
+
+					echo "Success! Validation code has been sent to your email!";
 
 				}
 

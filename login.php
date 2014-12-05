@@ -1,5 +1,5 @@
 <?php
-
+    include_once('utilities/PasswordHash.php');
         $message="";
 
         /*  **************************   BUTTON CLICKED   **********************  */

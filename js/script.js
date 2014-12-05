@@ -1,18 +1,5 @@
 
 
-function ClipBoard(text) 
-{
-	/*holdtext.innerText = copytext.innerText;
-	var Copied = holdtext.createTextRange();*/
-	text.execCommand("Copy");
-}
-
-function copyToClipboard(s) {
-    if (window.clipboardData && clipboardData.setData) {
-        clipboardData.setData('text', s);
-    }
-}
-
 function addOptionRequest(){
 	
 	$("#addOption").before(
@@ -43,7 +30,7 @@ function loadDocument() {
 	//window.alert(line1);
 	//window.alert(select);
 	//loadProducts(select);
-	$('.poll_item').hide();
+/*	$('.poll_item').hide();
 	$('.poll_item_stat').hide();
 	
 	
@@ -58,7 +45,7 @@ function loadDocument() {
 
 	$(".poll_item_stat").each(function(index) {
     	$(this).delay(350*index).fadeIn(1000);
-	});
+	});*/
 }
 
 window.addEventListener("load", loadDocument);

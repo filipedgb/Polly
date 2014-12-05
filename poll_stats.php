@@ -2,7 +2,7 @@
 	include('database/polls_fetch.php');
 	include('templates/header.php'); 
 	include('user.php');
-	include('showPolls.php');
+	include_once('templates/showPolls.php');
 
 	$all_polls = getAnsweredGroups(getUserIDbyUsername($_SESSION['username']));
 

@@ -1,6 +1,6 @@
 <?
-	include_once('pollgoogle.php');
-	include_once('getPollURL.php');
+	include_once('utilities/pollgoogle.php');
+	include_once('utilities/getPollURL.php');
 
 	function showPollGroupStat($group){ 
 		echo '<div class="poll_item">';

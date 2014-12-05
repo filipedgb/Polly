@@ -1,7 +1,10 @@
 <?php
   session_set_cookie_params('/~ei12022/');
   session_start();
-  include_once('getPollURL.php');
+  //include_once('utilities/getPollURL.php');
+  //include("database/connection.php");
+  //include("utilities/PasswordHash.php");
+  
 ?>
 <!DOCTYPE html>
 <html>
@@ -10,7 +13,7 @@
     <title>Polly, polls made easy.</title>
     <meta charset="UTF-8">
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="js/add_elements.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
     <link rel="stylesheet" href="style.css">
     <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/jquery.leanModal.min.js"></script>
@@ -24,7 +27,9 @@
       <h1><a href="polls_index.php">Online Polls Manager</a></h1>
     </div>-->
 
-    <?  $current_page = getPageFileName(); ?>
+    <?  //$current_page = getPageFileName(); 
+      $current_page = pathinfo($_SERVER['REQUEST_URI'])['filename']
+    ?>
 
   
 <body>
@@ -54,13 +59,13 @@
 
       <ul>
                 <?php if(isset($_SESSION['username'])){?>
-                  <li><a href="new_poll_group.php" <?if ($current_page == "new_poll_group.php") echo 'id="selected"' ?> >New Poll</a></li>
-                  <li><a href="polls_answer.php" <?if ($current_page == "polls_answer.php") echo 'id="selected"' ?> >Answer Polls</a></li>
-                  <li> <a href="poll_stats.php" <?if ($current_page == "poll_stats.php") echo 'id="selected"' ?>>Answered results</a></li>
-                  <li><a href="my_poll_stats.php" <?if ($current_page == "my_poll_stats.php") echo 'id="selected"' ?> >My Polls results</a></li>
-                  <li><a href="manage_polls.php" <?if ($current_page == "manage_polls.php") echo 'id="selected"' ?> >Manage</a></li>
-                  <li> <a href="my_account.php" <?if ($current_page == "my_account.php") echo 'id="selected"' ?>>My Account</a></li>
-                  <li> <a href="logout.php" <?if ($current_page == "logout.php") echo 'id="selected"' ?>>Log out</a></li>
+                  <li><a href="new_poll_group.php" <?if ($current_page == "new_poll_group") echo 'id="selected"' ?> >Create</a></li>
+                  <li><a href="polls_answer.php" <?if ($current_page == "polls_answer") echo 'id="selected"' ?> >Answer</a></li>
+                  <li> <a href="poll_stats.php" <?if ($current_page == "poll_stats") echo 'id="selected"' ?>>Answered results</a></li>
+                  <li><a href="my_poll_stats.php" <?if ($current_page == "my_poll_stats") echo 'id="selected"' ?> >My Results</a></li>
+                  <li><a href="manage_polls.php" <?if ($current_page == "manage_polls") echo 'id="selected"' ?> >Manage</a></li>
+                  <li> <a href="my_account.php" <?if ($current_page == "my_account") echo 'id="selected"' ?>>My Account</a></li>
+                  <li> <a href="logout.php" <?if ($current_page == "logout") echo 'id="selected"' ?>>Log out</a></li>
 
                   <!--<a href="checklogin.php">My Account</a>-->
                  <? } ?>
@@ -73,11 +78,7 @@
  <?php if(!isset($_SESSION['username'])){?>
               
               <span id="logButaoMenu" >
-                <?
-                include("database/connection.php");
-                include("PasswordHash.php");
-                include 'checklogin.php';
-                ?>
+                <?include ("checklogin.php");?>
               </span>
               <?if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['err'])){
                 $message_err = $_GET['err'];
@@ -85,12 +86,19 @@
                   echo '<span id="errorMessage">Wrong Username or Password</span>';
                 else if ($message_err == "validated")
                   echo '<span id="errorMessage">Account activated. Please login!</span>';
+                else if ($message_err == "validation")
+                  echo '<span id="errorMessage">Success! Validation code has been sent to your email!</span>';
+                //echo $_SERVER["REQUEST_URI"];
+       
                 
               }?>
 
             </div>
-
-
+            <?
+            /*echo $_SERVER['REQUEST_URI'].'<br>';
+            echo pathinfo($_SERVER['REQUEST_URI'])['filename'].'<br>';*/
+            
+            ?>
 
 
       <? } ?>

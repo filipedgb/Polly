@@ -1,7 +1,7 @@
 <?
 	include_once('database/polls_fetch.php');
-	include_once('showPolls.php');
-
+	include_once('templates/showPolls.php');
+	//print_r($_POST);
 	if(isset($_POST['title']) && isset($_POST['username'])
 		&& isset($_POST['group']) && $_POST['title']!='') {
 

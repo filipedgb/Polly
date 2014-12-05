@@ -5,7 +5,7 @@
 include('templates/header.php'); 
 include('user.php');
   include("database/connection.php"); 
- include("PasswordHash.php");  
+ include("utilities/PasswordHash.php");  
 
 
   

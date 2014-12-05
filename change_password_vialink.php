@@ -2,7 +2,7 @@
  include('templates/header.php'); 
  include("database/connection.php");	
  include('database/polls_fetch.php');
-   include_once('PasswordHash.php');
+   include_once('utilities/PasswordHash.php');
 
 
   $username = '';

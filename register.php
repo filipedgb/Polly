@@ -57,15 +57,15 @@
       /* Get some values from elements on the page: */
       var values = $(this).serialize();
     //  var values = new FormData($(this)[0]);
-      console.log(values);
+      //console.log(values);
       /* Send the data using post and put the results in a div */
       $.ajax({
           url: "register_action.php",
           type: "post",
           data: values,
           success: function(data){
-              /*alert("success");*/
-              //$("#result").html(data);
+              console.log(data.indexOf("Success"));
+              if (data.indexOf("Success") > -1) window.location.replace('polls_index.php?err=validation');
               $("#error_message").html(data);
               $("#password1").val('');
               $("#password2").val('');

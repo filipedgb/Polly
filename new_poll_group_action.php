@@ -1,7 +1,6 @@
 <? 
-	include('templates/header.php');
+include('templates/header.php');
 	include('database/polls_fetch.php') ;
-	include_once ('database/connection.php');
 	
 
 	if(isset($_POST['create']) && isset($_POST['title']) && isset($_POST['description'])) {

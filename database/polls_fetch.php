@@ -1,5 +1,5 @@
 <?
-	include_once('connection.php');
+	include('connection.php');
 	
 	function getAllPolls(){
 		global $db;
@@ -192,8 +192,6 @@
 
 	function getUserIDbyUsername($user) {
 		global $db;
-
-
 		$stmt = $db->prepare('SELECT * FROM Utilizador WHERE Username = ?');
 		$stmt->execute(array($user));
 		$result = $stmt->fetch();

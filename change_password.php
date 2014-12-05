@@ -5,7 +5,7 @@
 include('templates/header.php'); 
  include("database/connection.php");  
     include('database/polls_fetch.php');
-
+include_once('utilities/PasswordHash.php');
 
 
 
@@ -44,7 +44,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 
 }
 // VIA EMAIL LINK
-else if ($_SERVER["REQUEST_METHOD"] == "GET") {
+else if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['username']) && isset($_GET['code'])) {
       $username =  $_GET['username'];
       $code =  $_GET['code'];
 

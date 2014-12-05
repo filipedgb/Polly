@@ -4,7 +4,7 @@
 
  function emailconf($email, $link, $code) { 
    
-	echo $email;
+	//echo $email;
 
 		$message =
 
