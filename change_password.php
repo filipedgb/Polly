@@ -30,7 +30,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
         $result = $stmt->fetch();
 
 
-        if(strlen($passuorde) < 5) {
+        if(strlen($newpword) < 5) {
             echo "Your password is too weak. Try one with at least 5 characters";
         }
         else if(validate_password($oldpword, $result['Pword']) && $newpword==$newpword2 ){
