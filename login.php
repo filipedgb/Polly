@@ -68,24 +68,23 @@
         if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['code']))
         {
         
-                   // Informe o seu App ID abaixo
+                   // App ID
                    $appId = '639010562888160';
                   
-                   // Digite o App Secret do seu aplicativo abaixo:
+                   // App Secret
                    $appSecret = 'ee2d0803bf9c1c33bbf7557fd1caf7f4';
                    
-                    // Url informada no campo "Site URL"
+                    // Url 
                     $redirectUri = urlencode('http://paginas.fe.up.pt/~ei12021/ltw_projecto/polls_index.php');
                    
                     // Obtém o código da query string
                     $code = $_GET['code'];
                    
-                    // Monta a url para obter o token de acesso e assim obter os dados do usuário
                     $token_url = "https://graph.facebook.com/oauth/access_token?"
                     . "client_id=" . $appId . "&redirect_uri=" . $redirectUri
                     . "&client_secret=" . $appSecret . "&code=" . $code;
                    
-                    //pega os dados
+
                     $response = @file_get_contents($token_url);
                     if($response){
                           $params = null;
@@ -95,24 +94,13 @@
                             . $params['access_token'];
                             $user = json_decode(file_get_contents($graph_url));
                        
-                                  // nesse IF verificamos se veio os dados corretamente
                                   if(isset($user->email) && $user->email){
                          
-                                    /*
-                                    *Apartir daqui, você já tem acesso aos dados usuario, podendo armazená-los
-                                    *em sessão, cookie ou já pode inserir em seu banco de dados para efetuar
-                                    *autenticação.
-                                    *No meu caso, solicitei todos os dados abaixo e guardei em sessões.
-                                   */
-                               
                                         $_SESSION['email'] = $user->email;
                                         $_SESSION['name'] = $user->name;
-                                       /* $_SESSION['localizacao'] = $user->location->name;*/
                                         $_SESSION['username'] = $user->id;
-                                       /* $_SESSION['uid_facebook'] = $user->id;*/
-                                      /*  $_SESSION['user_facebook'] = $user->username;*/
-                                     /*   $_SESSION['link_facebook'] = $user->link;*/
-                                     $_SESSION['facebook']='yes';
+
+                                        $_SESSION['facebook']='yes';
                                         $utilizadore=$user->id;
                                         $nome=$user->name;
                                         $email=$user->email;
@@ -135,8 +123,10 @@
                                                 
                                               //A linha seguinte não é suportada pelo gnomo 
                                               //$stmt->execute(array(NULL,$utilizadore, password_hash($passuorde, PASSWORD_DEFAULT, $options) ) );
+                                                  $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+                                                  $pass = substr( str_shuffle( $chars ), 0, 15 );
                                               
-                                              $stmt->execute(array(NULL,$utilizadore, create_hash($utilizadore),$email,$nome,'1','1','0'));
+                                              $stmt->execute(array(NULL,$utilizadore, create_hash($pass),$email,$nome,'1','1','0'));
                                             header("location: polls_index.php");
 
                                             }

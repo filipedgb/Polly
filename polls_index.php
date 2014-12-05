@@ -70,7 +70,6 @@
 
       <section class="module parallax parallax-3">
         <div class="container">
-          <h1>Share</h1>
         </div>
       </section>
 

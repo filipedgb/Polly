@@ -1,6 +1,8 @@
+
 <?
 	include_once('utilities/pollgoogle.php');
 	include_once('utilities/getPollURL.php');
+
 
 	function showPollGroupStat($group){ 
 		echo '<div class="poll_item">';
@@ -17,14 +19,61 @@
 		}
 
 		$linkFB = getGroupUrl($group['titleHash']); /*funcao está em utilities/getPollURL.php */
-		echo '<div>';
-		echo '<span class="fb-share-button" data-href="'.$linkFB.'" data-layout="button_count" ></span>';
+		
+	
 		$linkTwitter = getGroupUrlFull($group['titleHash']);
-		echo '<span><a href="https://twitter.com/share" class="twitter-share-button" data-url="'.$linkTwitter.'" data-text="Polly" data-size="large" data-hashtags="polly" data-dnt="true">Tweet</a>';
-		echo '<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?\'http\':\'https\';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+\'://platform.twitter.com/widgets.js\';fjs.parentNode.insertBefore(js,fjs);}}(document, \'script\', \'twitter-wjs\');</script></span>';
-		echo '</div>';
-		echo '</div>';
+		
+
+?>
+<!-- Codigo comentado porque demorava muito a fazer loading dos butoes de share, mas estes têm contadores de shares -->
+<!--
+<div id="twitter">
+	<a href="https://twitter.com/share" 
+	class="twitter-share-button"
+	data-url="<?= $linkTwitter?>" 
+	data-text="Check out this results on Polly: '.$group['title'].'" 
+	data-size="large" 
+	data-hashtags="polly" 
+	data-dnt="true">
+	</a>
+</div>
+
+<div>
+<span class="g-plus" data-action="share" data-href="<?= $linkTwitter?>"></span>
+</div>
+
+
+	<div>
+<span id="facebook"><div class="fb-share-button" data-href="'.$linkFB.'" data-layout="button_count" ></div> </span>
+</div>
+
+-->
+
+<!--  Versão simplista dos shares -->
+<div id="sharebuttons">
+<ul class="share-buttons">
+	<li><a href="https://www.facebook.com/sharer/sharer.php?u=<?=$linkTwitter?>&t=Check%20out%20this%20results%20on%20Polly%3A" target="_blank"><img src="img/Facebook.png"></a></li>
+	<li><a href="https://twitter.com/intent/tweet?source=<?=$linkTwitter?>&text=Check%20out%20this%20results%20on%20Polly%3A: <?=$linkTwitter?>" target="_blank" title="Tweet"><img src="img/Twitter.png"></a></li>
+	<li><a href="https://plus.google.com/share?url=<?=$linkTwitter?>" target="_blank" title="Share on Google+"><img src="img/Google+.png"></a></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+<?
 	}
+
 
 
 	function showPollGroupAnswer($group){ 

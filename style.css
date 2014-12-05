@@ -207,7 +207,7 @@ img {
 /** typography **/
 h1 {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 2.5em;
+  font-size: 2em;
   line-height: 1.5em;
   letter-spacing: -0.05em;
   margin-bottom: 20px;
@@ -694,7 +694,7 @@ section.module.parallax-1 {
 }
 section.module.parallax-2 {
  background-color: #397db9;
-  background-image: url("img/mac_bandeira.png");
+  background-image: url("img/mac.png");
   max-width: 100%;
    z-index: 1;
     -webkit-background-size: contain;
@@ -703,7 +703,14 @@ section.module.parallax-2 {
   background-size: contain;
 }
 section.module.parallax-3 {
-  background-image: url("img/main.jpg");
+   background-color: #397db9;
+    background-image: url("img/share2.svg");
+  max-width: 100%;
+   z-index: 1;
+    -webkit-background-size: contain;
+  -moz-background-size: contain;
+  -o-background-size: contain;
+  background-size: contain;
 }
 
 @media all and (min-width: 600px) {
@@ -949,7 +956,7 @@ font-weight: bold;
   color: #1f4464;
   text-decoration: none;
   font-weight: bold;
-  font-size: 1.5em;
+  font-size: 1em;
 }
 
   nav ul, nav:active ul { 
@@ -961,8 +968,15 @@ font-weight: bold;
     border: 2px solid #444;
     right: 20px;
     top: 60px;
-    width: 70%;
+    width: 40%;
  z-index: 10000;
+  }
+
+  h1{
+    font-size: 1.5em;
+  }
+  h2{
+    font-size: 1.1em;
   }
 
   nav li {
@@ -1122,4 +1136,65 @@ div .round{
   width: 180px;
   font-size: 0.8em;
 
+}
+
+
+/* ************************************TWITTER BUTTON ************************** */
+#twitter{
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#facebook{
+  padding-top:10px;
+}
+
+
+
+
+
+
+
+
+
+/*MEDIA QUERY*/
+@media only screen and (max-width : 800px) {
+
+.poll_item {
+  width: 90%;
+}
+
+#searchDiv{
+  width: 90%;
+}
+
+#newPollmodal {
+  width: 90%;
+
+}
+
+#accountSettings{
+  width: 90%;
+}
+
+  nav ul, nav:active ul { 
+    width: 60%;
+  }
+
+}
+
+
+
+
+
+.share-buttons{
+  list-style: none;
+}
+
+.share-buttons li{
+  display: inline-block;
+}
+
+#sharebuttons{
+  height: 80px;
 }
