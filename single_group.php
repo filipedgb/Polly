@@ -3,8 +3,8 @@
 	include('user.php');
 	
 	include('database/polls_fetch.php');
-	include("pollgoogle.php");
-	include('showPolls.php');
+	include("utilities/pollgoogle.php");
+	include('templates/showPolls.php');
 	if (isset($_GET['group'])){
 		$group_hash = $_GET['group'];
 		$group = getGroupByHash($group_hash);

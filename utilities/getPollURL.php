@@ -21,15 +21,23 @@
 	function getGroupUrl($group_hash){
 		$url = parse_url(curPageURL());
 		$path = dirname($url['path']);
-		$host = $url['host'];
 		$link = $path."/single_group.php?group=".$group_hash;
+		return $link;
+	}
+
+	function getGroupUrlFull($group_hash){
+		$url = parse_url(curPageURL());
+		$scheme = $url['scheme'];
+		$path = dirname($url['path']);
+		$host = $url['host'];
+		$link = $scheme.'://'.$host.$path."/single_group.php?group=".$group_hash;
 		return $link;
 	}
 
 	function getUrlWithoutPage(){
 		$url = parse_url(curPageURL());
-		$path = dirname($url['path']);
 		$host = $url['host'];
+		$path = dirname($url['path']);
 		$link = $host.$path;
 		return $link;
 	}

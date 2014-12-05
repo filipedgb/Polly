@@ -11,20 +11,18 @@
 
 		foreach($polls_group as $poll){			
 			echo '<div id="pollsGoogle">';		
-			$link = getPollUrl($poll['titleHash']);
+			$link = '';
 			abc($poll['title'], $poll, $link);
 			echo '</div>';
 		}
 
-		$link = getGroupUrl($group['titleHash']); /*funcao está em getPollURL.php */
-		echo '<div class="fb-share-button" data-href="'.$link.'" data-layout="button_count" ></div>';
-
-		?>
-		<p><?=$link?></p>
-  <span><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://paginas.fe.up.pt<?=$link?>" data-text="Polly" data-size="large" data-hashtags="polly" data-dnt="true">Tweet</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></span>
-
-<?
+		$linkFB = getGroupUrl($group['titleHash']); /*funcao está em utilities/getPollURL.php */
+		echo '<div>';
+		echo '<span class="fb-share-button" data-href="'.$linkFB.'" data-layout="button_count" ></span>';
+		$linkTwitter = getGroupUrlFull($group['titleHash']);
+		echo '<span><a href="https://twitter.com/share" class="twitter-share-button" data-url="'.$linkTwitter.'" data-text="Polly" data-size="large" data-hashtags="polly" data-dnt="true">Tweet</a>';
+		echo '<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?\'http\':\'https\';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+\'://platform.twitter.com/widgets.js\';fjs.parentNode.insertBefore(js,fjs);}}(document, \'script\', \'twitter-wjs\');</script></span>';
+		echo '</div>';
 		echo '</div>';
 	}
 
