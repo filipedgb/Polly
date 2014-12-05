@@ -9,7 +9,7 @@
 
   #prlx_lyr_1{
     position: fixed;
-    background: url(polls.png) no-repeat 50% 200px;
+    background: url(img/avatar.png) no-repeat 50% 200px;
     width: 100%;
     height: 800px;
     z-index: 0;
@@ -40,6 +40,9 @@
 <div class="wrapper">
 
    <main>
+
+  
+
 
         <section class="module parallax parallax-1">
       </section>
@@ -73,9 +76,12 @@
 
       <section class="module content">
        <div class="container">
-          <div class="fb-like" data-href="http://paginas.fe.up.pt/~ei12021/ltw_projecto/polls_index.php" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
-  <br><br>
-
+         <span> <div class="fb-like" data-href="http://paginas.fe.up.pt/~ei12021/ltw_projecto/polls_index.php" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+          </span>
+          <span>
+  <a href="https://twitter.com/share" class="twitter-share-button" data-text="Check out Polly, polls made easy" data-size="large">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+</span>
         </div>
       </section>
 

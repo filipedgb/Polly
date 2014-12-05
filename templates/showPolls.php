@@ -18,6 +18,13 @@
 
 		$link = getGroupUrl($group['titleHash']); /*funcao está em getPollURL.php */
 		echo '<div class="fb-share-button" data-href="'.$link.'" data-layout="button_count" ></div>';
+
+		?>
+		<p><?=$link?></p>
+  <span><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://paginas.fe.up.pt<?=$link?>" data-text="Polly" data-size="large" data-hashtags="polly" data-dnt="true">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></span>
+
+<?
 		echo '</div>';
 	}
 
@@ -85,6 +92,7 @@
 		/* LINK FOR QUESTIONNAIRE SHARING */
 		$link = getGroupUrl($group['titleHash']); /*funcao está em getPollURL.php */
 		echo "<a href=\"".$link."\" style=\"color: black\">"."Share Link</a>"; /*this "black" should be in css sheet */
+
 		echo '</div>';
 	}
 
