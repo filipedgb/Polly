@@ -1056,8 +1056,13 @@ div .round{
 }
 #loginmodal #loginform #loginSmall .flatbtn-blu{
   
-float: right;
+  float: right;
 }
 
 
-
+#errorMessage{
+  float:right; 
+  margin-top:20px;
+  padding-right: 15px;
+  color: white;
+}

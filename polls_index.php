@@ -1,50 +1,34 @@
 <?php
- include_once('database/connection.php');
-?>
-
-
-
-
-
-<?php
+  include_once('database/connection.php');
   include('templates/header.php');
 ?>
 
 
 <style type="text/css">
+  body{margin: 0px;  background-color: #4b8ead;}
 
-body{margin: 0px;  background-color: #4b8ead;}
+  #prlx_lyr_1{
+    position: fixed;
+    background: url(polls.png) no-repeat 50% 200px;
+    width: 100%;
+    height: 800px;
+    z-index: 0;
+  }
 
-#prlx_lyr_1{
-
-        position: fixed;
-
-        background: url(polls.png) no-repeat 50% 200px;
-
-        width: 100%;
-
-        height: 800px;
-          z-index: 0;
-
-}
-
-#content_layer{position: absolute;}
-
-
+  #content_layer{
+    position: absolute;
+  }
 
 </style>
 
-<script >
 
-function paralax(){
+<script>
 
-        var prlx_lyr_1= document.getElementById('prlx_lyr_1');
-
-        prlx_lyr_1.style.top= -(window.pageYOffset /4)+'px';
-
-}
-
-window.addEventListener("scroll", paralax, false);
+  function paralax(){
+    var prlx_lyr_1= document.getElementById('prlx_lyr_1');
+    prlx_lyr_1.style.top= -(window.pageYOffset /4)+'px';
+  }
+  window.addEventListener("scroll", paralax, false);
 
 </script>
 

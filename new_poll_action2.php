@@ -1,7 +1,9 @@
 <?
 	include_once('database/polls_fetch.php');
+	include_once('showPolls.php');
 
-	if(isset($_POST['submit']) || isset($_POST['newQuestion'])) {
+	if(isset($_POST['title']) && isset($_POST['username'])
+		&& isset($_POST['group']) && $_POST['title']!='') {
 
 		// Fetching variables of the form which travels in URL
 		global $db;
@@ -12,7 +14,7 @@
 		//echo 'user name = '.$_POST['username'].' || user id = '.$userId.'<br>';
 
 		//select last created group id 
-		$group = getGroupByHash(htmlspecialchars($_POST['group']));
+		$group = getGroupPoll(htmlspecialchars($_POST['group']));
 		$groupId = $group['groupId'];
 		//print_r($db->errorInfo());
 
@@ -24,7 +26,7 @@
 			/*$titleHash = create_hash($title);*/
 			$titleHash = md5('poll'.$title);
 			$stmt->execute(array(NULL,$title,$userId, $titleHash,$groupId));
-			print_r($db->errorInfo()); echo '<br>';
+			//print_r($db->errorInfo()); echo '<br>';
 		}
 		//else echo 'titleVazio<br>';
 
@@ -45,7 +47,7 @@
 				if ($option != ''){
 					$optionT = htmlspecialchars($option);
 					$db->exec("INSERT INTO pollOption VALUES(NULL,'$poll_id', '$optionT', 0)");	
-					print_r($db->errorInfo());
+					//print_r($db->errorInfo());
 					//echo '<br>';
 
 				}
@@ -94,13 +96,19 @@
 
 		}
 		//echo 'pos';
-		if (isset($_POST['submit']))
-			header('location:polls_index.php');
+
+		if (isset($_POST['submit'])){
+			//header('location:polls_index.php');
+			//echo "submit<br>";
+		}
 		else{
 			$string = 'Location:new_poll2.php?questionnaire='.$group['titleHash'];
-			header($string);
+			//header($string);
 		}
-
+		echo showPollGroupAnswerPreview($group);
 	}
-	else header('location:polls_index.php');
+	else{
+		//echo "no post?<br>";
+		//header('location:polls_index.php');	
+	} 
 ?>

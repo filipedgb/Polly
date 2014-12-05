@@ -40,7 +40,7 @@
               }
 
               else {
-                  echo "Wrong Username or Password";
+                  header("location: polls_index.php?err=userpass");
                   $message="ERRO";
                                 }
           }
@@ -162,7 +162,7 @@
               }else if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['error'])){
                 echo 'Permissão não concedida';
                 print_r($user);
-        }
+              }
             
          ?>
 

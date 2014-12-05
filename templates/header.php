@@ -38,20 +38,6 @@
     js.src = "//connect.facebook.net/pt_PT/sdk.js#xfbml=1&version=v2.0";
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));</script>
-<!--               SCRIPT FACEBOOK           -->
-
-
-
-
-<!--
-<div
-  class="fb-like"
-  data-share="true"
-  data-width="450"
-  data-show-faces="true">
-</div>
--->
-
 
     <header>
 
@@ -85,7 +71,7 @@
     </nav>
      <?}?>
  <?php if(!isset($_SESSION['username'])){?>
- 
+              
               <span id="logButaoMenu" >
                 <?
                 include("database/connection.php");
@@ -93,7 +79,14 @@
                 include 'checklogin.php';
                 ?>
               </span>
-
+              <?if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['err'])){
+                $message_err = $_GET['err'];
+                if ($message_err == "userpass")
+                  echo '<span id="errorMessage">Wrong Username or Password</span>';
+                else if ($message_err == "validated")
+                  echo '<span id="errorMessage">Account activated. Please login!</span>';
+                
+              }?>
 
             </div>
 
