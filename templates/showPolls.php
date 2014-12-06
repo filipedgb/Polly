@@ -50,28 +50,19 @@
 -->
 
 <!--  Versão simplista dos shares -->
-<div id="sharebuttons">
-<ul class="share-buttons">
-	<li><a href="https://www.facebook.com/sharer/sharer.php?u=<?=$linkTwitter?>&t=Check%20out%20this%20results%20on%20Polly%3A" target="_blank"><img src="img/Facebook.png"></a></li>
-	<li><a href="https://twitter.com/intent/tweet?source=<?=$linkTwitter?>&text=Check%20out%20this%20results%20on%20Polly%3A: <?=$linkTwitter?>" target="_blank" title="Tweet"><img src="img/Twitter.png"></a></li>
-	<li><a href="https://plus.google.com/share?url=<?=$linkTwitter?>" target="_blank" title="Share on Google+"><img src="img/Google+.png"></a></li>
-</ul>
-</div>
+			<div id="sharebuttons">
+			<ul class="share-buttons">
+				<li><a href="https://www.facebook.com/sharer/sharer.php?u=<?=$linkTwitter?>&t=Check%20out%20this%20results%20on%20Polly%3A" target="_blank"><img src="img/Facebook.png"></a></li>
+				<li><a href="https://twitter.com/intent/tweet?source=<?=$linkTwitter?>&text=Check%20out%20this%20results%20on%20Polly%3A: <?=$linkTwitter?>" target="_blank" title="Tweet"><img src="img/Twitter.png"></a></li>
+				<li><a href="https://plus.google.com/share?url=<?=$linkTwitter?>" target="_blank" title="Share on Google+"><img src="img/Google+.png"></a></li>
+			</ul>
+			</div>
 
 
 
 
 
-
-
-
-</div>
-
-
-
-
-
-<?
+		<?echo '</div>';
 	}
 
 

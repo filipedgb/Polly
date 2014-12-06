@@ -21,14 +21,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 
 	$search = array();
 		
-	foreach($all_polls as $poll) {
-		if ((strpos($poll['title'],$_POST['theSearch']) !== false) || (strpos($poll['description'],$_POST['theSearch']) !== false))  {
-			array_push($search, $poll);
+	foreach($all_groups as $group) {
+		if ((strpos($group['title'],$_POST['theSearch']) !== false) || (strpos($group['description'],$_POST['theSearch']) !== false)) {
+			array_push($search, $group);
 		}
 	}
 
 
-	$all_polls = $search;
+	$all_groups = $search;
 }
 
 ?>

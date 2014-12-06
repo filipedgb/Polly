@@ -3,9 +3,9 @@
 	include('templates/header.php'); 
 	include('user.php');
 	include_once('templates/showPolls.php');
-	include('search_poll.php');
-	$all_groups = getUnansweredGroups(getUserIDbyUsername($_SESSION['username']));
 	
+	$all_groups = getUnansweredGroups(getUserIDbyUsername($_SESSION['username']));
+	include('search_poll.php');
 	if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['err'])){
         $message_err = $_GET['err'];
         if ($message_err == "notallanswered")

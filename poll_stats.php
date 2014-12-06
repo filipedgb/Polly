@@ -4,11 +4,11 @@
 	include('user.php');
 	include_once('templates/showPolls.php');
 
-	$all_polls = getAnsweredGroups(getUserIDbyUsername($_SESSION['username']));
+	$all_groups = getAnsweredGroups(getUserIDbyUsername($_SESSION['username']));
 
 	include('search_poll.php'); 
 
-	foreach($all_polls as $item1){ 
+	foreach($all_groups as $item1){ 
 		showPollGroupStat($item1);
 	} 
 

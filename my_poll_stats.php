@@ -6,9 +6,9 @@
 	include("utilities/pollgoogle.php");
 	include_once('templates/showPolls.php');
 	
-	$groups_user = getGroupsByUserId(getUserIDbyUsername($_SESSION['username']));
+	$all_groups = getGroupsByUserId(getUserIDbyUsername($_SESSION['username']));
 	include('search_poll.php');
-	foreach ($groups_user as $group) {
+	foreach ($all_groups as $group) {
 		showPollGroupStat($group);
 	}
 	include('templates/footer.php');
